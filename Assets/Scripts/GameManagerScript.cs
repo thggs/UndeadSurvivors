@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
+    public GameObject[] enemyList;
     // Start is called before the first frame update
     void Start()
     {
