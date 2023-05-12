@@ -6,7 +6,8 @@ public class SkeletonControllerScript : MonoBehaviour
 {
    Transform playerTransform;  
    public float speed;
-   public float shootingDistance;
+   public float longDistance;
+   public float shortDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -17,13 +18,18 @@ public class SkeletonControllerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Vector3.Distance(transform.position, playerTransform.position) > shootingDistance)
+        if(Vector3.Distance(transform.position, playerTransform.position) > longDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed*Time.deltaTime);
-            Vector3 direction = transform.position - playerTransform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            
         }
+        else if(Vector3.Distance(transform.position, playerTransform.position) < shortDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, -speed*Time.deltaTime);;
+        }
+        Vector3 direction = transform.position - playerTransform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
        
     }
 }
