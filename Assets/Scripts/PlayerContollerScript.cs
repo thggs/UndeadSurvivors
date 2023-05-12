@@ -11,6 +11,7 @@ public class PlayerContollerScript : MonoBehaviour
     private bool isInvulnerable = false; // Flag to track invulnerability state
     private float invulnerabilityTimer = 0f; // Timer for tracking invulnerability duration
 
+    private SpriteRenderer sprite;
 
 
     public float speed;
@@ -18,6 +19,7 @@ public class PlayerContollerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth; // Set the initial health to maximum
     }
 
@@ -33,6 +35,9 @@ public class PlayerContollerScript : MonoBehaviour
                 //invulnerabilityTimer = invulnerabilityDuration;
                 isInvulnerable = false;
             }
+        }
+        else{
+            sprite.color = new Vector4(1.0f,1.0f,1.0f,1.0f);
         }
     }
 
@@ -69,7 +74,7 @@ public class PlayerContollerScript : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player has died.");
-        // Additional code for handling player death, such as restarting the level or showing a game over screen.
+        gameObject.SetActive(false);
     }
 
     private void StartInvulnerability()
@@ -77,6 +82,6 @@ public class PlayerContollerScript : MonoBehaviour
         isInvulnerable = true;
         invulnerabilityTimer = invulnerabilityDuration;
         Debug.Log("Player is invulnerable for " + invulnerabilityDuration + " seconds.");
-        // Additional code to provide visual/audio feedback to indicate invulnerability.
+        sprite.color = new Vector4(1.0f,1.0f,1.0f,0.5f);
     }
 }

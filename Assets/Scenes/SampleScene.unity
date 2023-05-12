@@ -222,6 +222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe698303678ea944ca02edcb1295dc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  invulnerabilityDuration: 2
   speed: 5
 --- !u!61 &90665536
 BoxCollider2D:
@@ -457,6 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771ac30f403b64444a708392d24dc1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyList: []
 --- !u!1 &2133227896
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +634,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8794754452290903461, guid: bb3a80530fe618345af368f2a74d26a0, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8794754452290903461, guid: bb3a80530fe618345af368f2a74d26a0, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
