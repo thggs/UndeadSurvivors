@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Linq;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,12 @@ public class UI_menu_manager : MonoBehaviour
     private VisualTreeAsset _settingsTemplate;
     private VisualElement _buttonsSettings;
 
+    private VisualElement _menu;
+    private VisualElement[] _mainMenuOptions;
+
+    private const string POPUP_ANIMATION = "pop-animation-hide";
+    private int _mainPopupIndex = -1;
+
     private Slider _volumeSlider;
 
     private void Awake() {
@@ -27,7 +34,10 @@ public class UI_menu_manager : MonoBehaviour
 
         _buttonsWrapper = _doc.rootVisualElement.Q<VisualElement>("Buttons");
 
-        
+        var root = GetComponent<UIDocument>().rootVisualElement;
+        _menu = root.Q<VisualElement>("MenuSection");
+        _mainMenuOptions = _menu.Q<VisualElement>("Buttons").Children().ToArray();
+        _menu.RegisterCallback<TransitionEndEvent>(Menu_TransitionEnd);
 
         _buttonPlay = _doc.rootVisualElement.Q<Button>("ButtonPlay");
         _buttonSettings = _doc.rootVisualElement.Q<Button>("ButtonSettings");    
@@ -47,7 +57,23 @@ public class UI_menu_manager : MonoBehaviour
         });
         
         
+    }
+
+    private IEnumerator Start() {
+        yield return new WaitForSeconds(0.5f);
+
+        _menu.ToggleInClassList(POPUP_ANIMATION);
+    }
+
+    private void Menu_TransitionEnd(TransitionEndEvent evt) 
+    {
+        if (!evt.stylePropertyNames.Contains("opacity")) { return; }
+        if (_mainPopupIndex < _mainMenuOptions.Length - 1)
+        {
+            _mainPopupIndex++;
+            _mainMenuOptions[_mainPopupIndex].ToggleInClassList(POPUP_ANIMATION);
         }
+    }
 
 
     private void ButtonSettings_clicked()
