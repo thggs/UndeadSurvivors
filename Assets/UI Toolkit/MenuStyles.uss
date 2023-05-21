@@ -77,3 +77,11 @@
 .pop-animation-hide {
     opacity: 0;
 }
+
+#unity-progress-bar {
+    color: rgba(255, 37, 37, 255);
+    background-color: rgba(72, 22, 22, 255);
+    -unity-background-image-tint-color: rgba(255, 0, 0, 255);
+    -unity-background-scale-mode: stretch-to-fill;
+    height: 5px;
+}
