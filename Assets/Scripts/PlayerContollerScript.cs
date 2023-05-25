@@ -10,6 +10,7 @@ public class PlayerContollerScript : MonoBehaviour
     public float invulnerabilityDuration = 2f; // Duration of invulnerability after taking damage
     private bool isInvulnerable = false; // Flag to track invulnerability state
     private float invulnerabilityTimer = 0f; // Timer for tracking invulnerability duration
+    private Animator m_Animator;
 
     private SpriteRenderer sprite;
 
@@ -21,6 +22,7 @@ public class PlayerContollerScript : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth; // Set the initial health to maximum
+        m_Animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -45,6 +47,17 @@ public class PlayerContollerScript : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0.0f);
+        if (Input.GetKey(KeyCode.D)) {
+            m_Animator.SetTrigger("walk_right");
+            sprite.flipX = false;
+        }
+        else if (Input.GetKey(KeyCode.A)){
+            m_Animator.SetTrigger("walk_left");
+            sprite.flipX = true;
+        }
+        else if( Input.anyKey == false){
+            m_Animator.SetTrigger("stop_walk");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
