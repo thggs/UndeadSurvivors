@@ -10,10 +10,16 @@ public class PlayerContollerScript : MonoBehaviour
     public float invulnerabilityDuration = 2f; // Duration of invulnerability after taking damage
     private bool isInvulnerable = false; // Flag to track invulnerability state
     private float invulnerabilityTimer = 0f; // Timer for tracking invulnerability duration
-    private Animator m_Animator;
-
+    
+    private Animator animator;
     private SpriteRenderer sprite;
 
+    public bool hasWhip = false;
+    public float whipCooldown = 1.0f;
+    private float whipTimer;
+    public float whipDamage = 5.0f;
+    public Transform whipSpawn;
+    public GameObject whipSlash;
 
     public float speed;
 
@@ -22,7 +28,7 @@ public class PlayerContollerScript : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth; // Set the initial health to maximum
-        m_Animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -41,22 +47,34 @@ public class PlayerContollerScript : MonoBehaviour
         else{
             sprite.color = new Vector4(1.0f,1.0f,1.0f,1.0f);
         }
+
+        if(hasWhip){
+            whipTimer -= Time.deltaTime;
+            if(whipTimer <= 0f){
+                UseWhip();
+                whipTimer = whipCooldown;
+            }
+        }
     }
 
+    void UseWhip(){
+        Instantiate(whipSlash, whipSpawn.position, transform.rotation);
+    }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
         transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0.0f);
-        if (Input.GetKey(KeyCode.D)) {
-            m_Animator.SetTrigger("walk_right");
-            sprite.flipX = false;
-        }
-        else if (Input.GetKey(KeyCode.A)){
-            m_Animator.SetTrigger("walk_left");
-            sprite.flipX = true;
-        }
-        else if( Input.anyKey == false){
-            m_Animator.SetTrigger("stop_walk");
+        
+        // Character animations and sprite flipping
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0){
+            animator.SetTrigger("player_walk");
+            if(Input.GetAxis("Horizontal") > 0)
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            else if(Input.GetAxis("Horizontal") < 0)
+                transform.eulerAngles = new Vector3(0, 180, 0);
+        }else{
+            animator.SetTrigger("player_idle");
         }
     }
 
