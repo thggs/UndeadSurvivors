@@ -13,6 +13,7 @@ public class PlayerContollerScript : MonoBehaviour
     
     private Animator animator;
     private SpriteRenderer sprite;
+    private Rigidbody2D rb;
 
     public bool hasWhip = false;
     public float whipCooldown = 1.0f;
@@ -26,6 +27,7 @@ public class PlayerContollerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth; // Set the initial health to maximum
         animator = GetComponent<Animator>();
@@ -64,7 +66,9 @@ public class PlayerContollerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0.0f);
+        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+        rb.MovePosition(transform.position + input * Time.deltaTime * speed);
+        //transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0.0f);
         
         // Character animations and sprite flipping
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0){
@@ -98,7 +102,7 @@ public class PlayerContollerScript : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        //GlobalVariables.Player.damage -= damage;
         Debug.Log("Health: " + currentHealth);
     }
 
