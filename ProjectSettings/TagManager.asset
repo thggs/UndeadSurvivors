@@ -43,3 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 874628605
+    locked: 0
+  - name: Trees
+    uniqueID: 3013053931
+    locked: 0
+  - name: Walls
+    uniqueID: 3158658569
+    locked: 0
+  - name: Decorations
+    uniqueID: 995789197
+    locked: 0
