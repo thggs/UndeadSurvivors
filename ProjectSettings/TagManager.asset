@@ -55,3 +55,6 @@ TagManager:
   - name: Decorations
     uniqueID: 995789197
     locked: 0
+  - name: Entities
+    uniqueID: 1352173557
+    locked: 0

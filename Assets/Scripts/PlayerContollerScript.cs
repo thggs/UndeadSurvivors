@@ -70,7 +70,7 @@ public class PlayerContollerScript : MonoBehaviour
         rb.MovePosition(transform.position + input * Time.deltaTime * speed);
         //transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0.0f);
         
-        // Character animations and sprite flipping
+        // Character animations and transform flipping
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0){
             animator.SetTrigger("player_walk");
             if(Input.GetAxis("Horizontal") > 0)
