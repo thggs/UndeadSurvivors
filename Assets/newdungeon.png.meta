@@ -977,9 +977,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
     outline: []
     physicsShape: []
     bones: []

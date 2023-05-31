@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class ZombieControllerScript : MonoBehaviour
 {
+   public int maxHealth = 5;
+   public int currentHealth;
    Transform playerTransform;  
    public float speed;
 
@@ -13,6 +15,7 @@ public class ZombieControllerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
