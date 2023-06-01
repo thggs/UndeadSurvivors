@@ -10,6 +10,12 @@ public class ZombieControllerScript : MonoBehaviour
    Transform playerTransform;  
    public float speed;
 
+   private SpriteRenderer sprite;
+   private Animator animator;
+
+    Vector2 posLastFrame;
+    Vector2 posThisFrame;
+
    NavMeshAgent agent;
 
     // Start is called before the first frame update
@@ -20,6 +26,7 @@ public class ZombieControllerScript : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,6 +37,18 @@ public class ZombieControllerScript : MonoBehaviour
         Vector3 direction = transform.position - playerTransform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
+        posLastFrame = posThisFrame;
+ 
+        posThisFrame = transform.position;
+
+        animator.SetTrigger("walk");
+        if (posThisFrame.x > posLastFrame.x)
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        if (posThisFrame.x < posLastFrame.x)
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        else{
+            animator.SetTrigger("stop_walk");
+        }
        
     }
 }

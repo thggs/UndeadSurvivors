@@ -68,9 +68,8 @@ public class PlayerContollerScript : MonoBehaviour
     {
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
         rb.MovePosition(transform.position + input * Time.deltaTime * speed);
-        //transform.position += new Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0.0f);
         
-        // Character animations and transform flipping
+        // Character animations and sprite flipping
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0){
             animator.SetTrigger("player_walk");
             if(Input.GetAxis("Horizontal") > 0)
@@ -102,7 +101,7 @@ public class PlayerContollerScript : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        //GlobalVariables.Player.damage -= damage;
+        currentHealth -= damage;
         Debug.Log("Health: " + currentHealth);
     }
 

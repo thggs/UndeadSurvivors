@@ -11,6 +11,12 @@ public class SkeletonControllerScript : MonoBehaviour
    public float longDistance;
    public float shortDistance;
 
+   private SpriteRenderer sprite;
+   private Animator animator;
+
+    Vector2 posLastFrame;
+    Vector2 posThisFrame;
+
    NavMeshAgent agent;
 
     // Start is called before the first frame update
@@ -20,6 +26,7 @@ public class SkeletonControllerScript : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +44,19 @@ public class SkeletonControllerScript : MonoBehaviour
             Vector3 destination = toPlayer.normalized * -shortDistance;
             agent.destination = destination;
             Debug.Log("Stepping away to " + destination);
+        }
+
+        posLastFrame = posThisFrame;
+ 
+        posThisFrame = transform.position;
+
+        animator.SetTrigger("walk");
+        if (posThisFrame.x > posLastFrame.x)
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        if (posThisFrame.x < posLastFrame.x)
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        else{
+            animator.SetTrigger("stop_walk");
         }
         /*float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/

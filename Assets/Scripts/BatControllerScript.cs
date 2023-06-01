@@ -12,12 +12,19 @@ public class BatControllerScript : MonoBehaviour
     public float force;
 
     private Vector2 direction;
+    private Animator animator;
+       
+    private SpriteRenderer sprite;
+    Vector2 posLastFrame;
+    Vector2 posThisFrame;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        animator = GetComponent<Animator>();
+        
     }
     
     void FixedUpdate() {
@@ -26,5 +33,17 @@ public class BatControllerScript : MonoBehaviour
         var deltaVelocity = desiredVelocity - rb2D.velocity;
         Vector3 moveForce = deltaVelocity * (force * ForcePower * Time.fixedDeltaTime);
         rb2D.AddForce(moveForce);
+
+        posLastFrame = posThisFrame;
+ 
+        posThisFrame = transform.position;
+
+        animator.SetTrigger("walk");
+        if (posThisFrame.x > posLastFrame.x)
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        if (posThisFrame.x < posLastFrame.x)
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        
+            
     }
 }
