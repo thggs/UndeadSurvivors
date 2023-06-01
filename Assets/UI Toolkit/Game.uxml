@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyles.uss?fileID=7433441132597879392&amp;guid=2397f0dc08a866543af4dbe1b1328b4e&amp;type=3#MenuStyles" />
+    <ui:VisualElement style="width: 100%; height: 100%; align-items: center; justify-content: center;">
+        <ui:ProgressBar value="50" name="HealthBar" style="width: 100px; height: auto; justify-content: center; margin-top: 65px;" />
+    </ui:VisualElement>
+</ui:UXML>

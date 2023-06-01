@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyles.uss?fileID=7433441132597879392&amp;guid=2397f0dc08a866543af4dbe1b1328b4e&amp;type=3#MenuStyles" />
+    <ui:VisualElement name="MenuSection" class="menu-section pop-animation-hide" style="background-color: rgba(0, 0, 0, 0.64); width: 50%; height: 100%; padding-left: 0; margin-left: 25%; transition-duration: 1s; align-items: center;">
+        <ui:VisualElement name="Logo" style="background-image: url(&apos;project://database/Assets/logo.png?fileID=2800000&amp;guid=dea0b2a78e761214e88ec4f76a81a3e9&amp;type=3#logo&apos;); width: 100%; height: 25%; -unity-background-scale-mode: scale-to-fit; align-items: center;" />
+        <ui:VisualElement name="Buttons" style="flex-grow: 1; justify-content: space-around; width: 430px; margin-bottom: 0;">
+            <ui:Button text="Play" display-tooltip-when-elided="true" name="ButtonPlay" class="menu-button pop-animation-hide" style="flex-grow: 0; flex-shrink: 0; justify-content: flex-start; transition-property: all, opacity; transition-duration: 0.3s, 0.5s; transition-timing-function: ease, ease; transition-delay: 0s, 0s;" />
+            <ui:Button text="Settings" display-tooltip-when-elided="true" name="ButtonSettings" class="menu-button pop-animation-hide" style="transition-property: all, opacity; transition-duration: 0.3s, 0.5s; transition-timing-function: ease, ease; transition-delay: 0s, 0s;" />
+            <ui:Button text="Exit" display-tooltip-when-elided="true" name="ButtonExit" class="menu-button pop-animation-hide" style="transition-property: all, opacity; transition-duration: 0.3s, 1s; transition-timing-function: ease, ease-out-back; transition-delay: 0s, 0s;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
