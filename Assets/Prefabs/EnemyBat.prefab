@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   force: 0
+<<<<<<< Updated upstream
 --- !u!95 &8589983263750223696
 Animator:
   serializedVersion: 5
@@ -170,3 +171,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+=======
+  experience: {fileID: 8825183473199903502, guid: 6c6a9247bb90841479a8daee222af59c, type: 3}
+>>>>>>> Stashed changes

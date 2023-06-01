@@ -10,6 +10,7 @@ public class SkeletonControllerScript : MonoBehaviour
    public float closeInSpeed;
    public float longDistance;
    public float shortDistance;
+   public GameObject experience;
 
    private SpriteRenderer sprite;
    private Animator animator;
@@ -61,5 +62,13 @@ public class SkeletonControllerScript : MonoBehaviour
         /*float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
        
+    }
+    private void OnTriggerEnter2D(Collider2D trigger){
+        if(trigger.gameObject.tag == "Player"){
+            //enemy died :(
+            // spawn xp ball
+            GameObject ricardo = Instantiate(experience, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        } 
     }
 }

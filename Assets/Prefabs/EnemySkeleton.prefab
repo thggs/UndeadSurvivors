@@ -152,6 +152,7 @@ MonoBehaviour:
   closeInSpeed: 3
   longDistance: 4
   shortDistance: 2
+  experience: {fileID: 8825183473199903502, guid: 6c6a9247bb90841479a8daee222af59c, type: 3}
 --- !u!195 &2176276128035817247
 NavMeshAgent:
   m_ObjectHideFlags: 0

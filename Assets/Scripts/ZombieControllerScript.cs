@@ -9,6 +9,7 @@ public class ZombieControllerScript : MonoBehaviour
    public int currentHealth;
    Transform playerTransform;  
    public float speed;
+   public GameObject experience;
 
    private SpriteRenderer sprite;
    private Animator animator;
@@ -33,6 +34,7 @@ public class ZombieControllerScript : MonoBehaviour
     void FixedUpdate()
     {
         agent.destination = playerTransform.position;
+              
         /*transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed*Time.deltaTime);
         Vector3 direction = transform.position - playerTransform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -50,5 +52,13 @@ public class ZombieControllerScript : MonoBehaviour
             animator.SetTrigger("stop_walk");
         }
        
+    }
+    private void OnTriggerEnter2D(Collider2D trigger){
+        if(trigger.gameObject.tag == "Player"){
+            //enemy died :(
+            // spawn xp ball
+            GameObject ricardo = Instantiate(experience, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        } 
     }
 }

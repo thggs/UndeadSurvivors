@@ -97,6 +97,9 @@ public class PlayerContollerScript : MonoBehaviour
                 StartInvulnerability();
             }
         }
+        if(collision.gameObject.tag == "Experience"){
+            Destroy(collision.gameObject);
+        } 
     }
 
     private void TakeDamage(int damage)

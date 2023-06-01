@@ -10,6 +10,7 @@ public class BatControllerScript : MonoBehaviour
     Rigidbody2D rb2D;
     public float speed;
     public float force;
+    public GameObject experience;
 
     private Vector2 direction;
     private Animator animator;
@@ -45,5 +46,13 @@ public class BatControllerScript : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 180, 0);
         
             
+    }
+    private void OnTriggerEnter2D(Collider2D trigger){
+        if(trigger.gameObject.tag == "Player"){
+            //enemy died :(
+            // spawn xp ball
+            GameObject ricardo = Instantiate(experience, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        } 
     }
 }
