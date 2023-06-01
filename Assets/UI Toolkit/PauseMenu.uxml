@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyles.uss?fileID=7433441132597879392&amp;guid=2397f0dc08a866543af4dbe1b1328b4e&amp;type=3#MenuStyles" />
+    <ui:VisualElement name="PauseMenu" style="width: 678px; height: 381px; -unity-background-image-tint-color: rgba(0, 0, 0, 0.77); margin-left: 0; justify-content: space-between; background-color: rgba(0, 0, 0, 0.69); position: relative; left: auto; top: auto; right: auto; bottom: auto; flex-shrink: 1; flex-direction: column; flex-wrap: nowrap; align-items: stretch;">
+        <ui:Button text="Resume" display-tooltip-when-elided="true" name="ButtonResume" class="menu-button" style="height: 20%;" />
+        <ui:Button text="Settings" display-tooltip-when-elided="true" name="ButtonSettings" class="menu-button" style="height: 20%;" />
+        <ui:Button text="Back" display-tooltip-when-elided="true" name="ButtonBack" class="menu-button" style="height: 20%;" />
+    </ui:VisualElement>
+</ui:UXML>
