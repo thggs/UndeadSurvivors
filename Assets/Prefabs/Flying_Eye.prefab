@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   force: 5
+  experience: {fileID: 8825183473199903502, guid: 6c6a9247bb90841479a8daee222af59c, type: 3}
 --- !u!95 &2649141244816450421
 Animator:
   serializedVersion: 5

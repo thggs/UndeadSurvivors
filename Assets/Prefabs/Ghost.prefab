@@ -173,6 +173,7 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   speed: 2
+  experience: {fileID: 8825183473199903502, guid: 6c6a9247bb90841479a8daee222af59c, type: 3}
 --- !u!95 &8222551306108210023
 Animator:
   serializedVersion: 5
