@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1352173557
-  m_SortingLayer: 5
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1949469858, guid: 3b004beeb9e20b74d95c097ca5f83d75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,11 +151,7 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   speed: 1
-<<<<<<< Updated upstream
   experience: {fileID: 8825183473199903502, guid: 6c6a9247bb90841479a8daee222af59c, type: 3}
-=======
-  experience: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!195 &6149398298044119711
 NavMeshAgent:
   m_ObjectHideFlags: 0
