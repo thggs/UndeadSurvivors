@@ -19,6 +19,8 @@ public class PlayerContollerScript : MonoBehaviour
     public float whipCooldown = 1.0f;
     private float whipTimer;
     public float whipDamage = 5.0f;
+    public int xp;
+    public int playerLevel;
     public Transform whipSpawn;
     public GameObject whipSlash;
 
@@ -56,6 +58,13 @@ public class PlayerContollerScript : MonoBehaviour
                 UseWhip();
                 whipTimer = whipCooldown;
             }
+        }
+    }
+    void PlayerLevel(){
+        if(xp >= playerLevel*10){
+            xp = 0;
+            Debug.Log("LEVEL UP! \nCurrent Level: " + playerLevel);
+            playerLevel++;
         }
     }
 
@@ -98,6 +107,8 @@ public class PlayerContollerScript : MonoBehaviour
             }
         }
         if(collision.gameObject.tag == "Experience"){
+            xp++;
+            PlayerLevel();
             Destroy(collision.gameObject);
         } 
     }
