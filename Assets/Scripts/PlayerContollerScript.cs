@@ -69,7 +69,8 @@ public class PlayerContollerScript : MonoBehaviour
     }
 
     void UseWhip(){
-        Instantiate(whipSlash, whipSpawn.position, transform.rotation);
+        GameObject whip = Instantiate(whipSlash, whipSpawn.position, transform.rotation);
+        whip.transform.parent = whipSpawn;
     }
     
     // Update is called once per frame

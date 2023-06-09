@@ -54,11 +54,9 @@ public class ZombieControllerScript : MonoBehaviour
        
     }
     private void OnTriggerEnter2D(Collider2D trigger){
-        if(trigger.gameObject.tag == "Player"){
-            // enemy died :(
-            // spawn xp ball
-            GameObject ricardo = Instantiate(experience, transform.position, transform.rotation);
+        if(trigger.gameObject.tag == "Weapon"){
+            Instantiate(experience, transform.position, transform.rotation);
             Destroy(this.gameObject);
-        } 
+        }
     }
 }
