@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BatControllerScript : MonoBehaviour
 {
-
     const float ForcePower = 10f;
     Transform playerTransform;  
     Rigidbody2D rb2D;
@@ -51,7 +50,7 @@ public class BatControllerScript : MonoBehaviour
         if(trigger.gameObject.tag == "Player"){
             //enemy died :(
             // spawn xp ball
-            GameObject ricardo = Instantiate(experience, transform.position, transform.rotation);
+            Instantiate(experience, transform.position, transform.rotation);
             Destroy(this.gameObject);
         } 
     }

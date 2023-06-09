@@ -151,7 +151,7 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   speed: 1
-  experience: {fileID: 8825183473199903502, guid: 6c6a9247bb90841479a8daee222af59c, type: 3}
+  experience: {fileID: 5200834147571809480, guid: 6bda73dc8a131574e8b0440bc6e8fff4, type: 3}
 --- !u!195 &6149398298044119711
 NavMeshAgent:
   m_ObjectHideFlags: 0
