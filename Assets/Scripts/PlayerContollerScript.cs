@@ -52,13 +52,13 @@ public class PlayerContollerScript : MonoBehaviour
             sprite.color = new Vector4(1.0f,1.0f,1.0f,1.0f);
         }
 
-        if(hasWhip){
+        /*if(hasWhip){
             whipTimer -= Time.deltaTime;
             if(whipTimer <= 0f){
                 UseWhip();
                 whipTimer = whipCooldown;
             }
-        }
+        }*/
     }
     void PlayerLevel(){
         if(xp >= playerLevel*10){
@@ -68,9 +68,9 @@ public class PlayerContollerScript : MonoBehaviour
         }
     }
 
-    void UseWhip(){
+    /*void UseWhip(){
         Instantiate(whipSlash, whipSpawn.position, transform.rotation);
-    }
+    }*/
     
     // Update is called once per frame
     void FixedUpdate()

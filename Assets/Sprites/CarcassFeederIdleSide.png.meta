@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,10 +113,14 @@ TextureImporter:
         width: 14
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -7, y: -4.5}
+        - {x: -7, y: 4.5}
+        - {x: 7, y: 4.5}
+        - {x: 7, y: -4.5}
       tessellationDetail: 0
       bones: []
       spriteID: bf964a0c05f8f3147b744ac0466f6cf8
@@ -134,10 +138,14 @@ TextureImporter:
         width: 14
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -7, y: -4}
+        - {x: -7, y: 4}
+        - {x: 7, y: 4}
+        - {x: 7, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 72989cef77dfa0f429901fde0683f83f
@@ -155,10 +163,14 @@ TextureImporter:
         width: 14
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -7, y: -4.5}
+        - {x: -7, y: 4.5}
+        - {x: 7, y: 4.5}
+        - {x: 7, y: -4.5}
       tessellationDetail: 0
       bones: []
       spriteID: 36cbe39ace01d404f94c120e319a85d2
@@ -176,10 +188,14 @@ TextureImporter:
         width: 14
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -7, y: -4}
+        - {x: -7, y: 4}
+        - {x: 7, y: 4}
+        - {x: 7, y: -4}
       tessellationDetail: 0
       bones: []
       spriteID: 96d90fae870f6b743a0a1154ad434d45
