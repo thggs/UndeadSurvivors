@@ -15,6 +15,8 @@ public class PlayerContollerScript : MonoBehaviour
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
 
+    private Vector3 input;
+
     public bool hasWhip = false;
     public float whipCooldown = 1.0f;
     private float whipTimer;
@@ -37,6 +39,7 @@ public class PlayerContollerScript : MonoBehaviour
 
     void Update()
     {
+        input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0.0f).normalized;
         // Update the invulnerability timer if the player is currently invulnerable
         if (isInvulnerable)
         {
@@ -75,15 +78,14 @@ public class PlayerContollerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 input = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
         rb.MovePosition(transform.position + input * Time.deltaTime * speed);
         
         // Character animations and sprite flipping
-        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0){
+        if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
             animator.SetTrigger("player_walk");
-            if(Input.GetAxis("Horizontal") > 0)
+            if(Input.GetAxisRaw("Horizontal") > 0)
                 transform.eulerAngles = new Vector3(0, 0, 0);
-            else if(Input.GetAxis("Horizontal") < 0)
+            else if(Input.GetAxisRaw("Horizontal") < 0)
                 transform.eulerAngles = new Vector3(0, 180, 0);
         }else{
             animator.SetTrigger("player_idle");

@@ -8,7 +8,7 @@ public class CameraControllerScript : MonoBehaviour
 
     float offset = 0;
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         // Follow player, offset varies with distance to world border
         transform.position = new Vector3(player.position.x + offset, player.position.y + offset, transform.position.z);

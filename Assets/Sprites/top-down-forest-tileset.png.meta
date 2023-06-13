@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape:
       - - {x: -10, y: -23.5}
         - {x: -14, y: -21.5}
-        - {x: -14, y: -11.5}
-        - {x: 14, y: -11.5}
+        - {x: -14, y: -6.5}
+        - {x: 14, y: -6.5}
         - {x: 14, y: -20.5}
         - {x: 9, y: -23.5}
       tessellationDetail: 0
@@ -398,8 +398,8 @@ TextureImporter:
       physicsShape:
       - - {x: -7.5, y: -24}
         - {x: -11.5, y: -22}
-        - {x: -11.5, y: -13}
-        - {x: 16.5, y: -13}
+        - {x: -11.5, y: -8}
+        - {x: 16.5, y: -8}
         - {x: 16.5, y: -21}
         - {x: 11.5, y: -24}
       tessellationDetail: 0
