@@ -18,14 +18,8 @@ public class PlayerContollerScript : MonoBehaviour
     private Vector3 input;
 
     public bool hasWhip = false;
-    public float whipCooldown = 1.0f;
-    private float whipTimer;
-    public float whipDamage = 5.0f;
     public int xp;
     public int playerLevel;
-    public Transform whipSpawn;
-    public GameObject whipSlash;
-
     public float speed;
 
     // Start is called before the first frame update
@@ -55,13 +49,9 @@ public class PlayerContollerScript : MonoBehaviour
             sprite.color = new Vector4(1.0f,1.0f,1.0f,1.0f);
         }
 
-        /*if(hasWhip){
-            whipTimer -= Time.deltaTime;
-            if(whipTimer <= 0f){
-                UseWhip();
-                whipTimer = whipCooldown;
-            }
-        }*/
+        if(hasWhip){
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
     void PlayerLevel(){
         if(xp >= playerLevel*10){
@@ -70,10 +60,6 @@ public class PlayerContollerScript : MonoBehaviour
             playerLevel++;
         }
     }
-
-    /*void UseWhip(){
-        Instantiate(whipSlash, whipSpawn.position, transform.rotation);
-    }*/
     
     // Update is called once per frame
     void FixedUpdate()

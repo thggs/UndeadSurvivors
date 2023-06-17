@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6874216996912360649}
   - component: {fileID: 6874216996912360650}
   - component: {fileID: 6874216996912360651}
-  - component: {fileID: 8399594521588337046}
   - component: {fileID: 9089367171522316558}
   m_Layer: 0
   m_Name: WhipSlash
@@ -108,19 +107,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8399594521588337046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6874216996912360652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfc0d9bf74ec331449f19274818b6424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
 --- !u!61 &9089367171522316558
 BoxCollider2D:
   m_ObjectHideFlags: 0

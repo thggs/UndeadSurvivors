@@ -8,6 +8,11 @@ public class DestroyOnExit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);   
+        if(transform.parent != null){
+            Destroy(transform.parent.gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
+        }else{
+            Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length + delay);
+        }
+          
     }
 }
