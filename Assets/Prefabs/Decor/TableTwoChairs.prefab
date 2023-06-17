@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1140590746132488721}
   - component: {fileID: 1140590746132488726}
   - component: {fileID: 2612227196197727702}
+  - component: {fileID: 715864421085891034}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -114,6 +115,22 @@ PolygonCollider2D:
       - {x: -0.19999999, y: 0.035}
       - {x: 0.19999999, y: 0.035}
       - {x: 0.19999999, y: -0.145}
+--- !u!114 &715864421085891034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140590746132488720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.39999914, y: 0.17999841, z: 4}
+  m_Center: {x: -0.00000033527613, y: -0.055000715, z: 0}
+  m_Area: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1140590746753671102
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +188,7 @@ GameObject:
   - component: {fileID: 1140590747294820644}
   - component: {fileID: 1140590747294820645}
   - component: {fileID: 3987752767740354954}
+  - component: {fileID: 1347316882859574187}
   m_Layer: 0
   m_Name: RightChair
   m_TagString: Untagged
@@ -274,6 +292,22 @@ PolygonCollider2D:
       - {x: -0.07, y: 0.015}
       - {x: 0.07, y: 0.015}
       - {x: 0.07, y: -0.13499999}
+--- !u!114 &1347316882859574187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140590747294820647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.14003277, y: 0.15000574, z: 1}
+  m_Center: {x: 0.000015437603, y: -0.059987716, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1140590747787055605
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +319,7 @@ GameObject:
   - component: {fileID: 1140590747787055610}
   - component: {fileID: 1140590747787055611}
   - component: {fileID: 157386021231258638}
+  - component: {fileID: 6036225558204569677}
   m_Layer: 0
   m_Name: LeftChair
   m_TagString: Untagged
@@ -388,3 +423,19 @@ PolygonCollider2D:
       - {x: -0.06, y: 0.01}
       - {x: 0.06, y: 0.01}
       - {x: 0.06, y: -0.12}
+--- !u!114 &6036225558204569677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140590747787055605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.11999348, y: 0.12998655, z: 1}
+  m_Center: {x: -0.0000029951334, y: -0.055006824, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff

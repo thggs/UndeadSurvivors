@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6521528475921279956}
   - component: {fileID: 6521528475921279955}
   - component: {fileID: 2268973046481498495}
+  - component: {fileID: 8065329233961831318}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6521528475921279957}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.384, y: 0.123, z: 0}
+  m_LocalPosition: {x: 0.384, y: 0.04, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114,6 +115,22 @@ PolygonCollider2D:
       - {x: -0.07, y: 0.015}
       - {x: 0.07, y: 0.015}
       - {x: 0.07, y: -0.13499999}
+--- !u!114 &8065329233961831318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521528475921279957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.14003277, y: 0.15000574, z: 1}
+  m_Center: {x: 0.000015437603, y: -0.059987716, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &6521528476313570996
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +142,7 @@ GameObject:
   - component: {fileID: 6521528476313570995}
   - component: {fileID: 6521528476313570994}
   - component: {fileID: 6417588584788498100}
+  - component: {fileID: 5116477482590639789}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -228,6 +246,22 @@ PolygonCollider2D:
       - {x: -0.12, y: 0.035}
       - {x: 0.12, y: 0.035}
       - {x: 0.12, y: -0.16499999}
+--- !u!114 &5116477482590639789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521528476313570996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.24, y: 0.2, z: 1}
+  m_Center: {x: 0.000004313886, y: -0.065021254, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &6521528476650758187
 GameObject:
   m_ObjectHideFlags: 0
