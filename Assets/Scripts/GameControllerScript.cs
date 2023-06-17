@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GameManagerScript : MonoBehaviour
+public class GameControllerScript : MonoBehaviour
 {
 
     public GameObject[] enemyList;
@@ -15,13 +15,6 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         StartCoroutine(Spawn());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-
     }
 
     private IEnumerator Spawn() {

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8587658094244274994}
   - component: {fileID: 8587658094244275004}
   - component: {fileID: 8587658094244274993}
+  - component: {fileID: 6704065795784273159}
   m_Layer: 0
   m_Name: GiantStatue_1
   m_TagString: Untagged
@@ -136,6 +137,22 @@ PolygonCollider2D:
       - {x: -1.14, y: 0.52}
       - {x: 1.14, y: 0.52}
       - {x: 1.14, y: -0.65999997}
+--- !u!114 &6704065795784273159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587658094244275006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 2.2800174, y: 1.1799726, z: 1}
+  m_Center: {x: -0.000009059906, y: -0.070008874, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &8587658094276334645
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +454,7 @@ GameObject:
   - component: {fileID: 8587658094931735580}
   - component: {fileID: 8587658094931735582}
   - component: {fileID: 8587658094931735570}
+  - component: {fileID: 8111307198051147571}
   m_Layer: 0
   m_Name: Obelisk_LEFT
   m_TagString: Untagged
@@ -582,6 +600,22 @@ PolygonCollider2D:
       - {x: -0.37009037, y: -0.29000002}
       - {x: 0.4101001, y: -0.29000002}
       - {x: 0.4101001, y: -1.0600001}
+--- !u!114 &8111307198051147571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587658094931735576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.78052115, y: 0.7700037, z: 1}
+  m_Center: {x: 0.020172238, y: -0.67500347, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &8587658095007147230
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +666,7 @@ GameObject:
   - component: {fileID: 8587658095291343619}
   - component: {fileID: 8587658095291343629}
   - component: {fileID: 8587658095291343617}
+  - component: {fileID: 238058802192481357}
   m_Layer: 0
   m_Name: Obelisk_RIGHT
   m_TagString: Untagged
@@ -778,6 +813,22 @@ PolygonCollider2D:
       - {x: -0.0149383545, y: -0.28999996}
       - {x: 0.4101001, y: -0.29000002}
       - {x: 0.4101001, y: -1.0600001}
+--- !u!114 &238058802192481357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587658095291343631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.78052115, y: 0.7700037, z: 1}
+  m_Center: {x: 0.020172238, y: -0.67500347, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &8587658095786410421
 GameObject:
   m_ObjectHideFlags: 0
