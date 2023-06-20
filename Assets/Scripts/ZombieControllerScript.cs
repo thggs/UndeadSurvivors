@@ -43,7 +43,7 @@ public class ZombieControllerScript : MonoBehaviour
  
         posThisFrame = transform.position;
 
-        animator.SetTrigger("walk");
+        animator.SetTrigger("player_walk");
         if (posThisFrame.x > posLastFrame.x)
             transform.eulerAngles = new Vector3(0, 0, 0);
         if (posThisFrame.x < posLastFrame.x)
