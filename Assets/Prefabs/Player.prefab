@@ -47,7 +47,7 @@ MonoBehaviour:
   whipSlash: {fileID: 6874216996912360652, guid: 7f23a85039691ac4c93d3508eace77bb, type: 3}
   whipCooldown: 1
   betweenWhips: 0.075
-  whipLevel: 1
+  whipLevel: 5
 --- !u!1 &6024302167372138852
 GameObject:
   m_ObjectHideFlags: 0

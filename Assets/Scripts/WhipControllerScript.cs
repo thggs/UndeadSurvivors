@@ -21,7 +21,7 @@ public class WhipControllerScript : MonoBehaviour
 
     IEnumerator Whip() {
 
-        Vector3 offset = Vector3.zero;
+        Vector3 offset = new Vector3(transform.parent.right.x * 3.5f, 0, 0);
         Quaternion rotation = transform.rotation;
 
         for(int i = 1; i <= whipLevel; i++){
@@ -39,11 +39,12 @@ public class WhipControllerScript : MonoBehaviour
             rotation.eulerAngles += new Vector3(0, 180 , 0);
 
             // Offset position of WhipSpawn
-            if(i % 2 == 1){
-                offset += new Vector3(-3.5f,0,0);
-            }
-            else{
-                offset += new Vector3(3.5f,-0.5f,0);
+            if(i % 2 == 0){
+                offset.x = transform.parent.right.x * 2f;
+                offset.y -= 0.5f;
+            }else
+            {
+                offset.x = transform.parent.right.x * -2f;
             }
 
             Destroy(whipSpawn, whip.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
