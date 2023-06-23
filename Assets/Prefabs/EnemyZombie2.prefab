@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1352173557
   m_SortingLayer: 6
-  m_SortingOrder: 99
+  m_SortingOrder: 0
   m_Sprite: {fileID: 64229664, guid: 539ef91976ad47545b5f5208b5ae9ac2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -170,9 +170,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20918a1c99b0b1045a33db197afb33c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
+  damage: 0
   currentHealth: 0
-  speed: 10
   experience: {fileID: 5200834147571809480, guid: 6bda73dc8a131574e8b0440bc6e8fff4, type: 3}
 --- !u!95 &7619893546102995317
 Animator:

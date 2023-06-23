@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PlayerContollerScript : MonoBehaviour
 {
-    
-    public int maxHealth = 100; // Maximum health value
-    public int currentHealth; // Current health value
+    public GameStats gameStats;
+
     public float invulnerabilityDuration = 2f; // Duration of invulnerability after taking damage
     private bool isInvulnerable = false; // Flag to track invulnerability state
     private float invulnerabilityTimer = 0f; // Timer for tracking invulnerability duration
-    
+
     private Animator animator;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
@@ -27,7 +26,7 @@ public class PlayerContollerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        currentHealth = maxHealth; // Set the initial health to maximum
+        gameStats.player.PlayerHealth = gameStats.player.PlayerMaxHealth;
         animator = GetComponent<Animator>();
     }
 
@@ -45,47 +44,52 @@ public class PlayerContollerScript : MonoBehaviour
                 isInvulnerable = false;
             }
         }
-        else{
-            sprite.color = new Vector4(1.0f,1.0f,1.0f,1.0f);
+        else
+        {
+            sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
         }
 
-        if(hasWhip){
+        if (hasWhip)
+        {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
-    void PlayerLevel(){
-        if(xp >= playerLevel*10){
-            xp = 0;
+    /*void PlayerLevel(){
+        if(xp >= playerLevel * 10){
+            gameStats.player.PlayerXP = 0;
             Debug.Log("LEVEL UP! \nCurrent Level: " + playerLevel);
             playerLevel++;
         }
-    }
-    
+    }*/
+
     // Update is called once per frame
     void FixedUpdate()
     {
         rb.MovePosition(transform.position + input * Time.deltaTime * speed);
-        
+
         // Character animations and sprite flipping
-        if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        {
             animator.SetTrigger("player_walk");
-            if(Input.GetAxisRaw("Horizontal") > 0)
+            if (Input.GetAxisRaw("Horizontal") > 0)
                 transform.eulerAngles = new Vector3(0, 0, 0);
-            else if(Input.GetAxisRaw("Horizontal") < 0)
+            else if (Input.GetAxisRaw("Horizontal") < 0)
                 transform.eulerAngles = new Vector3(0, 180, 0);
-        }else{
+        }
+        else
+        {
             animator.SetTrigger("player_idle");
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && !isInvulnerable)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            int damage = 10; // Amount of damage taken
+            int damage = collision.GetComponent<ZombieControllerScript>().damage;
             TakeDamage(damage);
 
-            if (currentHealth <= 0)
+            if (gameStats.player.PlayerHealth <= 0)
             {
                 Die();
             }
@@ -94,17 +98,17 @@ public class PlayerContollerScript : MonoBehaviour
                 StartInvulnerability();
             }
         }
-        if(collision.gameObject.tag == "Experience"){
-            xp++;
-            PlayerLevel();
+        if (collision.gameObject.tag == "Experience")
+        {
+            gameStats.player.PlayerXP++;
             Destroy(collision.gameObject);
-        } 
+        }
     }
 
     private void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        Debug.Log("Health: " + currentHealth);
+        gameStats.player.PlayerHealth -= damage;
+        Debug.Log("Health: " + gameStats.player.PlayerHealth);
     }
 
     private void Die()
@@ -118,6 +122,6 @@ public class PlayerContollerScript : MonoBehaviour
         isInvulnerable = true;
         invulnerabilityTimer = invulnerabilityDuration;
         Debug.Log("Player is invulnerable for " + invulnerabilityDuration + " seconds.");
-        sprite.color = new Vector4(1.0f,1.0f,1.0f,0.5f);
+        sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 0.5f);
     }
 }

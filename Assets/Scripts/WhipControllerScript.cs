@@ -21,7 +21,7 @@ public class WhipControllerScript : MonoBehaviour
 
     IEnumerator Whip() {
 
-        Vector3 offset = new Vector3(transform.parent.right.x * 3.5f, 0, 0);
+        Vector3 offset = new Vector3(transform.parent.right.x * 2f, 0, 0);
         Quaternion rotation = transform.rotation;
 
         for(int i = 1; i <= whipLevel; i++){
@@ -34,7 +34,7 @@ public class WhipControllerScript : MonoBehaviour
 
             // Instantiate WhipSlash as child object of WhipSpawn
             GameObject whip = Instantiate(whipSlash, Vector3.zero, rotation, whipSpawn.transform);
-
+            
             // Rotate WhipSpawn around
             rotation.eulerAngles += new Vector3(0, 180 , 0);
 
