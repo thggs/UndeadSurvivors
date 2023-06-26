@@ -167,12 +167,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1127911324280548887}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20918a1c99b0b1045a33db197afb33c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 762cd9846e79d0c4d97616f27f9264fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  gameStats: {fileID: 0}
+  damage: 0
   currentHealth: 0
-  speed: 0
   experience: {fileID: 5200834147571809480, guid: 6bda73dc8a131574e8b0440bc6e8fff4, type: 3}
 --- !u!95 &4015437887351324598
 Animator:

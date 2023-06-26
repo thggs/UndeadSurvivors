@@ -86,7 +86,7 @@ public class PlayerContollerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            int damage = collision.GetComponent<ZombieControllerScript>().damage;
+            int damage = collision.GetComponent<EnemyControllerScript>().damage;
             TakeDamage(damage);
 
             if (gameStats.player.PlayerHealth <= 0)

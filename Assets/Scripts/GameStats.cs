@@ -26,10 +26,15 @@ public class GameStats : ScriptableObject
 
 
     [System.Serializable]
-    public class Zombie
+    public class Enemy
     {
         public int Damage { get; set; }
         public int MaxHealth { get; set; }
     }
-    public Zombie zombie = new Zombie();
+    public Enemy zombie = new Enemy();
+    public Enemy bat = new Enemy();
+    public Enemy skeleton = new Enemy();
+    public Enemy crawler = new Enemy();
+    public Enemy wraith = new Enemy();
+    public Enemy flyingEye = new Enemy();
 }

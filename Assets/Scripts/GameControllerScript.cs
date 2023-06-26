@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class GameControllerScript : MonoBehaviour
 {
+    [SerializeField]
+    private int playerMaxHealth, playerXP, playerLevel, zombieMaxHealth, zombieDamage, batMaxHealth, batDamage;
 
     public GameStats gameStats;
     public GameObject[] enemyList;
@@ -15,11 +17,15 @@ public class GameControllerScript : MonoBehaviour
 
     void Awake()
     {
-        gameStats.player.PlayerMaxHealth = 1000;
-        gameStats.player.PlayerXP = 0;
-        gameStats.player.PlayerLevel = 1;
-        gameStats.zombie.MaxHealth = 5;
-        gameStats.zombie.Damage = 1;
+        gameStats.player.PlayerMaxHealth = playerMaxHealth;
+        gameStats.player.PlayerXP = playerXP;
+        gameStats.player.PlayerLevel = playerLevel;
+
+        gameStats.zombie.MaxHealth = zombieMaxHealth;
+        gameStats.zombie.Damage = zombieDamage;
+        
+        gameStats.bat.MaxHealth = batMaxHealth;
+        gameStats.bat.Damage = batDamage;
     }
 
     // Start is called before the first frame update
@@ -43,21 +49,36 @@ public class GameControllerScript : MonoBehaviour
         Debug.Log(gameStats.player.PlayerHealth);
         if (spawnEnemies)
         {
-            float randomX = Random.Range(1f, 1.1f);
-            float randomY = Random.Range(1f, 1.1f);
-            if (Random.Range(0f, 1f) > 0.5)
+            float randomX = Random.Range(-0.1f, 0.1f);
+            float randomY = Random.Range(-0.1f, 0.1f);
+            if (randomX >= 0)
             {
-                randomX = -(randomX - 1);
+                randomX += 1;
             }
-            if (Random.Range(0f, 1f) > 0.5)
+            if (randomY >= 0)
             {
-                randomY = -(randomY - 1);
+                randomY += 1;
             }
             Vector3 spawnPosition = camera.ViewportToWorldPoint(new Vector3(randomX, randomY, camera.nearClipPlane));
             NavMeshHit hit;
             NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
-            GameObject enemy = Instantiate(enemyList[Random.Range(0,enemyList.Length)], hit.position, Quaternion.identity);
-            enemy.GetComponent<ZombieControllerScript>().gameStats = gameStats;
+            
+
+            int index = Random.Range(0, enemyList.Length);
+            GameObject enemy = Instantiate(enemyList[index], hit.position, Quaternion.identity);
+            switch(index){
+                case 0:
+                case 1:
+                    enemy.GetComponent<EnemyControllerScript>().damage = gameStats.zombie.Damage;
+                    enemy.GetComponent<EnemyControllerScript>().currentHealth = gameStats.zombie.MaxHealth;
+                    break;
+                case 2:
+                    enemy.GetComponent<EnemyControllerScript>().damage = gameStats.bat.Damage;
+                    enemy.GetComponent<EnemyControllerScript>().currentHealth = gameStats.bat.MaxHealth;
+                    break;
+                    
+            }
+            
         }
         yield return timeBetweenSpawnsWFS;
         StartCoroutine(Spawn());
