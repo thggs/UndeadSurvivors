@@ -12,4 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128ae92e502f5524abf14df3f18ad936, type: 3}
   m_Name: GameStats
   m_EditorClassIdentifier: 
-  <WhipDamage>k__BackingField: 0
+  whip:
+    WhipLevel: 1
+    WhipDamage: 5
+    WhipCooldown: 1
+    WhipDelay: 0.1
+  bible:
+    BibleLevel: 5
+    BibleDamage: 5
+    BibleCooldown: 5
+    BibleLifetime: 2
+  player:
+    PlayerHealth: 1000
+    PlayerMaxHealth: 1000
+    PlayerXP: 0
+    PlayerLevel: 1
+  zombie:
+    Damage: 1
+    MaxHealth: 5
+  bat:
+    Damage: 1
+    MaxHealth: 5
+  skeleton:
+    Damage: 2
+    MaxHealth: 10
+  crawler:
+    Damage: 1
+    MaxHealth: 5
+  wraith:
+    Damage: 3
+    MaxHealth: 10
+  flyingEye:
+    Damage: 2
+    MaxHealth: 5

@@ -17,8 +17,9 @@ public class PlayerContollerScript : MonoBehaviour
     private Vector3 input;
 
     public bool hasWhip = false;
+    public bool hasBible = false;
     public int xp;
-    public int health_boost = 25;
+    public int healthBoost = 25;
     public int playerLevel;
     public float speed;
 
@@ -53,6 +54,10 @@ public class PlayerContollerScript : MonoBehaviour
         if (hasWhip)
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        if(hasBible)
+        {
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
     /*void PlayerLevel(){
@@ -107,10 +112,10 @@ public class PlayerContollerScript : MonoBehaviour
         if (collision.gameObject.tag == "Health")
         {
             // if hp after boost is over limit set hp to limit
-            if(gameStats.player.PlayerHealth + health_boost > gameStats.player.PlayerMaxHealth){
+            if(gameStats.player.PlayerHealth + healthBoost > gameStats.player.PlayerMaxHealth){
                 gameStats.player.PlayerHealth = gameStats.player.PlayerMaxHealth;
             }else{
-                gameStats.player.PlayerHealth += health_boost;
+                gameStats.player.PlayerHealth += healthBoost;
             } 
             Destroy(collision.gameObject);
         }
