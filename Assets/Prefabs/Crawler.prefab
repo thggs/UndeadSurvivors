@@ -170,10 +170,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762cd9846e79d0c4d97616f27f9264fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMaxDistance: 0
   gameStats: {fileID: 0}
   damage: 0
   currentHealth: 0
   experience: {fileID: 5200834147571809480, guid: 6bda73dc8a131574e8b0440bc6e8fff4, type: 3}
+  health: {fileID: 1194675192985132878, guid: f7926a5fb2985e1419f743d2b81340ed, type: 3}
+  health_probability: 0.01
 --- !u!95 &4015437887351324598
 Animator:
   serializedVersion: 5

@@ -18,6 +18,7 @@ public class PlayerContollerScript : MonoBehaviour
 
     public bool hasWhip = false;
     public int xp;
+    public int health_boost = 25;
     public int playerLevel;
     public float speed;
 
@@ -101,6 +102,16 @@ public class PlayerContollerScript : MonoBehaviour
         if (collision.gameObject.tag == "Experience")
         {
             gameStats.player.PlayerXP++;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Health")
+        {
+            // if hp after boost is over limit set hp to limit
+            if(gameStats.player.PlayerHealth + health_boost > gameStats.player.PlayerMaxHealth){
+                gameStats.player.PlayerHealth = gameStats.player.PlayerMaxHealth;
+            }else{
+                gameStats.player.PlayerHealth += health_boost;
+            } 
             Destroy(collision.gameObject);
         }
     }

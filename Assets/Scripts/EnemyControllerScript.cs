@@ -12,6 +12,8 @@ public class EnemyControllerScript : MonoBehaviour
     public int currentHealth;
     private Transform playerTransform;
     public GameObject experience;
+    public GameObject health;
+    private float health_probability = 0.05f; 
 
     private SpriteRenderer sprite;
     private Animator animator;
@@ -93,7 +95,14 @@ public class EnemyControllerScript : MonoBehaviour
     {
         if (trigger.gameObject.tag == "Weapon")
         {
-            Instantiate(experience, transform.position, transform.rotation);
+            // 99% probability of spawning experience and 1% of spawning health
+            if (Random.value <= health_probability)
+            {
+                Instantiate(health, transform.position, transform.rotation);
+            }else{
+                Instantiate(experience, transform.position, transform.rotation);
+            }
+            
             Destroy(this.gameObject);
         }
     }
