@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "Scriptables/GameStats")]
+[CreateAssetMenu(fileName = "GameStats", menuName = "Scriptables/GameStats")]
 public class GameStats : ScriptableObject
 {
     [System.Serializable]

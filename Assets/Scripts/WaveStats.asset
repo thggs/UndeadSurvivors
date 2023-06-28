@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09683ab795f29124eb2e5af42b1d3d6b, type: 3}
+  m_Name: WaveStats
+  m_EditorClassIdentifier: 
+  zombie: {fileID: 0}
+  zombie2: {fileID: 0}
+  bat: {fileID: 0}
+  skeleton: {fileID: 0}
+  crawler: {fileID: 0}
+  wraith: {fileID: 0}
+  wave1:
+    enemyList: []
+  wave2:
+    enemyList: []
+  wave3:
+    enemyList: []
+  wave4:
+    enemyList: []
+  wave5:
+    enemyList: []

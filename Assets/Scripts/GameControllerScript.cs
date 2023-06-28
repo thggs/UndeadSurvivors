@@ -21,6 +21,7 @@ public class GameControllerScript : MonoBehaviour
 
     void Update()
     {
+        
         if (gameStats.player.PlayerXP >= gameStats.player.PlayerLevel * 10)
         {
             gameStats.player.PlayerXP = 0;
@@ -43,10 +44,10 @@ public class GameControllerScript : MonoBehaviour
             {
                 randomY += 1;
             }
+            
             Vector3 spawnPosition = camera.ViewportToWorldPoint(new Vector3(randomX, randomY, camera.nearClipPlane));
             NavMeshHit hit;
             NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
-            
 
             int index = Random.Range(0, enemyList.Length);
             GameObject enemy = Instantiate(enemyList[index], hit.position, Quaternion.identity);
