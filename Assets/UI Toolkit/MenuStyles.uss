@@ -1,5 +1,5 @@
 .menu-button {
-    font-size: 40px;
+    font-size: 35px;
     width: auto;
     align-items: stretch;
     -unity-font-style: bold;
