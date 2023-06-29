@@ -20,6 +20,10 @@ public class UI_game_manager : MonoBehaviour
     private VisualTreeAsset _settingsTemplate;
     private VisualElement _buttonsSettings;
 
+
+    private bool stop;
+    public Timer timer;
+
     private void Awake() {
         _doc = GetComponent<UIDocument>();
 
@@ -56,11 +60,13 @@ public class UI_game_manager : MonoBehaviour
     private void ButtonPause_clicked(){
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_pauseMenu);
+        timer.stopTimer(false);
     }
 
     private void ButtonResume_clicked(){
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_buttonPause);
+        timer.stopTimer(false);
     }
 
     private void ButtonSettings_clicked(){
@@ -80,7 +86,7 @@ public class UI_game_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //timer = GetComponent<Timer>();
     }
 
     // Update is called once per frame
@@ -89,6 +95,7 @@ public class UI_game_manager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             this.ButtonPause_clicked();
+            timer.stopTimer(true);
             //_gameUIWrapper.Add(_pauseMenu);
         }
     }
