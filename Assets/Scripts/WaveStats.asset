@@ -12,19 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09683ab795f29124eb2e5af42b1d3d6b, type: 3}
   m_Name: WaveStats
   m_EditorClassIdentifier: 
-  zombie: {fileID: 0}
-  zombie2: {fileID: 0}
-  bat: {fileID: 0}
-  skeleton: {fileID: 0}
-  crawler: {fileID: 0}
-  wraith: {fileID: 0}
   wave1:
-    enemyList: []
+  - {fileID: 3357405783752519726, guid: 9a36374bf594d854abf7678b2667bc80, type: 3}
+  - {fileID: 6449126530529681570, guid: e4d8911533657504ea30de52d21c90de, type: 3}
   wave2:
-    enemyList: []
+  - {fileID: 3357405783752519726, guid: 9a36374bf594d854abf7678b2667bc80, type: 3}
+  - {fileID: 6449126530529681570, guid: e4d8911533657504ea30de52d21c90de, type: 3}
+  - {fileID: 3220515671958662098, guid: b7cee9a924b74cc4daf655bb854855c9, type: 3}
   wave3:
-    enemyList: []
+  - {fileID: 3357405783752519726, guid: 9a36374bf594d854abf7678b2667bc80, type: 3}
+  - {fileID: 6449126530529681570, guid: e4d8911533657504ea30de52d21c90de, type: 3}
   wave4:
-    enemyList: []
-  wave5:
-    enemyList: []
+  - {fileID: 3357405783752519726, guid: 9a36374bf594d854abf7678b2667bc80, type: 3}
+  - {fileID: 6449126530529681570, guid: e4d8911533657504ea30de52d21c90de, type: 3}
+  wave5: []
