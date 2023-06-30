@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class GameControllerScript : MonoBehaviour
 {
     public GameStats gameStats;
+    public WaveStats waveStats;
     public GameObject[] enemyList;
     public new Camera camera;
     public bool spawnEnemies;
@@ -49,8 +50,8 @@ public class GameControllerScript : MonoBehaviour
             NavMeshHit hit;
             NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
 
-            int index = Random.Range(0, enemyList.Length);
-            GameObject enemy = Instantiate(enemyList[index], hit.position, Quaternion.identity);
+            int index = Random.Range(0, waveStats.wave1.Length);
+            GameObject enemy = Instantiate(waveStats.wave1[index], hit.position, Quaternion.identity);
             enemy.GetComponent<EnemyControllerScript>().gameStats = gameStats;            
         }
         yield return timeBetweenSpawnsWFS;
