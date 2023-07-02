@@ -26,6 +26,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Start()
     {
+        sprite = gameObject.GetComponent<SpriteRenderer>();
         enemyMaxDistance = 25;
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
