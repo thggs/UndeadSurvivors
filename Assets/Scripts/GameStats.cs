@@ -9,7 +9,7 @@ public class GameStats : ScriptableObject
     [System.Serializable]
     public class Whip
     {
-        public float WhipLevel;
+        public int WhipLevel;
         public float WhipDamage;
         public float WhipCooldown;
         public float WhipDelay;
@@ -20,20 +20,30 @@ public class GameStats : ScriptableObject
     public class Bible
     {
         public int BibleLevel;
-        public int BibleDamage;
+        public float BibleDamage;
         public float BibleCooldown;
         public float BibleLifetime;
     }
     public Bible bible = new Bible();
 
+    [System.Serializable]
+    public class HolyWater
+    {
+        public int WaterLevel;
+        public float WaterDamage;
+        public float WaterCooldown;
+        public float WaterLifetime;
+    }
+    public HolyWater holyWater = new HolyWater();
 
     [System.Serializable]
     public class Player
     {
-        public int PlayerHealth;
-        public int PlayerMaxHealth;
-        public int PlayerXP;
-        public int PlayerLevel;
+        public float PlayerHealth;
+        public float PlayerMaxHealth;
+        public float PlayerXP;
+        public float PlayerLevel;
+        public float PlayerSpeed;
     }
     public Player player = new Player();
 
@@ -41,8 +51,8 @@ public class GameStats : ScriptableObject
     [System.Serializable]
     public class Enemy
     {
-        public int Damage;
-        public int MaxHealth;
+        public float Damage;
+        public float MaxHealth;
     }
     public Enemy zombie = new Enemy();
     public Enemy bat = new Enemy();

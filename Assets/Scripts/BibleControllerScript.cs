@@ -31,8 +31,8 @@ public class BibleControllerScript : MonoBehaviour
             bibleSpawns[i].GetComponent<CameraControllerScript>().player = transform.parent;
 
             // Instantiate Bible as child object of BibleSpawn
-            Instantiate(bible, Vector3.zero, Quaternion.identity, bibleSpawns[i].transform);
-
+            GameObject instance = Instantiate(bible, Vector3.zero, Quaternion.identity, bibleSpawns[i].transform);
+            instance.GetComponent<SingleDamageScript>().damage = gameStats.bible.BibleDamage;
             // Rotate Bible around
             rotation.eulerAngles += new Vector3(0, 0, (360 / gameStats.bible.BibleLevel));
         }

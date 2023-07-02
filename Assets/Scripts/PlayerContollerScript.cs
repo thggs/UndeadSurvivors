@@ -18,10 +18,8 @@ public class PlayerContollerScript : MonoBehaviour
 
     public bool hasWhip = false;
     public bool hasBible = false;
-    public int xp;
+    public bool hasHolyWater = false;
     public int healthBoost = 25;
-    public int playerLevel;
-    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -51,27 +49,20 @@ public class PlayerContollerScript : MonoBehaviour
             sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
         }
 
-        if (hasWhip)
+        if(gameStats.player.PlayerHealth > gameStats.player.PlayerMaxHealth)
         {
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            gameStats.player.PlayerHealth = gameStats.player.PlayerMaxHealth;
         }
-        if(hasBible)
-        {
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
-        }
+
+        gameObject.transform.GetChild(0).gameObject.SetActive(hasWhip);
+        gameObject.transform.GetChild(1).gameObject.SetActive(hasBible);
+        gameObject.transform.GetChild(2).gameObject.SetActive(hasHolyWater);
     }
-    /*void PlayerLevel(){
-        if(xp >= playerLevel * 10){
-            gameStats.player.PlayerXP = 0;
-            Debug.Log("LEVEL UP! \nCurrent Level: " + playerLevel);
-            playerLevel++;
-        }
-    }*/
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.MovePosition(transform.position + input * Time.deltaTime * speed);
+        rb.MovePosition(transform.position + input * Time.deltaTime * gameStats.player.PlayerSpeed);
 
         // Character animations and sprite flipping
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
@@ -92,8 +83,7 @@ public class PlayerContollerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            int damage = collision.GetComponent<EnemyControllerScript>().damage;
-            TakeDamage(damage);
+            gameStats.player.PlayerHealth -= collision.GetComponent<EnemyControllerScript>().damage;
 
             if (gameStats.player.PlayerHealth <= 0)
             {
@@ -104,6 +94,9 @@ public class PlayerContollerScript : MonoBehaviour
                 StartInvulnerability();
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Experience")
         {
             gameStats.player.PlayerXP++;
@@ -121,15 +114,8 @@ public class PlayerContollerScript : MonoBehaviour
         }
     }
 
-    private void TakeDamage(int damage)
-    {
-        gameStats.player.PlayerHealth -= damage;
-        Debug.Log("Health: " + gameStats.player.PlayerHealth);
-    }
-
     private void Die()
     {
-        Debug.Log("Player has died.");
         gameObject.SetActive(false);
     }
 

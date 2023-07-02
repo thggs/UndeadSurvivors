@@ -18,15 +18,21 @@ MonoBehaviour:
     WhipCooldown: 1
     WhipDelay: 0.1
   bible:
-    BibleLevel: 5
+    BibleLevel: 1
     BibleDamage: 5
     BibleCooldown: 5
     BibleLifetime: 3
+  holyWater:
+    WaterLevel: 1
+    WaterDamage: 0.1
+    WaterCooldown: 10
+    WaterLifetime: 5
   player:
     PlayerHealth: 1000
     PlayerMaxHealth: 1000
     PlayerXP: 0
     PlayerLevel: 1
+    PlayerSpeed: 5
   zombie:
     Damage: 1
     MaxHealth: 5
