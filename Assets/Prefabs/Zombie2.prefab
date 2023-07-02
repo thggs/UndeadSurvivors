@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7619893546102995317}
   m_Layer: 0
   m_Name: Zombie2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +176,6 @@ MonoBehaviour:
   currentHealth: 0
   experience: {fileID: 5200834147571809480, guid: 6bda73dc8a131574e8b0440bc6e8fff4, type: 3}
   health: {fileID: 1194675192985132878, guid: f7926a5fb2985e1419f743d2b81340ed, type: 3}
-  health_probability: 0.9
 --- !u!95 &7619893546102995317
 Animator:
   serializedVersion: 5
