@@ -8,12 +8,13 @@ public class EnemyControllerScript : MonoBehaviour
     [SerializeField]
     private int enemyMaxDistance;
     public GameStats gameStats;
-    public int damage;
-    public int currentHealth;
+    public float damage;
+    private float currentHealth;
+    private float oldHealth;
     private Transform playerTransform;
     public GameObject experience;
     public GameObject health;
-    private float health_probability = 0.05f; 
+    private float healthProbability = 0.05f;
 
     private SpriteRenderer sprite;
     private Animator animator;
@@ -23,7 +24,6 @@ public class EnemyControllerScript : MonoBehaviour
 
     NavMeshAgent agent;
 
-    // Start is called before the first frame update
     void Start()
     {
         enemyMaxDistance = 25;
@@ -69,9 +69,36 @@ public class EnemyControllerScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+
+        if(oldHealth > currentHealth)
+        {
+            sprite.color = new Color(1,1,1,0.5f);
+        }
+        else
+        {
+            sprite.color = new Color(1,1,1,1);
+        }
+        oldHealth = currentHealth;
     }
 
-    // Update is called once per frame
+    void Die()
+    {
+        if (Random.value <= healthProbability)
+        {
+            Instantiate(health, transform.position, transform.rotation);
+        }
+        else
+        {
+            Instantiate(experience, transform.position, transform.rotation);
+        }
+
+        Destroy(this.gameObject);
+    }
+
     void FixedUpdate()
     {
         agent.destination = playerTransform.position;
@@ -89,21 +116,10 @@ public class EnemyControllerScript : MonoBehaviour
         {
             animator.SetTrigger("stop_walk");
         }
-
     }
-    private void OnTriggerEnter2D(Collider2D trigger)
+
+    public void TakeDamage(float damage)
     {
-        if (trigger.gameObject.tag == "Weapon")
-        {
-            // 99% probability of spawning experience and 1% of spawning health
-            if (Random.value <= health_probability)
-            {
-                Instantiate(health, transform.position, transform.rotation);
-            }else{
-                Instantiate(experience, transform.position, transform.rotation);
-            }
-            
-            Destroy(this.gameObject);
-        }
+        currentHealth -= damage;
     }
 }
