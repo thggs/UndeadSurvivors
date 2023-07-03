@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a13da972d4dec0445b081722dd20cf53
+guid: 8b756a24fc4a0964e88ecc3ea0dcd76f
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pixeboy
+  - Pixeloid Sans
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
