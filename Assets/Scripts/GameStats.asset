@@ -15,30 +15,30 @@ MonoBehaviour:
   whip:
     WhipLevel: 1
     WhipDamage: 5
-    WhipCooldown: 1
+    WhipCooldown: 0.5
     WhipDelay: 0.1
   bible:
     BibleLevel: 5
-    BibleDamage: 5
-    BibleCooldown: 8
-    BibleLifetime: 6
+    BibleDamage: 14
+    BibleCooldown: 4
+    BibleLifetime: 5
   holyWater:
-    WaterLevel: 5
-    WaterDamage: 0.1
-    WaterCooldown: 10
-    WaterLifetime: 5
+    WaterLevel: 6
+    WaterDamage: 0.3
+    WaterCooldown: 6
+    WaterLifetime: 5.5
   throwingKnife:
-    KnifeLevel: 0
-    KnifeDamage: 0
-    KnifeCooldown: 0
-    KnifeDelay: 0
-    KnifeLifetime: 0
-    KnifeSpeed: 0
+    KnifeLevel: 5
+    KnifeDamage: 1
+    KnifeCooldown: 5
+    KnifeDelay: 1
+    KnifeLifetime: 2
+    KnifeSpeed: 2
   player:
-    PlayerHealth: 1000
+    PlayerHealth: 862
     PlayerMaxHealth: 1000
     PlayerXP: 0
-    PlayerLevel: 1
+    PlayerLevel: 5
     PlayerSpeed: 5
   zombie:
     Damage: 1
