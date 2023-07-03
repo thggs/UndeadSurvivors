@@ -28,14 +28,14 @@ public class HolyWaterControllerScript : MonoBehaviour
             Quaternion rotation = Quaternion.identity;
 
             float RandomX = Random.Range(0.1f, 0.9f);
-            float RandomY = Random.Range(0.1f, 0.7f);
+            float RandomY = Random.Range(0.3f, 0.7f);
 
             if(RandomX < 0.5f)
             {
                 rotation.eulerAngles = new Vector3(0,180,0);
             }
 
-            Vector3 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(Random.Range(0.0f, 1.0f),  Random.Range(0.0f, 0.5f), mainCamera.nearClipPlane));
+            Vector3 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(RandomX, RandomY, mainCamera.nearClipPlane));
             
             GameObject instance = Instantiate(holyWater, spawnPosition, rotation);
             instance.GetComponentInChildren<DamageOverTimeScript>(true).damage = gameStats.holyWater.WaterDamage;
