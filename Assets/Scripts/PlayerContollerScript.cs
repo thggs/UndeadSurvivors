@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerContollerScript : MonoBehaviour
 {
-    public GameStats gameStats;
+    [SerializeField]
+    private GameStats gameStats;
 
     public float invulnerabilityDuration = 2f; // Duration of invulnerability after taking damage
     private bool isInvulnerable = false; // Flag to track invulnerability state
@@ -19,6 +20,7 @@ public class PlayerContollerScript : MonoBehaviour
     public bool hasWhip = false;
     public bool hasBible = false;
     public bool hasHolyWater = false;
+    public bool hasThrowingKnife = false;
     public int healthBoost = 25;
 
     // Start is called before the first frame update
@@ -57,6 +59,7 @@ public class PlayerContollerScript : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.SetActive(hasWhip);
         gameObject.transform.GetChild(1).gameObject.SetActive(hasBible);
         gameObject.transform.GetChild(2).gameObject.SetActive(hasHolyWater);
+        gameObject.transform.GetChild(3).gameObject.SetActive(hasThrowingKnife);
     }
 
     // Update is called once per frame
