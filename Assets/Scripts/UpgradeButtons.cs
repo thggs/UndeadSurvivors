@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class UpgradeButtons : MonoBehaviour
 {
     [SerializeField] public Button[] allButtons; // Array of all buttons
+    //public Button button;
     [SerializeField] private int numberOfButtonsToShow = 3; // Number of buttons to display
 
     private void Start(){
         //SelectRandomButtons();
         string bt = allButtons[3].name;
-        Debug.Log(bt);
-        
-        allButtons[3].gameObject.SetActive(true);
+        //Debug.Log(bt);
+        Button but = allButtons[3];
+        but.gameObject.SetActive(true);
     }
 
     private void SelectRandomButtons(){

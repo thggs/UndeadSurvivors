@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
 
     [Header("TimerSettings")]
     public float currentTime;
-    public bool countUp;
+    //public bool countUp;
 
     
     
