@@ -6,10 +6,10 @@ public class SingleDamageScript : MonoBehaviour
 {
     public float damage;
     public bool hasDurability = false;
-    public int durability = 0;
+    public int durability;
     
     private void Update() {
-        if(durability <= 0)
+        if(durability <= 0 && hasDurability)
         {
             Destroy(gameObject);
         }
