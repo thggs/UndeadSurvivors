@@ -37,12 +37,24 @@ public class GameStats : ScriptableObject
     public HolyWater holyWater = new HolyWater();
 
     [System.Serializable]
+    public class ThrowingKnife
+    {
+        public int KnifeLevel;
+        public float KnifeDamage;
+        public float KnifeCooldown;
+        public float KnifeDelay;
+        public float KnifeLifetime;
+        public float KnifeSpeed;
+    }
+    public ThrowingKnife throwingKnife = new ThrowingKnife();
+
+    [System.Serializable]
     public class Player
     {
         public float PlayerHealth;
         public float PlayerMaxHealth;
         public float PlayerXP;
-        public float PlayerLevel;
+        public int PlayerLevel;
         public float PlayerSpeed;
     }
     public Player player = new Player();
