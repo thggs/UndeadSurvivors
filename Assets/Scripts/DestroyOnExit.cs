@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class DestroyOnExit : MonoBehaviour
 {
+    public bool destroyObject = false;
     void Update(){
-        if(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Exit"))
+        if(destroyObject)
         {
             if(transform.parent != null)
             {
