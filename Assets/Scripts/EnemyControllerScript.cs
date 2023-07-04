@@ -117,16 +117,13 @@ public class EnemyControllerScript : MonoBehaviour
 
             posThisFrame = transform.position;
 
-            animator.SetTrigger("walk");
+
             if (posThisFrame.x > posLastFrame.x)
                 transform.eulerAngles = new Vector3(0, 0, 0);
             if (posThisFrame.x < posLastFrame.x)
                 transform.eulerAngles = new Vector3(0, 180, 0);
-            else
-            {
-                animator.SetTrigger("stop_walk");
-            }
         }
+       
     }
 
     public void TakeDamage(float damage)
