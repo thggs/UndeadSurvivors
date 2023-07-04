@@ -55,6 +55,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1237767973}
+  - component: {fileID: 1237767974}
   m_Layer: 0
   m_Name: HolyWater
   m_TagString: Untagged
@@ -77,6 +78,21 @@ Transform:
   m_Father: {fileID: 6024302167372138854}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1237767974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237767972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299a2b06949766645999e804d081c254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+  gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
+  holyWater: {fileID: 6525849510505040173, guid: a59a368018f6e134f8106719d59cadaf, type: 3}
 --- !u!1 &1405115390
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +139,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bible: {fileID: 8193052340202318869, guid: 082a55571861d60408fd331cc11444bf, type: 3}
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
+--- !u!1 &2851139161737633344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2851139161737633351}
+  - component: {fileID: 2851139161737633350}
+  m_Layer: 0
+  m_Name: ThrowingKnife
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2851139161737633351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2851139161737633344}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6024302167372138854}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2851139161737633350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2851139161737633344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0775edc641414a6419f06e904dbbe40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knife: {fileID: 4159506740723400896, guid: 9d6ca8faf6e3c5745966ca06c0d9d415, type: 3}
+  gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
+  knifeLevel: 1
 --- !u!1 &6024302167372138852
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +223,7 @@ Transform:
   - {fileID: 673334636}
   - {fileID: 1405115391}
   - {fileID: 1237767973}
+  - {fileID: 2851139161737633351}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -230,11 +294,10 @@ MonoBehaviour:
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
   invulnerabilityDuration: 1
   hasWhip: 1
-  hasBible: 1
-  xp: 0
+  hasBible: 0
+  hasHolyWater: 0
+  hasThrowingKnife: 1
   healthBoost: 25
-  playerLevel: 0
-  speed: 5
 --- !u!61 &6024302167372138776
 BoxCollider2D:
   m_ObjectHideFlags: 0

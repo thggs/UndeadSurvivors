@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GameStats
   m_EditorClassIdentifier: 
   whip:
-    WhipLevel: 1
+    WhipLevel: 6
     WhipDamage: 5
-    WhipCooldown: 0.5
+    WhipCooldown: 1
     WhipDelay: 0.1
   bible:
     BibleLevel: 5
@@ -35,9 +35,9 @@ MonoBehaviour:
     KnifeLifetime: 2
     KnifeSpeed: 2
   player:
-    PlayerHealth: 862
+    PlayerHealth: 1000
     PlayerMaxHealth: 1000
-    PlayerXP: 0
+    PlayerXP: 17
     PlayerLevel: 5
     PlayerSpeed: 5
   zombie:

@@ -47,7 +47,7 @@ public class WhipControllerScript : MonoBehaviour
                 offset.x = transform.parent.right.x * -2f;
             }
 
-            Destroy(whipSpawn, whip.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            Destroy(whipSpawn, whip.GetComponent<AudioSource>().clip.length);
             yield return new WaitForSeconds(gameStats.whip.WhipDelay);
         }
         yield return new WaitForSeconds(gameStats.whip.WhipCooldown);
