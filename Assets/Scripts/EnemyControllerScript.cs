@@ -16,6 +16,8 @@ public class EnemyControllerScript : MonoBehaviour
     public GameObject health;
     private float healthProbability = 0.05f;
 
+    private bool isDead = false;
+
     private SpriteRenderer sprite;
     private Animator animator;
 
@@ -26,7 +28,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Start()
     {
-        sprite = gameObject.GetComponent<SpriteRenderer>();
+        sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         enemyMaxDistance = 25;
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         agent = GetComponent<NavMeshAgent>();
@@ -66,24 +68,29 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(playerTransform.position, transform.position) > enemyMaxDistance)
+        if (!isDead)
         {
-            Destroy(gameObject);
-        }
-        if (currentHealth <= 0)
-        {
-            Die();
+            if (Vector3.Distance(playerTransform.position, transform.position) > enemyMaxDistance)
+            {
+                Destroy(gameObject);
+            }
+            if (currentHealth <= 0)
+            {
+                isDead = true;
+                Die();
+            }
+
+            if (oldHealth > currentHealth)
+            {
+                sprite.color = new Color(1, 1, 1, 0.5f);
+            }
+            else
+            {
+                sprite.color = new Color(1, 1, 1, 1);
+            }
+            oldHealth = currentHealth;
         }
 
-        if(oldHealth > currentHealth)
-        {
-            sprite.color = new Color(1,1,1,0.5f);
-        }
-        else
-        {
-            sprite.color = new Color(1,1,1,1);
-        }
-        oldHealth = currentHealth;
     }
 
     void Die()
@@ -96,26 +103,29 @@ public class EnemyControllerScript : MonoBehaviour
         {
             Instantiate(experience, transform.position, transform.rotation);
         }
-
-        Destroy(this.gameObject);
+        animator.SetTrigger("die");
+        Destroy(this.gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
     }
 
     void FixedUpdate()
     {
-        agent.destination = playerTransform.position;
-
-        posLastFrame = posThisFrame;
-
-        posThisFrame = transform.position;
-
-        animator.SetTrigger("walk");
-        if (posThisFrame.x > posLastFrame.x)
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        if (posThisFrame.x < posLastFrame.x)
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        else
+        if (!isDead)
         {
-            animator.SetTrigger("stop_walk");
+            agent.destination = playerTransform.position;
+
+            posLastFrame = posThisFrame;
+
+            posThisFrame = transform.position;
+
+            animator.SetTrigger("walk");
+            if (posThisFrame.x > posLastFrame.x)
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            if (posThisFrame.x < posLastFrame.x)
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            else
+            {
+                animator.SetTrigger("stop_walk");
+            }
         }
     }
 
