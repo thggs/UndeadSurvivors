@@ -14,7 +14,7 @@
     -unity-text-outline-color: rgb(0, 0, 0);
     margin-bottom: 20px;
     transition-duration: 0.3s;
-    background-image: url('project://database/Assets/StoneUI/OtherUI_2-1K/1.png?fileID=21300016&guid=e919f8b19e6260d44b25ce176dd8ee66&type=3#1_8');
+    background-image: url('project://database/Assets/Sprites/Btn_Border.png?fileID=1238055528&guid=7c5dba978b9dba0419d7196b66c73a70&type=3#Btn_Border_0');
     -unity-background-scale-mode: stretch-to-fill;
     height: 85px;
 }
@@ -29,7 +29,7 @@
 
 #unity-tracker {
     background-color: rgba(255, 0, 0, 0);
-    background-image: url('project://database/Assets/StoneUI/OrherUI_4-2K/slider.png?fileID=21300000&guid=fd0b7189c26761e4c833b6c9734d6cd4&type=3#slider_0');
+    background-image: url('project://database/Assets/Sprites/Btn_Border.png?fileID=1238055528&guid=7c5dba978b9dba0419d7196b66c73a70&type=3#Btn_Border_0');
     -unity-background-scale-mode: stretch-to-fill;
     height: 20px;
     width: 300px;
