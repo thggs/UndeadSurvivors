@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Experience
   - Health
+  - Boss_Projectile
   layers:
   - Default
   - TransparentFX

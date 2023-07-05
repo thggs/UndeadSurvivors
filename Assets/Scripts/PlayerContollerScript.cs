@@ -97,6 +97,10 @@ public class PlayerContollerScript : MonoBehaviour
                 StartInvulnerability();
             }
         }
+        if (collision.gameObject.CompareTag("Boss_Projectile"))
+        {
+           gameStats.player.PlayerHealth -= 5; 
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
