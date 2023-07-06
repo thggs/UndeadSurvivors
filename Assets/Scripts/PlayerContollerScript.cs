@@ -7,10 +7,7 @@ public class PlayerContollerScript : MonoBehaviour
 {
     [SerializeField]
     private GameStats gameStats;
-
-    public float invulnerabilityDuration = 2f; // Duration of invulnerability after taking damage
-    private bool isInvulnerable = false; // Flag to track invulnerability state
-    private float invulnerabilityTimer = 0f; // Timer for tracking invulnerability duration
+    private bool takingDamage = false;
 
     private Animator animator;
     private SpriteRenderer sprite;
@@ -22,7 +19,6 @@ public class PlayerContollerScript : MonoBehaviour
     public bool hasBible = false;
     public bool hasHolyWater = false;
     public bool hasThrowingKnife = false;
-    public int healthBoost = 25;
 
     // Start is called before the first frame update
     void Start()
@@ -36,23 +32,12 @@ public class PlayerContollerScript : MonoBehaviour
     void Update()
     {
         input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0.0f).normalized;
-        // Update the invulnerability timer if the player is currently invulnerable
-        if (isInvulnerable)
-        {
-            invulnerabilityTimer -= Time.deltaTime;
-
-            if (invulnerabilityTimer <= 0f)
-            {
-                //invulnerabilityTimer = invulnerabilityDuration;
-                isInvulnerable = false;
-            }
-        }
-        else
+        
+        if(!takingDamage)
         {
             sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
         }
-
-        if(gameStats.player.PlayerHealth > gameStats.player.PlayerMaxHealth)
+        if (gameStats.player.PlayerHealth > gameStats.player.PlayerMaxHealth)
         {
             gameStats.player.PlayerHealth = gameStats.player.PlayerMaxHealth;
         }
@@ -95,12 +80,14 @@ public class PlayerContollerScript : MonoBehaviour
             }
             else
             {
-                StartInvulnerability();
+                takingDamage = true;
+                sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 0.5f);
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "Experience")
         {
             gameStats.player.PlayerXP++;
@@ -109,33 +96,28 @@ public class PlayerContollerScript : MonoBehaviour
         if (collision.gameObject.tag == "Health")
         {
             // if hp after boost is over limit set hp to limit
-            if(gameStats.player.PlayerHealth + healthBoost > gameStats.player.PlayerMaxHealth){
+            if (gameStats.player.PlayerHealth + gameStats.healingStones.HealAmount > gameStats.player.PlayerMaxHealth)
+            {
                 gameStats.player.PlayerHealth = gameStats.player.PlayerMaxHealth;
-            }else{
-                gameStats.player.PlayerHealth += healthBoost;
-            } 
+            }
+            else
+            {
+                gameStats.player.PlayerHealth += gameStats.healingStones.HealAmount;
+            }
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "ExitDoor")
         {
-            SceneManager.LoadScene("MenuScene",LoadSceneMode.Single);
+            SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
         }
         if (collision.gameObject.tag == "EnterDoor")
         {
-            SceneManager.LoadScene("HouseScene",LoadSceneMode.Single);
+            SceneManager.LoadScene("HouseScene", LoadSceneMode.Single);
         }
     }
 
     private void Die()
     {
         gameObject.SetActive(false);
-    }
-
-    private void StartInvulnerability()
-    {
-        isInvulnerable = true;
-        invulnerabilityTimer = invulnerabilityDuration;
-        Debug.Log("Player is invulnerable for " + invulnerabilityDuration + " seconds.");
-        sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 0.5f);
     }
 }
