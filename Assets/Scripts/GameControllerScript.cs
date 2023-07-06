@@ -29,6 +29,18 @@ public class GameControllerScript : MonoBehaviour
     public List<Dictionary<int, string>> dictionariesList = new List<Dictionary<int, string>>();
 
 
+    void Awake()
+    {
+        gameStats.player.PlayerHealth = 1000;
+        gameStats.player.PlayerMaxHealth = 1000;
+        gameStats.player.PlayerXP = 0;
+        gameStats.player.PlayerLevel = 1;
+        gameStats.player.PlayerSpeed = 5;
+
+        gameStats.healingStones.HealAmount = 50;
+        gameStats.healingStones.HealLevel = 1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
