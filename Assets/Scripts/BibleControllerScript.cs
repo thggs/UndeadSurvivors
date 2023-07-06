@@ -22,7 +22,7 @@ public class BibleControllerScript : MonoBehaviour
 
     IEnumerator Bible()
     {
-        GameObject[] bibleSpawns = new GameObject[gameStats.bible.BibleLevel];
+        GameObject[] bibleSpawns = new GameObject[gameStats.bible.BibleProjectiles];
 
         Quaternion rotation = Quaternion.identity;
 
@@ -40,12 +40,12 @@ public class BibleControllerScript : MonoBehaviour
             instance.GetComponent<SingleDamageScript>().damage = gameStats.bible.BibleDamage;
 
             // Rotate Bible around
-            rotation.eulerAngles += new Vector3(0, 0, (360 / gameStats.bible.BibleLevel));
+            rotation.eulerAngles += new Vector3(0, 0, (360 / gameStats.bible.BibleProjectiles));
         }
 
         yield return new WaitForSeconds(gameStats.bible.BibleLifetime);
 
-        for (int i = 1; i <= gameStats.bible.BibleLevel; i++)
+        for (int i = 1; i <= gameStats.bible.BibleProjectiles; i++)
         {
             Animator anim = bibleSpawns[i-1].GetComponentInChildren<Animator>();
             anim.SetTrigger("disappear");
