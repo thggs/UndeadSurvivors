@@ -8,25 +8,39 @@ public class KnifeControllerScript : MonoBehaviour
     private GameObject knife;
     [SerializeField]
     private GameStats gameStats;
-    public int knifeLevel = 1;
+    private Vector3 throwDirection;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Knife());
+        throwDirection = transform.right;
+    }
+
+    void Update()
+    {
+        if(Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Vertical") > 0){
+            throwDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
+        }
+            
     }
 
     IEnumerator Knife() {
 
-        Vector3 offset = new Vector3(transform.right.x * 2f, transform.up.y, 0);
-        Quaternion rotation = transform.rotation;
-
         for(int i = 1; i <= gameStats.throwingKnife.KnifeProjectiles; i++){
 
             // Instantiate WhipSlash as child object of WhipSpawn
-            GameObject knifeObject = Instantiate(knife, transform.position+(transform.right*1), transform.rotation);
+            GameObject knifeObject = Instantiate(knife, throwDirection + transform.position, Quaternion.FromToRotation(transform.right, throwDirection));
+            
+            SingleDamageScript knifeObjectScript = knifeObject.GetComponent<SingleDamageScript>();
+            knifeObjectScript.hasDurability = true;
+            knifeObjectScript.durability = gameStats.throwingKnife.KnifeDurability;
+            knifeObjectScript.damage = gameStats.throwingKnife.KnifeDamage;
+
             Rigidbody2D rb = knifeObject.GetComponent<Rigidbody2D>();
             rb.AddForce(rb.transform.right * 20, ForceMode2D.Impulse);
+
+            Destroy(knifeObject, gameStats.throwingKnife.KnifeLifetime);
             
             yield return new WaitForSeconds(gameStats.throwingKnife.KnifeDelay);
         }
