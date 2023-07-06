@@ -33,7 +33,6 @@ public class GameControllerScript : MonoBehaviour
     void Start()
     {
         Dictionaries();
-        upgradeButton1.onClick.AddListener(Ricardo);
         upgradeButton1.onClick.RemoveAllListeners();
         int[] upgrades = new int[6] {0,2,4,5,6,7};
         int[] selectedInts = upgrades.OrderBy(x => Random.value).Take(3).ToArray();
@@ -84,16 +83,9 @@ public class GameControllerScript : MonoBehaviour
 
     void ManageXP()
     {
-        /*xpSlider.maxValue = gameStats.player.PlayerLevel * 10;
+        xpSlider.maxValue = gameStats.player.PlayerLevel * 10;
         xpSlider.value = gameStats.player.PlayerXP;
 
-        if(gameStats.player.PlayerXP >= gameStats.player.PlayerLevel * 10)
-        {
-            gameStats.player.PlayerLevel++;
-            gameStats.player.PlayerXP = 0;
-            upgradePanel.SetActive(true);
-            Time.timeScale = 0;
-        }*/
         int maxValue = gameStats.player.PlayerLevel * 10;
         xp.SetSize(gameStats.player.PlayerXP/maxValue);
 
@@ -101,8 +93,11 @@ public class GameControllerScript : MonoBehaviour
         {
             gameStats.player.PlayerLevel++;
             gameStats.player.PlayerXP = 0;
+
+            upgradePanel.SetActive(true);
+            Time.timeScale = 0;
             
-            int[] upgrades = new int[8] {0,1,2,3,4,5,6,7};
+            int[] upgrades = new int[6] {0,2,4,5,6,7};
             int[] selectedInts = upgrades.OrderBy(x => Random.value).Take(3).ToArray();
 
             string option1 = dictionariesList[selectedInts[0]][selectLevel(selectedInts[0])];
