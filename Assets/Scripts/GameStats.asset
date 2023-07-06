@@ -37,11 +37,18 @@ MonoBehaviour:
   player:
     PlayerSpeedLevel: 5
     PlayerMaxHealthLevel: 5
-    PlayerHealth: 1000
+    PlayerHealth: 275
     PlayerMaxHealth: 1000
-    PlayerXP: 30
-    PlayerLevel: 9
+    PlayerXP: 0
+    PlayerLevel: 8
     PlayerSpeed: 5
+  enemiesKilled:
+    zombies: 0
+    bats: 0
+    skeletons: 0
+    crawlers: 0
+    wraiths: 0
+    flyingEyes: 0
   zombie:
     Damage: 1
     MaxHealth: 5
