@@ -10,6 +10,7 @@ public class GameStats : ScriptableObject
     public class Whip
     {
         public int WhipLevel;
+        public int WhipProjectiles;
         public float WhipDamage;
         public float WhipCooldown;
         public float WhipDelay;
@@ -20,6 +21,7 @@ public class GameStats : ScriptableObject
     public class Bible
     {
         public int BibleLevel;
+        public int BibleProjectiles;
         public float BibleDamage;
         public float BibleCooldown;
         public float BibleLifetime;
@@ -30,6 +32,7 @@ public class GameStats : ScriptableObject
     public class HolyWater
     {
         public int WaterLevel;
+        public int WaterProjectiles;
         public float WaterDamage;
         public float WaterCooldown;
         public float WaterLifetime;
@@ -45,6 +48,8 @@ public class GameStats : ScriptableObject
         public float KnifeDelay;
         public float KnifeLifetime;
         public float KnifeSpeed;
+        public int KnifeDurability;
+        public int KnifeProjectiles;
     }
     public ThrowingKnife throwingKnife = new ThrowingKnife();
 

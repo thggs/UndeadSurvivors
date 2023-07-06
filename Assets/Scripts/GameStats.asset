@@ -30,17 +30,21 @@ MonoBehaviour:
   throwingKnife:
     KnifeLevel: 5
     KnifeDamage: 1
-    KnifeCooldown: 5
-    KnifeDelay: 1
+    KnifeCooldown: 1
+    KnifeDelay: 0.1
     KnifeLifetime: 2
     KnifeSpeed: 2
+    KnifeDurability: 3
+  healingStones:
+    HealAmount: 50
+    HealLevel: 1
   player:
     PlayerSpeedLevel: 5
     PlayerMaxHealthLevel: 5
-    PlayerHealth: 275
+    PlayerHealth: 1000
     PlayerMaxHealth: 1000
     PlayerXP: 0
-    PlayerLevel: 8
+    PlayerLevel: 1
     PlayerSpeed: 5
   enemiesKilled:
     zombies: 0

@@ -56,8 +56,6 @@ public class UI_menu_manager : MonoBehaviour
             var newValue = v.newValue;
             AudioListener.volume = newValue;
         });
-        
-        
     }
 
     private IEnumerator Start() {
@@ -97,10 +95,6 @@ public class UI_menu_manager : MonoBehaviour
         _buttonsWrapper.Clear();
         _buttonsWrapper.Add(_buttonPlay);
         _buttonsWrapper.Add(_buttonSettings);
-        _buttonsWrapper.Add(_buttonExit);
-        
-        
-    }
-
-    
+        _buttonsWrapper.Add(_buttonExit);   
+    } 
 }

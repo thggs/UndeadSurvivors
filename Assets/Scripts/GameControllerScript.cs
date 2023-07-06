@@ -39,6 +39,26 @@ public class GameControllerScript : MonoBehaviour
 
         gameStats.healingStones.HealAmount = 50;
         gameStats.healingStones.HealLevel = 1;
+
+        gameStats.whip.WhipLevel = 1;
+        gameStats.whip.WhipCooldown = 1;
+        gameStats.whip.WhipDamage = 5;
+        gameStats.whip.WhipProjectiles = 1;
+        gameStats.whip.WhipDelay = 0.1f;
+
+        gameStats.bible.BibleProjectiles = 1;
+        gameStats.bible.BibleLevel = 1;
+        gameStats.bible.BibleDamage = 5;
+        gameStats.bible.BibleCooldown = 5;
+        gameStats.bible.BibleLifetime = 3;
+
+        gameStats.holyWater.WaterProjectiles = 1;
+        gameStats.holyWater.WaterLevel = 1;
+        
+        gameStats.throwingKnife.KnifeLevel = 1;
+        gameStats.throwingKnife.KnifeCooldown = 8;
+        gameStats.throwingKnife.KnifeDamage = 5;
+        gameStats.throwingKnife.KnifeProjectiles = 1;
     }
 
     // Start is called before the first frame update

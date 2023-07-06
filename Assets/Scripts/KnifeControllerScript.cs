@@ -21,7 +21,7 @@ public class KnifeControllerScript : MonoBehaviour
         Vector3 offset = new Vector3(transform.right.x * 2f, transform.up.y, 0);
         Quaternion rotation = transform.rotation;
 
-        for(int i = 1; i <= knifeLevel; i++){
+        for(int i = 1; i <= gameStats.throwingKnife.KnifeProjectiles; i++){
 
             // Instantiate WhipSlash as child object of WhipSpawn
             GameObject knifeObject = Instantiate(knife, transform.position+(transform.right*1), transform.rotation);

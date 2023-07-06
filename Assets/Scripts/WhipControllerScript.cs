@@ -20,7 +20,7 @@ public class WhipControllerScript : MonoBehaviour
         Vector3 offset = new Vector3(transform.parent.right.x * 2f, 0, 0);
         Quaternion rotation = transform.rotation;
 
-        for (int i = 1; i <= gameStats.whip.WhipLevel; i++)
+        for (int i = 1; i <= gameStats.whip.WhipProjectiles; i++)
         {
 
             // Spawn WhipSpawn object to allow WhipSlash to do its animation whithout problems

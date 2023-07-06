@@ -26,7 +26,7 @@ public class BibleControllerScript : MonoBehaviour
 
         Quaternion rotation = Quaternion.identity;
 
-        for (int i = 1; i <= gameStats.bible.BibleLevel; i++)
+        for (int i = 1; i <= gameStats.bible.BibleProjectiles; i++)
         {
             // Create object that holds the bible projectiles and set it to follow the player
             bibleSpawns[i-1] = new GameObject("BibleSpawn" + i);

@@ -23,7 +23,7 @@ public class HolyWaterControllerScript : MonoBehaviour
 
     IEnumerator HolyWater()
     {
-        for(int i = 1; i <= gameStats.holyWater.WaterLevel; i++)
+        for(int i = 1; i <= gameStats.holyWater.WaterProjectiles; i++)
         {
             Quaternion rotation = Quaternion.identity;
 
