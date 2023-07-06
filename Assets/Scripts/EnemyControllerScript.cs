@@ -63,6 +63,10 @@ public class EnemyControllerScript : MonoBehaviour
                 currentHealth = gameStats.wraith.MaxHealth;
                 damage = gameStats.wraith.Damage;
                 break;
+            case "Red_Death":
+                currentHealth = gameStats.wraith.MaxHealth;
+                damage = gameStats.wraith.Damage;
+                break;
         }
     }
 
