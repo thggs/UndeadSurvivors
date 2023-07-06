@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameStats
   m_EditorClassIdentifier: 
   whip:
-    WhipLevel: 6
+    WhipLevel: 2
     WhipDamage: 5
     WhipCooldown: 1
     WhipDelay: 0.1
@@ -37,8 +37,8 @@ MonoBehaviour:
   player:
     PlayerHealth: 1000
     PlayerMaxHealth: 1000
-    PlayerXP: 17
-    PlayerLevel: 5
+    PlayerXP: 30
+    PlayerLevel: 9
     PlayerSpeed: 5
   zombie:
     Damage: 1
