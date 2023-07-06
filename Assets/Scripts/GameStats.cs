@@ -49,6 +49,14 @@ public class GameStats : ScriptableObject
     public ThrowingKnife throwingKnife = new ThrowingKnife();
 
     [System.Serializable]
+    public class HealingStones
+    {
+        public float HealAmount;
+        public int HealLevel;
+    }
+    public HealingStones healingStones = new HealingStones();
+
+    [System.Serializable]
     public class Player
     {
         public int PlayerSpeedLevel;
