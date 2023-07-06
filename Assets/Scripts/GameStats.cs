@@ -59,6 +59,18 @@ public class GameStats : ScriptableObject
     }
     public Player player = new Player();
 
+    [System.Serializable]
+    public class EnemiesKilled
+    {
+        public int zombies;
+        public int bats;
+        public int skeletons;
+        public int crawlers;
+        public int wraiths;
+        public int flyingEyes;
+    }
+    public EnemiesKilled enemiesKilled = new EnemiesKilled();
+
 
     [System.Serializable]
     public class Enemy

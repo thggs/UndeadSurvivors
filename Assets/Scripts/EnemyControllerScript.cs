@@ -30,7 +30,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         enemyMaxDistance = 25;
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if(gameStats.player.PlayerHealth > 0){playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();}
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -68,27 +68,29 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Update()
     {
-        if (!isDead)
-        {
-            if (Vector3.Distance(playerTransform.position, transform.position) > enemyMaxDistance)
+        if(gameStats.player.PlayerHealth > 0){
+            if (!isDead)
             {
-                Destroy(gameObject);
-            }
-            if (currentHealth <= 0)
-            {
-                isDead = true;
-                Die();
-            }
+                if (Vector3.Distance(playerTransform.position, transform.position) > enemyMaxDistance)
+                {
+                    Destroy(gameObject);
+                }
+                if (currentHealth <= 0)
+                {
+                    isDead = true;
+                    Die();
+                }
 
-            if (oldHealth > currentHealth)
-            {
-                sprite.color = new Color(1, 1, 1, 0.5f);
+                if (oldHealth > currentHealth)
+                {
+                    sprite.color = new Color(1, 1, 1, 0.5f);
+                }
+                else
+                {
+                    sprite.color = new Color(1, 1, 1, 1);
+                }
+                oldHealth = currentHealth;
             }
-            else
-            {
-                sprite.color = new Color(1, 1, 1, 1);
-            }
-            oldHealth = currentHealth;
         }
 
     }
@@ -109,19 +111,21 @@ public class EnemyControllerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isDead)
-        {
-            agent.destination = playerTransform.position;
+        if(gameStats.player.PlayerHealth > 0){
+            if (!isDead)
+            {
+                agent.destination = playerTransform.position;
 
-            posLastFrame = posThisFrame;
+                posLastFrame = posThisFrame;
 
-            posThisFrame = transform.position;
+                posThisFrame = transform.position;
 
 
-            if (posThisFrame.x > posLastFrame.x)
-                transform.eulerAngles = new Vector3(0, 0, 0);
-            if (posThisFrame.x < posLastFrame.x)
-                transform.eulerAngles = new Vector3(0, 180, 0);
+                if (posThisFrame.x > posLastFrame.x)
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                if (posThisFrame.x < posLastFrame.x)
+                    transform.eulerAngles = new Vector3(0, 180, 0);
+            }
         }
        
     }

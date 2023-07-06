@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMaxDistance: 0
-  gameStats: {fileID: 0}
+  gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
   damage: 0
   experience: {fileID: 5200834147571809480, guid: 6bda73dc8a131574e8b0440bc6e8fff4, type: 3}
   health: {fileID: 1194675192985132878, guid: f7926a5fb2985e1419f743d2b81340ed, type: 3}

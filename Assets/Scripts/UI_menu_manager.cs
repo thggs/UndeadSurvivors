@@ -47,6 +47,7 @@ public class UI_menu_manager : MonoBehaviour
         var buttonBack = _buttonsSettings.Q<Button>("ButtonBack");
         var volumeSlider = _buttonsSettings.Q<Slider>("AmbientSoundSlider");
 
+        _buttonPlay.clicked +=  ButtonPlay_clicked;
         _buttonSettings.clicked += ButtonSettings_clicked;
         _buttonExit.clicked += ButtonExit_clicked;
         buttonBack.clicked += ButtonBack_clicked;
@@ -74,7 +75,9 @@ public class UI_menu_manager : MonoBehaviour
             _mainMenuOptions[_mainPopupIndex].ToggleInClassList(POPUP_ANIMATION);
         }
     }
-
+    private void ButtonPlay_clicked(){
+        SceneManager.LoadScene("TileScene",LoadSceneMode.Single);
+    }
 
     private void ButtonSettings_clicked()
     {

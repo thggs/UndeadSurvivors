@@ -18,6 +18,9 @@ public class GameControllerScript : MonoBehaviour
     public float timeBetweenSpawns;
     private WaitForSeconds timeBetweenSpawnsWFS;
 
+    public HealthBar health;
+    public XpBar xp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +36,7 @@ public class GameControllerScript : MonoBehaviour
 
     void ManageHealth()
     {
-        if (gameStats.player.PlayerHealth != gameStats.player.PlayerMaxHealth)
+        /*if (gameStats.player.PlayerHealth != gameStats.player.PlayerMaxHealth)
         {
             healthSlider.gameObject.SetActive(true);
         }
@@ -43,12 +46,14 @@ public class GameControllerScript : MonoBehaviour
         }
 
         healthSlider.maxValue = gameStats.player.PlayerMaxHealth;
-        healthSlider.value = gameStats.player.PlayerHealth;
+        healthSlider.value = gameStats.player.PlayerHealth;*/
+
+        health.SetSize(gameStats.player.PlayerHealth/gameStats.player.PlayerMaxHealth);
     }
 
     void ManageXP()
     {
-        xpSlider.maxValue = gameStats.player.PlayerLevel * 10;
+        /*xpSlider.maxValue = gameStats.player.PlayerLevel * 10;
         xpSlider.value = gameStats.player.PlayerXP;
 
         if(gameStats.player.PlayerXP >= gameStats.player.PlayerLevel * 10)
@@ -57,7 +62,16 @@ public class GameControllerScript : MonoBehaviour
             gameStats.player.PlayerXP = 0;
             upgradePanel.SetActive(true);
             Time.timeScale = 0;
+        }*/
+        int maxValue = gameStats.player.PlayerLevel * 10;
+        xp.SetSize(gameStats.player.PlayerXP/maxValue);
+
+        if(gameStats.player.PlayerXP >= maxValue)
+        {
+            gameStats.player.PlayerLevel++;
+            gameStats.player.PlayerXP = 0;
         }
+
     }
 
     private IEnumerator Spawn()

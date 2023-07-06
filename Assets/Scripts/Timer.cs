@@ -16,7 +16,6 @@ public class Timer : MonoBehaviour
     
     private bool stop; 
 
-    private float currentTimeInSeconds;
     
     // Start is called before the first frame update
     void Start()
@@ -41,5 +40,12 @@ public class Timer : MonoBehaviour
     public void stopTimer (bool setStop){
 
         stop = setStop; 
+    }
+
+    public string GetTime (){
+        int minutes = Mathf.FloorToInt(currentTime/60);
+        int seconds = Mathf.FloorToInt(currentTime%60);
+        string gameTime = minutes.ToString("00") + ":"+ seconds.ToString("00");
+        return gameTime;
     }
 }

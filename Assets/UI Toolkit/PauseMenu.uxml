@@ -1,8 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MenuStyles.uss?fileID=7433441132597879392&amp;guid=2397f0dc08a866543af4dbe1b1328b4e&amp;type=3#MenuStyles" />
-    <ui:VisualElement name="PauseMenu" style="width: 339.2px; height: 381px; -unity-background-image-tint-color: rgba(0, 0, 0, 0.77); margin-left: 0; justify-content: center; background-color: rgba(0, 0, 0, 0.69); position: relative; left: auto; top: auto; right: auto; bottom: auto; flex-shrink: 1; flex-direction: column; flex-wrap: nowrap; align-items: stretch;">
-        <ui:Button text="Resume" display-tooltip-when-elided="true" name="ButtonResume" class="menu-button" style="height: 20%; font-size: 35px; margin-bottom: 10px;" />
-        <ui:Button text="Settings" display-tooltip-when-elided="true" name="ButtonSettings" class="menu-button" style="height: 20%; width: auto; margin-bottom: 10px;" />
-        <ui:Button text="Back" display-tooltip-when-elided="true" name="ButtonBack" class="menu-button" style="height: 20%; margin-bottom: 10px;" />
+    <ui:VisualElement name="PauseMenu" style="width: 339.2px; height: 381px; -unity-background-image-tint-color: rgba(0, 0, 0, 0.77); margin-left: 0; justify-content: center; background-color: rgba(0, 0, 0, 0.78); position: relative; left: auto; top: auto; right: auto; bottom: auto; flex-shrink: 1; flex-direction: column; flex-wrap: nowrap; align-items: center;">
+        <ui:Button text="Resume" display-tooltip-when-elided="true" name="ButtonResume" class="menu-button" style="height: 65px; font-size: 30px; margin-bottom: 20px;" />
+        <ui:Button text="Settings" display-tooltip-when-elided="true" name="ButtonSettings" class="menu-button" style="height: 65px; width: 200px; margin-bottom: 20px; font-size: 30px;" />
+        <ui:Button text="Back" display-tooltip-when-elided="true" name="ButtonBack" class="menu-button" style="height: 65px; margin-bottom: 10px; font-size: 30px;" />
     </ui:VisualElement>
 </ui:UXML>
