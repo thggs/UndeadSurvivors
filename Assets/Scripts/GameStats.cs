@@ -51,6 +51,8 @@ public class GameStats : ScriptableObject
     [System.Serializable]
     public class Player
     {
+        public int PlayerSpeedLevel;
+        public int PlayerMaxHealthLevel;
         public float PlayerHealth;
         public float PlayerMaxHealth;
         public float PlayerXP;

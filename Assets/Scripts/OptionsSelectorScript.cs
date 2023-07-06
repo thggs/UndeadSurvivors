@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class OptionsSelectorScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private void Start()
-    {
-        // Create list
-        List<Dictionary<int, string>> dictionariesList = new List<Dictionary<int, string>>();
+    // Create list
+    public List<Dictionary<int, string>> dictionariesList = new List<Dictionary<int, string>>();
 
+    // Start is called before the first frame update
+    public List<Dictionary<int, string>> Starta()
+    {
         // Create dictionaries
         Dictionary<int, string> maxHealthDictionary = new Dictionary<int, string>();
         Dictionary<int, string> healthPickupsDictionary = new Dictionary<int, string>();
@@ -103,9 +103,13 @@ public class OptionsSelectorScript : MonoBehaviour
         dictionariesList.Add(bibleDictionary);                  //  -> 5
         dictionariesList.Add(holyWaterDictionary);              //  -> 6
         dictionariesList.Add(knifeDictionary);                  //  -> 7
-
+        return dictionariesList;
         // Exemplo de obtencao de valores (depois de passar a lista para outro lado ou aceder diretamente daqui)
         //string value1 = dictionariesList[0][1]; // primeiro dicionario nivel 1: maxHealth nivel 1
         //string value2 = dictionariesList[1][2]; // segundo dicionario nivel 2: healthPickups nivel 2
     }
+
+    //public List<Dictionary<int, string>> GetList(List<Dictionary<int, string>> list){
+    //    return list;
+    //}
 }

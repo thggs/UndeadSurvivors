@@ -35,6 +35,8 @@ MonoBehaviour:
     KnifeLifetime: 2
     KnifeSpeed: 2
   player:
+    PlayerSpeedLevel: 5
+    PlayerMaxHealthLevel: 5
     PlayerHealth: 1000
     PlayerMaxHealth: 1000
     PlayerXP: 30
