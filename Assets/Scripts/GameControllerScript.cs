@@ -53,20 +53,9 @@ public class GameControllerScript : MonoBehaviour
         ManageHealth();
         ManageXP();
     }
-
-    void Ricardo()
-    {
-        Debug.Log("aceite");
-    }
-
-    void UpgradeHP()
-    {
-        Debug.Log("aceite2");
-    }
-
     void ManageHealth()
     {
-        /*if (gameStats.player.PlayerHealth != gameStats.player.PlayerMaxHealth)
+        if (gameStats.player.PlayerHealth != gameStats.player.PlayerMaxHealth)
         {
             healthSlider.gameObject.SetActive(true);
         }
@@ -76,9 +65,9 @@ public class GameControllerScript : MonoBehaviour
         }
 
         healthSlider.maxValue = gameStats.player.PlayerMaxHealth;
-        healthSlider.value = gameStats.player.PlayerHealth;*/
+        healthSlider.value = gameStats.player.PlayerHealth;
 
-        health.SetSize(gameStats.player.PlayerHealth/gameStats.player.PlayerMaxHealth);
+        //health.SetSize(gameStats.player.PlayerHealth/gameStats.player.PlayerMaxHealth);
     }
 
     void ManageXP()
@@ -86,10 +75,10 @@ public class GameControllerScript : MonoBehaviour
         xpSlider.maxValue = gameStats.player.PlayerLevel * 10;
         xpSlider.value = gameStats.player.PlayerXP;
 
-        int maxValue = gameStats.player.PlayerLevel * 10;
-        xp.SetSize(gameStats.player.PlayerXP/maxValue);
+        //int maxValue = gameStats.player.PlayerLevel * 10;
+        //xp.SetSize(gameStats.player.PlayerXP/maxValue);
 
-        if(gameStats.player.PlayerXP >= maxValue)
+        if(gameStats.player.PlayerXP >= gameStats.player.PlayerLevel * 10)
         {
             gameStats.player.PlayerLevel++;
             gameStats.player.PlayerXP = 0;

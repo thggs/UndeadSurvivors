@@ -22,7 +22,6 @@ public class HealthBar : MonoBehaviour
     void Update() {
         if(gameStats.player.PlayerHealth <= 0){
             this.gameObject.SetActive(false);
-
         }
         
     }

@@ -7,13 +7,13 @@ public class Red_Death_Script : MonoBehaviour
 {
     public float moveSpeed = 3f;                 // Speed at which the enemy moves towards the player
     public float shootingInterval = 2f;          // Interval between each projectile shot
-    public GameObject invokerPrefab;          // Prefab of the projectile
+    public GameObject invokerPrefab;             // Prefab of the projectile
     public Transform playerTransform;            // Reference to the player's transform
     public float minDistanceToPlayer = 5f;       // Minimum distance to maintain from the player
     public float slowMoveSpeed = 1f;             // Speed at which the enemy moves slowly in shooting range
 
     private float shootingTimer = 0f;            // Timer to track the shooting interval
-    private bool isInRange = false;              // Flag to indicate if enemy is within shooting range
+    private bool isInRange = false;              // Flag to indicate if enemy is within shootissng range
     private NavMeshAgent navMeshAgent;           // Reference to the NavMeshAgent component
     public float portalSpawnInterval = 5f;
     private float portalSpawnTimer = 0f;
@@ -57,7 +57,7 @@ public class Red_Death_Script : MonoBehaviour
                 Teleport();
             }
         }
-                // Spawn portals around the player
+        // Spawn portals around the player
         portalSpawnTimer += Time.deltaTime;
         if (portalSpawnTimer >= portalSpawnInterval)
         {
