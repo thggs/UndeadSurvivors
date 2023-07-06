@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerContollerScript : MonoBehaviour
 {
@@ -114,6 +115,14 @@ public class PlayerContollerScript : MonoBehaviour
                 gameStats.player.PlayerHealth += healthBoost;
             } 
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "ExitDoor")
+        {
+            SceneManager.LoadScene("MenuScene",LoadSceneMode.Single);
+        }
+        if (collision.gameObject.tag == "EnterDoor")
+        {
+            SceneManager.LoadScene("HouseScene",LoadSceneMode.Single);
         }
     }
 

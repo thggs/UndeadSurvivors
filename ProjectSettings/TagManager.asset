@@ -8,6 +8,8 @@ TagManager:
   - Weapon
   - Experience
   - Health
+  - ExitDoor
+  - EnterDoor
   layers:
   - Default
   - TransparentFX
