@@ -86,6 +86,13 @@ public class PlayerContollerScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.gameObject.tag == "Enemy")
+        {
+            takingDamage = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Experience")

@@ -24,6 +24,9 @@ public class SingleDamageScript : MonoBehaviour
             {
                 durability--;
             }
+        } else if(other.tag == "Untagged" && hasDurability)
+        {
+            Destroy(gameObject);
         }
     }
 }
