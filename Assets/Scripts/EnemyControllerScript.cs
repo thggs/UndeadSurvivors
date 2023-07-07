@@ -101,6 +101,28 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Die()
     {
+        switch (gameObject.name)
+        {
+            case "Zombie(Clone)":
+            case "Zombie2(Clone)":
+                gameStats.enemiesKilled.zombies++;
+                break;
+            case "Bat(Clone)":
+                gameStats.enemiesKilled.bats++;
+                break;
+            case "Skeleton(Clone)":
+                gameStats.enemiesKilled.skeletons++;
+                break;
+            case "Crawler(Clone)":
+                gameStats.enemiesKilled.crawlers++;
+                break;
+            case "Wraith(Clone)":
+                gameStats.enemiesKilled.wraiths++;
+                break;
+            case "Red_Death":
+                break;
+        }
+
         if (Random.value <= healthProbability)
         {
             Instantiate(health, transform.position, transform.rotation);

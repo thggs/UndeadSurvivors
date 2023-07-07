@@ -57,12 +57,6 @@ public class UI_game_manager : MonoBehaviour
 
         _stats = _deadStats.CloneTree();
         var buttonMenu = _stats.Q<Button>("MenuButton");
-
-        
-
-        
-        
-
         
         /*_statsNames = _stats.Q<VisualElement>("Stats").Children().ToArray();
         _statsValues = _stats.Q<VisualElement>("Values").Children().ToArray();*/
