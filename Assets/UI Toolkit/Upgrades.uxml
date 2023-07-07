@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyles.uss?fileID=7433441132597879392&amp;guid=2397f0dc08a866543af4dbe1b1328b4e&amp;type=3#MenuStyles" />
+    <ui:VisualElement style="width: 400px; height: 382px;">
+        <ui:VisualElement name="Boxes" style="height: 382px; width: 400px; position: absolute; justify-content: center; align-items: flex-start; top: -1px; left: -3px;">
+            <ui:Label display-tooltip-when-elided="true" style="width: 95px; background-image: url(&apos;project://database/Assets/Sprites/Btn_Border_purple.png?fileID=2800000&amp;guid=bc3d59405dd0eda459222a5a7f808c5d&amp;type=3#Btn_Border_purple&apos;); height: 100px; margin-bottom: 20px; margin-top: 2px; padding-left: 1px; padding-right: 2px; padding-top: 4px; padding-bottom: 4px; align-items: center; justify-content: center;">
+                <ui:Label display-tooltip-when-elided="true" name="imageButton1" style="width: 70px; background-image: none; height: 80px; margin-bottom: 0; padding-top: 2px; margin-left: 0; margin-right: 0; margin-top: 0;" />
+            </ui:Label>
+            <ui:Label display-tooltip-when-elided="true" style="width: 95px; background-image: url(&apos;project://database/Assets/Sprites/Btn_Border_purple.png?fileID=2800000&amp;guid=bc3d59405dd0eda459222a5a7f808c5d&amp;type=3#Btn_Border_purple&apos;); height: 100px; margin-bottom: 20px; margin-top: 2px; align-items: center; justify-content: center;">
+                <ui:Label display-tooltip-when-elided="true" name="imageButton2" style="width: 70px; background-image: none; height: 80px; margin-bottom: 0; margin-top: 0; margin-left: 0; margin-right: 0; justify-content: center;" />
+            </ui:Label>
+            <ui:Label display-tooltip-when-elided="true" style="width: 95px; background-image: url(&apos;project://database/Assets/Sprites/Btn_Border_purple.png?fileID=2800000&amp;guid=bc3d59405dd0eda459222a5a7f808c5d&amp;type=3#Btn_Border_purple&apos;); height: 100px; margin-bottom: 20px; margin-top: 2px; align-items: center; justify-content: center;">
+                <ui:Label display-tooltip-when-elided="true" name="imageButton3" style="width: 70px; background-image: none; height: 80px; margin-top: 0; margin-bottom: 0; margin-left: 0; margin-right: 0; justify-content: flex-start;" />
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:VisualElement focusable="true" name="Buttons" style="height: 382px; width: 400px; justify-content: center; align-items: flex-end;">
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="upgradeButton1" class="menu-button" style="width: 300px; height: 100px; font-size: 16px; -unity-text-outline-color: rgba(0, 0, 0, 0.39); white-space: normal;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="upgradeButton2" class="menu-button" style="width: 300px; height: 100px; font-size: 16px; -unity-text-outline-color: rgba(0, 0, 0, 0.39); white-space: normal;" />
+            <ui:Button text="Button" display-tooltip-when-elided="true" name="upgradeButton3" class="menu-button" style="width: 300px; height: 100px; font-size: 16px; -unity-text-outline-color: rgba(0, 0, 0, 0.39); white-space: normal;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
