@@ -78,10 +78,10 @@ public class GameControllerScript : MonoBehaviour
 
     void Update()
     {
-
         ManageHealth();
         ManageXP();
     }
+    
     void ManageHealth()
     {
         if (gameStats.player.PlayerHealth != gameStats.player.PlayerMaxHealth)
