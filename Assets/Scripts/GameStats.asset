@@ -14,37 +14,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whip:
     WhipLevel: 2
-    WhipDamage: 5
+    WhipProjectiles: 1
+    WhipDamage: 6.25
     WhipCooldown: 1
     WhipDelay: 0.1
   bible:
-    BibleLevel: 5
-    BibleDamage: 14
-    BibleCooldown: 4
-    BibleLifetime: 5
+    BibleLevel: 1
+    BibleProjectiles: 1
+    BibleDamage: 5
+    BibleCooldown: 5
+    BibleLifetime: 3
   holyWater:
-    WaterLevel: 6
-    WaterDamage: 0.3
-    WaterCooldown: 6
-    WaterLifetime: 5.5
+    WaterLevel: 1
+    WaterProjectiles: 1
+    WaterDamage: 0.1
+    WaterCooldown: 8
+    WaterLifetime: 4
   throwingKnife:
-    KnifeLevel: 5
-    KnifeDamage: 1
-    KnifeCooldown: 1
+    KnifeLevel: 0
+    KnifeDamage: 5
+    KnifeCooldown: 8
     KnifeDelay: 0.1
     KnifeLifetime: 2
     KnifeSpeed: 2
-    KnifeDurability: 3
+    KnifeDurability: 2
+    KnifeProjectiles: 0
   healingStones:
     HealAmount: 50
     HealLevel: 1
   player:
-    PlayerSpeedLevel: 5
-    PlayerMaxHealthLevel: 5
-    PlayerHealth: 1000
+    PlayerSpeedLevel: 1
+    PlayerMaxHealthLevel: 1
+    PlayerHealth: 965
     PlayerMaxHealth: 1000
     PlayerXP: 0
-    PlayerLevel: 1
+    PlayerLevel: 6
     PlayerSpeed: 5
   enemiesKilled:
     zombies: 0
