@@ -79,9 +79,11 @@
 }
 
 .stats-labels {
-    font-size: 24px;
+    font-size: 18px;
     color: rgb(166, 71, 144);
-    -unity-text-outline-width: 0.7px;
+    -unity-text-outline-width: 0.5px;
+    -unity-font-definition: url('project://database/Assets/Fonts/PixeloidSans-mLxMm%20SDF%201.asset?fileID=11400000&guid=910d95d008997c74b965f673d1dadaec&type=2#PixeloidSans-mLxMm SDF 1');
+    -unity-text-outline-color: rgba(0, 0, 0, 255);
 }
 
 .menu-button:hover {
@@ -95,9 +97,9 @@
     margin-bottom: 20px;
     font-size: 14px;
     -unity-font-definition: url('project://database/Assets/Fonts/PixeloidSans-mLxMm%20SDF%201.asset?fileID=11400000&guid=910d95d008997c74b965f673d1dadaec&type=2#PixeloidSans-mLxMm SDF 1');
-    color: rgba(0, 0, 0, 255);
+    color: rgb(0, 0, 0);
     -unity-text-outline-width: 0;
-    -unity-text-outline-color: rgba(0, 0, 0, 255);
+    -unity-text-outline-color: rgb(0, 0, 0);
 }
 
 .level-button:hover {

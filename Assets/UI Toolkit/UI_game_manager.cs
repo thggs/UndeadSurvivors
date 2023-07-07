@@ -26,11 +26,12 @@ public class UI_game_manager : MonoBehaviour
     private VisualTreeAsset _upgradeButtonsTemplate;
     private VisualElement _upgradeButtons;
 
-    private VisualElement[] _statsNames;
-    private VisualElement[] _statsValues;
-
     private const string POPUP_ANIMATION = "pop-animation-hide";
     private int _mainPopupIndex = -1;
+
+
+    private VisualElement[] _statsNames;
+    private VisualElement[] _statsValues;
 
     private bool stop;
     public Timer timer;
@@ -44,9 +45,6 @@ public class UI_game_manager : MonoBehaviour
         _doc = GetComponent<UIDocument>();
 
         _gameUIWrapper = _doc.rootVisualElement.Q<VisualElement>("GameUI");
-        //_buttonPause = _doc.rootVisualElement.Q<Button>("ButtonPause");
-
-        //_buttonPause.clicked += ButtonPause_clicked;
         
         _buttonsSettings = _settingsTemplate.CloneTree();
 
@@ -63,6 +61,7 @@ public class UI_game_manager : MonoBehaviour
         
 
         //_stats.RegisterCallback<TransitionEndEvent>(Stats_TransitionEnd);
+        
 
         buttonResume.clicked += ButtonResume_clicked;
         buttonSettings.clicked += ButtonSettings_clicked;
@@ -108,7 +107,6 @@ public class UI_game_manager : MonoBehaviour
 
     private void ButtonResume_clicked(){
         _gameUIWrapper.Clear();
-       // _gameUIWrapper.Add(_buttonPause);
         timer.stopTimer(false);
         Time.timeScale = 1;
     }
@@ -161,6 +159,7 @@ public class UI_game_manager : MonoBehaviour
             _stats.Q<Label>("SkeletonsVal").text = gameStats.enemiesKilled.skeletons.ToString("0");
             _stats.Q<Label>("CrawlersVal").text = gameStats.enemiesKilled.crawlers.ToString("0");
             _stats.Q<Label>("TimeVal").text = timer.GetTime();
+            _stats.Q<Label>("PlayerLevelVal").text = gameStats.player.PlayerLevel.ToString("0");
             //_stats.RegisterCallback<TransitionEndEvent>(Stats_TransitionEnd);
             //Stats_TransitionEnd(new TransitionEndEvent());
             //_stats.ToggleInClassList(POPUP_ANIMATION);
@@ -170,13 +169,7 @@ public class UI_game_manager : MonoBehaviour
         }
 
         if(gameStats.player.PlayerXP >= gameStats.player.PlayerLevel * 10 ){
-            
-            //_gameUIWrapper.Clear();
-            //_gameUIWrapper.Add(_upgradeButtons);
-            
-            
             Upgrade();
-
         }
     }
 
