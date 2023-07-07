@@ -46,6 +46,89 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whipSlash: {fileID: 6874216996912360652, guid: 7f23a85039691ac4c93d3508eace77bb, type: 3}
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
+--- !u!1 &756929759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756929760}
+  - component: {fileID: 756929761}
+  - component: {fileID: 756929762}
+  - component: {fileID: 756929763}
+  m_Layer: 0
+  m_Name: XPPickup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756929760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756929759}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6024302167372138854}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &756929761
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756929759}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.5
+--- !u!114 &756929762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756929759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621422a046f978b4a86e641900d0beea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &756929763
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756929759}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1237767972
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knife: {fileID: 4159506740723400896, guid: 9d6ca8faf6e3c5745966ca06c0d9d415, type: 3}
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
-  knifeLevel: 1
+  throwDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &6024302167372138852
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +307,7 @@ Transform:
   - {fileID: 1405115391}
   - {fileID: 1237767973}
   - {fileID: 2851139161737633351}
+  - {fileID: 756929760}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -292,12 +376,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
-  invulnerabilityDuration: 1
   hasWhip: 1
-  hasBible: 0
-  hasHolyWater: 0
+  hasBible: 1
+  hasHolyWater: 1
   hasThrowingKnife: 1
-  healthBoost: 25
 --- !u!61 &6024302167372138776
 BoxCollider2D:
   m_ObjectHideFlags: 0
