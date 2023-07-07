@@ -373,11 +373,15 @@ public class UI_game_manager : MonoBehaviour
     
     public Sprite SelectImage(int option){
         switch(option){
+            case 0: Sprite maxHealthImage = Resources.Load<Sprite>("Images/maxHealth"); return maxHealthImage;
+            case 1: Sprite healthImage = Resources.Load<Sprite>("Images/health"); return healthImage;
+            case 2: Sprite speedImage = Resources.Load<Sprite>("Images/speed"); return speedImage;
+            case 3: Sprite xpRadiusImage = Resources.Load<Sprite>("Images/xpRadius"); return xpRadiusImage;
             case 4: Sprite whipSprite = Resources.Load<Sprite>("Images/whip"); return whipSprite;
             case 5: Sprite bibleSprite = Resources.Load<Sprite>("Images/bible"); return bibleSprite;
             case 6: Sprite holyWaterSprite = Resources.Load<Sprite>("Images/holyWater"); return holyWaterSprite;
             case 7: Sprite knifeSprite = Resources.Load<Sprite>("Images/knife"); return knifeSprite;
-            default: Sprite maxHealthImage = Resources.Load<Sprite>("Images/maxHealth"); return maxHealthImage;
+            default: Sprite maxHealthImagea = Resources.Load<Sprite>("Images/maxHealth"); return maxHealthImagea;
         }
     }
 
