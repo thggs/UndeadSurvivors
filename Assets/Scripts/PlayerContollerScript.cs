@@ -9,6 +9,9 @@ public class PlayerContollerScript : MonoBehaviour
     private GameStats gameStats;
     private bool takingDamage = false;
 
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip pickupSound;
     private Animator animator;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
@@ -23,6 +26,8 @@ public class PlayerContollerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = pickupSound;
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         gameStats.player.PlayerHealth = gameStats.player.PlayerMaxHealth;
@@ -99,6 +104,7 @@ public class PlayerContollerScript : MonoBehaviour
         {
             gameStats.player.PlayerXP++;
             Destroy(collision.gameObject);
+            audioSource.Play();
         }
         if (collision.gameObject.tag == "Health")
         {
@@ -112,6 +118,7 @@ public class PlayerContollerScript : MonoBehaviour
                 gameStats.player.PlayerHealth += gameStats.healingStones.HealAmount;
             }
             Destroy(collision.gameObject);
+            audioSource.Play();
         }
         if (collision.gameObject.tag == "ExitDoor")
         {
