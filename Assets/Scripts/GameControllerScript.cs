@@ -322,11 +322,15 @@ public class GameControllerScript : MonoBehaviour
     {
         switch (option)
         {
+            case 0: Sprite maxHealthImage = Resources.Load<Sprite>("Images/maxHealth"); return maxHealthImage;
+            case 1: Sprite healthImage = Resources.Load<Sprite>("Images/health"); return healthImage;
+            case 2: Sprite speedImage = Resources.Load<Sprite>("Images/speed"); return speedImage;
+            case 3: Sprite xpRadiusImage = Resources.Load<Sprite>("Images/xpRadius"); return xpRadiusImage;
             case 4: Sprite whipSprite = Resources.Load<Sprite>("Images/whip"); return whipSprite;
             case 5: Sprite bibleSprite = Resources.Load<Sprite>("Images/bible"); return bibleSprite;
             case 6: Sprite holyWaterSprite = Resources.Load<Sprite>("Images/holyWater"); return holyWaterSprite;
             case 7: Sprite knifeSprite = Resources.Load<Sprite>("Images/knife"); return knifeSprite;
-            default: Sprite maxHealthImage = Resources.Load<Sprite>("Images/maxHealth"); return maxHealthImage;
+            default: Sprite maxHealthImagea = Resources.Load<Sprite>("Images/maxHealth"); return maxHealthImagea;
         }
     }
 
@@ -344,80 +348,80 @@ public class GameControllerScript : MonoBehaviour
 
         // Assign Values - Player
         // Max Health -> 0
-        maxHealthDictionary.Add(2, "Level 2: Increase Max Health by 10%");
-        maxHealthDictionary.Add(3, "Level 3: Increase Max Health by 10%");
-        maxHealthDictionary.Add(4, "Level 4: Increase Max Health by 10%");
-        maxHealthDictionary.Add(5, "Level 5: Increase Max Health by 10%");
-        maxHealthDictionary.Add(6, "Level 6: Increase Max Health by 10%");
-        maxHealthDictionary.Add(7, "Level 7: Increase Max Health by 10%");
+        maxHealthDictionary.Add(2, "<b>Level 2:</b> Increase Max Health by 10%");
+        maxHealthDictionary.Add(3, "<b>Level 3:</b> Increase Max Health by 10%");
+        maxHealthDictionary.Add(4, "<b>Level 4:</b> Increase Max Health by 10%");
+        maxHealthDictionary.Add(5, "<b>Level 5:</b> Increase Max Health by 10%");
+        maxHealthDictionary.Add(6, "<b>Level 6:</b> Increase Max Health by 10%");
+        maxHealthDictionary.Add(7, "<b>Level 7:</b> Increase Max Health by 10%");
 
         // Health Pickups -> 1
-        healthPickupsDictionary.Add(2, "Level 2: Increase health restored by Pickups 50%");
-        healthPickupsDictionary.Add(3, "Level 3: Increase health restored by Pickups 50%");
-        healthPickupsDictionary.Add(4, "Level 4: Increase health restored by Pickups 50%");
-        healthPickupsDictionary.Add(5, "Level 5: Increase health restored by Pickups 50%");
-        healthPickupsDictionary.Add(6, "Level 6: Increase health restored by Pickups 50%");
-        healthPickupsDictionary.Add(7, "Level 7: Increase health restored by Pickups 50%");
+        healthPickupsDictionary.Add(2, "<b>Level 2:</b> Increase health restored by Pickups 50%");
+        healthPickupsDictionary.Add(3, "<b>Level 3:</b> Increase health restored by Pickups 50%");
+        healthPickupsDictionary.Add(4, "<b>Level 4:</b> Increase health restored by Pickups 50%");
+        healthPickupsDictionary.Add(5, "<b>Level 5:</b> Increase health restored by Pickups 50%");
+        healthPickupsDictionary.Add(6, "<b>Level 6:</b> Increase health restored by Pickups 50%");
+        healthPickupsDictionary.Add(7, "<b>Level 7:</b> Increase health restored by Pickups 50%");
 
         // Player Speed -> 2
-        speedDictionary.Add(2, "Level 2: Increase Player Speed 10%");
-        speedDictionary.Add(3, "Level 3: Increase Player Speed 10%");
-        speedDictionary.Add(4, "Level 4: Increase Player Speed 10%");
-        speedDictionary.Add(5, "Level 5: Increase Player Speed 10%");
-        speedDictionary.Add(6, "Level 6: Increase Player Speed 10%");
-        speedDictionary.Add(7, "Level 7: Increase Player Speed 10%");
+        speedDictionary.Add(2, "<b>Level 2:</b> Increase Player Speed 10%");
+        speedDictionary.Add(3, "<b>Level 3:</b> Increase Player Speed 10%");
+        speedDictionary.Add(4, "<b>Level 4:</b> Increase Player Speed 10%");
+        speedDictionary.Add(5, "<b>Level 5:</b> Increase Player Speed 10%");
+        speedDictionary.Add(6, "<b>Level 6:</b> Increase Player Speed 10%");
+        speedDictionary.Add(7, "<b>Level 7:</b> Increase Player Speed 10%");
 
         // XP Radius -> 3
-        xpRadiusDictionary.Add(2, "Level 2: Increase XP Radius to 1");
-        xpRadiusDictionary.Add(3, "Level 3: Increase XP Radius to 1.5");
-        xpRadiusDictionary.Add(4, "Level 4: Increase XP Radius to 2");
-        xpRadiusDictionary.Add(5, "Level 5: Increase XP Radius to 2.5");
-        xpRadiusDictionary.Add(6, "Level 6: Increase XP Radius to 3");
-        xpRadiusDictionary.Add(7, "Level 7: Increase XP Radius to 3.5");
+        xpRadiusDictionary.Add(2, "<b>Level 2:</b> Increase XP Radius to 1");
+        xpRadiusDictionary.Add(3, "<b>Level 3:</b> Increase XP Radius to 1.5");
+        xpRadiusDictionary.Add(4, "<b>Level 4:</b> Increase XP Radius to 2");
+        xpRadiusDictionary.Add(5, "<b>Level 5:</b> Increase XP Radius to 2.5");
+        xpRadiusDictionary.Add(6, "<b>Level 6:</b> Increase XP Radius to 3");
+        xpRadiusDictionary.Add(7, "<b>Level 7:</b> Increase XP Radius to 3.5");
 
         // Assign Values - Weapons
         // Whip -> 4
-        whipDictionary.Add(2, "Level 2: Increase Whip Damage by 25%");
-        whipDictionary.Add(3, "Level 3: Reduce Whip Cooldown by 20%");
-        whipDictionary.Add(4, "Level 4: Increase Whip Projectiles to 2 and Damage by 25%");
-        whipDictionary.Add(5, "Level 5: Reduce Whip Cooldown by 10%");
-        whipDictionary.Add(6, "Level 6: Increase Whip Damage by 25%");
-        whipDictionary.Add(7, "Level 7: Reduce Whip Cooldown by 10%");
-        whipDictionary.Add(8, "Level 8: Increase Whip Damage by 25%");
-        whipDictionary.Add(9, "Level 9: Increase Whip Damage by 25% and Reduce Whip Cooldown by 10%");
+        whipDictionary.Add(2, "<b>Level 2:</b> Increase Whip Damage by 25%");
+        whipDictionary.Add(3, "<b>Level 3:</b> Reduce Whip Cooldown by 20%");
+        whipDictionary.Add(4, "<b>Level 4:</b> Increase Whip Projectiles to 2 and Damage by 25%");
+        whipDictionary.Add(5, "<b>Level 5:</b> Reduce Whip Cooldown by 10%");
+        whipDictionary.Add(6, "<b>Level 6:</b> Increase Whip Damage by 25%");
+        whipDictionary.Add(7, "<b>Level 7:</b> Reduce Whip Cooldown by 10%");
+        whipDictionary.Add(8, "<b>Level 8:</b> Increase Whip Damage by 25%");
+        whipDictionary.Add(9, "<b>Level 9:</b> Increase Whip Damage by 25% and Reduce Whip Cooldown by 10%");
 
         // Bible -> 5
-        bibleDictionary.Add(1, "Level 1: Unlock Bible Weapon");
-        bibleDictionary.Add(2, "Level 2: Increase Bible Damage by 25%");
-        bibleDictionary.Add(3, "Level 3: Increase Amount of Bibles to 2 and Lifetime by 1s");
-        bibleDictionary.Add(4, "Level 4: Increase Bible Damage by 25%");
-        bibleDictionary.Add(5, "Level 5: Increase Amount of Bibles to 3 and Reduce Cooldown by 1s");
-        bibleDictionary.Add(6, "Level 6: Increase Bible Damage by 25%");
-        bibleDictionary.Add(7, "Level 7: Increase Amount of Bibles to 4 and Lifetime by 1s");
-        bibleDictionary.Add(8, "Level 8: Increase Bible Damage by 25%");
-        bibleDictionary.Add(9, "Level 9: Increase Bible Damage by 25%");
+        bibleDictionary.Add(1, "<b>Level 1:</b> Unlock Bible Weapon");
+        bibleDictionary.Add(2, "<b>Level 2:</b> Increase Bible Damage by 25%");
+        bibleDictionary.Add(3, "<b>Level 3:</b> Increase Amount of Bibles to 2 and Lifetime by 1s");
+        bibleDictionary.Add(4, "<b>Level 4:</b> Increase Bible Damage by 25%");
+        bibleDictionary.Add(5, "<b>Level 5:</b> Increase Amount of Bibles to 3 and Reduce Cooldown by 1s");
+        bibleDictionary.Add(6, "<b>Level 6:</b> Increase Bible Damage by 25%");
+        bibleDictionary.Add(7, "<b>Level 7:</b> Increase Amount of Bibles to 4 and Lifetime by 1s");
+        bibleDictionary.Add(8, "<b>Level 8:</b> Increase Bible Damage by 25%");
+        bibleDictionary.Add(9, "<b>Level 9:</b> Increase Bible Damage by 25%");
 
         // Holy Water -> 6
-        holyWaterDictionary.Add(1, "Level 1: Unlock Holy Water Weapon");
-        holyWaterDictionary.Add(2, "Level 2: Increase Amount of Holy Waters to 2 and Damage by 25%");
-        holyWaterDictionary.Add(3, "Level 3: Increase Holy Water Damage by 25% and Lifetime by 1s");
-        holyWaterDictionary.Add(4, "Level 4: Increase Amount of Holy Waters to 3 and Reduce Cooldown by 1s");
-        holyWaterDictionary.Add(5, "Level 5: Increase Holy Water Damage by 25%");
-        holyWaterDictionary.Add(6, "Level 6: Increase Amount of Holy Waters to 4 and Lifetime by 1s");
-        holyWaterDictionary.Add(7, "Level 7: Increase Amount of Holy Waters to 5 and Reduce Cooldown by 1s");
-        holyWaterDictionary.Add(8, "Level 8: Increase Amount of Holy Waters to 6 and Damage by 25%");
-        holyWaterDictionary.Add(9, "Level 9: Increase Amount of Holy Waters to 7 and Damage by 25%");
+        holyWaterDictionary.Add(1, "<b>Level 1:</b> Unlock Holy Water Weapon");
+        holyWaterDictionary.Add(2, "<b>Level 2:</b>:Increase Amount of Holy Waters to 2 and Damage by 25%");
+        holyWaterDictionary.Add(3, "<b>Level 3:</b> Increase Holy Water Damage by 25% and Lifetime by 1s");
+        holyWaterDictionary.Add(4, "<b>Level 4:</b> Increase Amount of Holy Waters to 3 and Reduce Cooldown by 1s");
+        holyWaterDictionary.Add(5, "<b>Level 5:</b> Increase Holy Water Damage by 25%");
+        holyWaterDictionary.Add(6, "<b>Level 6:</b> Increase Amount of Holy Waters to 4 and Lifetime by 1s");
+        holyWaterDictionary.Add(7, "<b>Level 7:</b> Increase Amount of Holy Waters to 5 and Reduce Cooldown by 1s");
+        holyWaterDictionary.Add(8, "<b>Level 8:</b> Increase Amount of Holy Waters to 6 and Damage by 25%");
+        holyWaterDictionary.Add(9, "<b>Level 9:</b> Increase Amount of Holy Waters to 7 and Damage by 25%");
 
         // Knife -> 7
-        knifeDictionary.Add(1, "Level 1: Unlock Throwing Knifes Weapon");
-        knifeDictionary.Add(2, "Level 2: Increase Amount of Knifes to 2 and Damage by 25%");
-        knifeDictionary.Add(3, "Level 3: Reduce Knifes Cooldown by 1s and Increase Durability to 2");
-        knifeDictionary.Add(4, "Level 4: Increase Amount of Knifes to 3 and Damage by 25%");
-        knifeDictionary.Add(5, "Level 5: Increase Amount of Knifes to 4 Reduce Cooldown by 1s");
-        knifeDictionary.Add(6, "Level 6: Increase Knifes Damage by 25%");
-        knifeDictionary.Add(7, "Level 7: Increase Amount of Knifes to 5 and Damage by 25%");
-        knifeDictionary.Add(8, "Level 8: Reduce Knifes Cooldown by 1s and Increase Durability to 3");
-        knifeDictionary.Add(9, "Level 9: Increase Amount of Knifes to 6 and Damage by 25%");
+        knifeDictionary.Add(1, "<b>Level 1:</b> Unlock Throwing Knifes Weapon");
+        knifeDictionary.Add(2, "<b>Level 2:</b> Increase Amount of Knifes to 2 and Damage by 25%");
+        knifeDictionary.Add(3, "<b>Level 3:</b> Reduce Knifes Cooldown by 1s and Increase Durability to 2");
+        knifeDictionary.Add(4, "<b>Level 4:</b> Increase Amount of Knifes to 3 and Damage by 25%");
+        knifeDictionary.Add(5, "<b>Level 5:</b> Increase Amount of Knifes to 4 Reduce Cooldown by 1s");
+        knifeDictionary.Add(6, "<b>Level 6:</b> Increase Knifes Damage by 25%");
+        knifeDictionary.Add(7, "<b>Level 7:</b> Increase Amount of Knifes to 5 and Damage by 25%");
+        knifeDictionary.Add(8, "<b>Level 8:</b> Reduce Knifes Cooldown by 1s and Increase Durability to 3");
+        knifeDictionary.Add(9, "<b>Level 9:</b> Increase Amount of Knifes to 6 and Damage by 25%");
 
         // Add Dictionaries to list of dictionaries
         dictionariesList.Add(maxHealthDictionary);              //  -> 0
