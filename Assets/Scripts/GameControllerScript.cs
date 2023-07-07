@@ -62,7 +62,7 @@ public class GameControllerScript : MonoBehaviour
         gameStats.holyWater.WaterLifetime = 4;
 
         gameStats.throwingKnife.KnifeLevel = 0;
-        gameStats.throwingKnife.KnifeCooldown = 8;
+        gameStats.throwingKnife.KnifeCooldown = 6;
         gameStats.throwingKnife.KnifeDamage = 5;
         gameStats.throwingKnife.KnifeProjectiles = 0;
     }
@@ -301,12 +301,12 @@ public class GameControllerScript : MonoBehaviour
                 {
                     case 1: gameStats.throwingKnife.KnifeProjectiles = 1; break;
                     case 2: gameStats.throwingKnife.KnifeProjectiles = 2; gameStats.throwingKnife.KnifeDamage = 6.25f; break;
-                    case 3: gameStats.throwingKnife.KnifeCooldown = 7; gameStats.throwingKnife.KnifeDurability = 2; break;
+                    case 3: gameStats.throwingKnife.KnifeCooldown = 5; gameStats.throwingKnife.KnifeDurability = 2; break;
                     case 4: gameStats.throwingKnife.KnifeProjectiles = 3; gameStats.throwingKnife.KnifeDamage = 8; break;
-                    case 5: gameStats.throwingKnife.KnifeProjectiles = 4; gameStats.throwingKnife.KnifeCooldown = 6; break;
+                    case 5: gameStats.throwingKnife.KnifeProjectiles = 4; gameStats.throwingKnife.KnifeCooldown = 4; break;
                     case 6: gameStats.throwingKnife.KnifeDamage = 10.0f; break;
                     case 7: gameStats.throwingKnife.KnifeProjectiles = 5; gameStats.throwingKnife.KnifeDamage = 12.5f; break;
-                    case 8: gameStats.throwingKnife.KnifeCooldown = 5; gameStats.throwingKnife.KnifeDurability = 3; break;
+                    case 8: gameStats.throwingKnife.KnifeCooldown = 3; gameStats.throwingKnife.KnifeDurability = 3; break;
                     case 9: gameStats.throwingKnife.KnifeProjectiles = 6; gameStats.throwingKnife.KnifeDamage = 16.0f; break;
                 }
                 Debug.Log("Level Up Knife");
@@ -403,7 +403,7 @@ public class GameControllerScript : MonoBehaviour
 
         // Holy Water -> 6
         holyWaterDictionary.Add(1, "<b>Level 1:</b> Unlock Holy Water Weapon");
-        holyWaterDictionary.Add(2, "<b>Level 2:</b>:Increase Amount of Holy Waters to 2 and Damage by 25%");
+        holyWaterDictionary.Add(2, "<b>Level 2:</b> Increase Amount of Holy Waters to 2 and Damage by 25%");
         holyWaterDictionary.Add(3, "<b>Level 3:</b> Increase Holy Water Damage by 25% and Lifetime by 1s");
         holyWaterDictionary.Add(4, "<b>Level 4:</b> Increase Amount of Holy Waters to 3 and Reduce Cooldown by 1s");
         holyWaterDictionary.Add(5, "<b>Level 5:</b> Increase Holy Water Damage by 25%");
