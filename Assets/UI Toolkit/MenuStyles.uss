@@ -85,5 +85,25 @@
 }
 
 .menu-button:hover {
-    color: rgba(103, 47, 90, 255);
+    color: rgb(103, 47, 90);
+}
+
+.level-button {
+    background-image: url('project://database/Assets/Sprites/Btn_Border_purple.png?fileID=495627470&guid=bc3d59405dd0eda459222a5a7f808c5d&type=3#Btn_Border_purple_0');
+    -unity-background-scale-mode: stretch-to-fill;
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: 20px;
+    font-size: 14px;
+    -unity-font-definition: url('project://database/Assets/Fonts/PixeloidSans-mLxMm%20SDF%201.asset?fileID=11400000&guid=910d95d008997c74b965f673d1dadaec&type=2#PixeloidSans-mLxMm SDF 1');
+    color: rgba(0, 0, 0, 255);
+    -unity-text-outline-width: 0;
+    -unity-text-outline-color: rgba(0, 0, 0, 255);
+}
+
+.level-button:hover {
+    color: rgb(107, 0, 128);
+    font-size: 16px;
+    transition-duration: 0s;
+    transition-property: all;
+    transition-timing-function: ease;
 }
