@@ -105,7 +105,9 @@ public class GameStats : ScriptableObject
     [System.Serializable]
     public class Boss
     {
+        public float BossMaxHealth;
         public float BossDamage;
+        public float BossProjectileDamage;
         public float BossSpeed;
         public float BossSlowSpeed;
         public float BossMinDistance;

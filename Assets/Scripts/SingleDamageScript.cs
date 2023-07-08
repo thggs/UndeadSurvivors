@@ -16,15 +16,23 @@ public class SingleDamageScript : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        GameObject enemy = other.gameObject;
+        GameObject otherGameObject = other.gameObject;
         if(other.tag == "Enemy")
         {
-            enemy.GetComponent<EnemyControllerScript>().TakeDamage(damage);
+            otherGameObject.GetComponent<EnemyControllerScript>().TakeDamage(damage);
             if(hasDurability)
             {
                 durability--;
             }
-        } else if(other.tag == "Untagged" && hasDurability)
+        }else if(other.tag == "Boss")
+        {
+            otherGameObject.GetComponent<BossControllerScript>().TakeDamage(damage);
+            if(hasDurability)
+            {
+                durability--;
+            }
+        } 
+        else if(other.tag == "Untagged" && hasDurability)
         {
             Destroy(gameObject);
         }

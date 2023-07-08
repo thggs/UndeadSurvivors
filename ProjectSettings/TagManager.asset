@@ -11,6 +11,7 @@ TagManager:
   - ExitDoor
   - EnterDoor
   - Boss
+  - Projectile
   layers:
   - Default
   - TransparentFX

@@ -66,6 +66,7 @@ public class GameControllerScript : MonoBehaviour
         gameStats.throwingKnife.KnifeDamage = 5;
         gameStats.throwingKnife.KnifeProjectiles = 0;
 
+        gameStats.boss.BossMaxHealth = 500;
         gameStats.boss.BossDamage = 10;
         gameStats.boss.BossSpeed = 3;
         gameStats.boss.BossSlowSpeed = 0;

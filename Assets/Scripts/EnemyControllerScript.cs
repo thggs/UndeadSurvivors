@@ -22,7 +22,6 @@ public class EnemyControllerScript : MonoBehaviour
     private Animator animator;
 
     private Vector3 posLastFrame;
-    private Vector2 posThisFrame;
 
     NavMeshAgent agent;
 
@@ -143,14 +142,9 @@ public class EnemyControllerScript : MonoBehaviour
             {
                 agent.destination = playerTransform.position;
 
-                posLastFrame = posThisFrame;
-
-                posThisFrame = transform.position;
-
-
-                if (posThisFrame.x > posLastFrame.x)
+                if (playerTransform.position.x > transform.position.x)
                     transform.eulerAngles = new Vector3(0, 0, 0);
-                if (posThisFrame.x < posLastFrame.x)
+                if (playerTransform.position.x < transform.position.x)
                     transform.eulerAngles = new Vector3(0, 180, 0);
             }
         }

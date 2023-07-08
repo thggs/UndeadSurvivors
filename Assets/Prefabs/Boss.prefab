@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7849653070635351191}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 1352173557
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1949469858, guid: 3b004beeb9e20b74d95c097ca5f83d75, type: 3}
+  m_Sprite: {fileID: -649046386, guid: 35a47a2fa48270242981788f0d75459b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,21 +99,21 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.016482353, y: -0.09586382}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 1.92}
+    pivot: {x: 0.33333334, y: 0.30526316}
+    oldSize: {x: 1.9, y: 3.1666667}
     newSize: {x: 1.92, y: 1.92}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.92, y: 1.92}
+  m_Size: {x: 1.2371464, y: 1.7282724}
   m_EdgeRadius: 0
 --- !u!50 &7203809474188964416
 Rigidbody2D:
@@ -192,8 +192,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingInterval: 2
-  invokerPrefab: {fileID: 6304165670221556739, guid: 36be0f9fa425dbc44973110f06520810, type: 3}
+  projectile: {fileID: 6304165670221556739, guid: 36be0f9fa425dbc44973110f06520810, type: 3}
   playerTransform: {fileID: 0}
+  isInRange: 0
   portalSpawnInterval: 5
   portalPrefab: {fileID: 3364439275340702866, guid: eaec395d97b759f4fa40e81cd9c0ad09, type: 3}
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
+  isWarping: 0
