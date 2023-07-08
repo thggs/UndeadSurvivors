@@ -12,12 +12,6 @@ public class Invoker_Script : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void Shoot()
     {
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);

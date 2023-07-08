@@ -65,6 +65,11 @@ public class GameControllerScript : MonoBehaviour
         gameStats.throwingKnife.KnifeCooldown = 6;
         gameStats.throwingKnife.KnifeDamage = 5;
         gameStats.throwingKnife.KnifeProjectiles = 0;
+
+        gameStats.boss.BossDamage = 10;
+        gameStats.boss.BossSpeed = 3;
+        gameStats.boss.BossSlowSpeed = 0;
+        gameStats.boss.BossMinDistance = 5;
     }
 
     // Start is called before the first frame update
