@@ -271,8 +271,6 @@ public class UI_game_manager : MonoBehaviour
         imageButton2.style.backgroundImage = styleBackground2;
         imageButton3.style.backgroundImage = styleBackground3;
 
-        
-
         upgradeButton1.clicked += upgradeButton1_clicked;
         upgradeButton2.clicked += upgradeButton2_clicked;
         upgradeButton3.clicked += upgradeButton3_clicked;

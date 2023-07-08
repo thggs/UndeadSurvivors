@@ -71,6 +71,13 @@ public class GameControllerScript : MonoBehaviour
         gameStats.boss.BossSpeed = 3;
         gameStats.boss.BossSlowSpeed = 0;
         gameStats.boss.BossMinDistance = 5;
+
+        // WAVE STATS
+        waveStats.wave1Time = 30.0f;
+        waveStats.wave2Time = 30.0f;
+        waveStats.wave3Time = 30.0f;
+        waveStats.wave4Time = 120.0f;
+        waveStats.wave5Time = 120.0f;
     }
 
     // Start is called before the first frame update
@@ -172,10 +179,38 @@ public class GameControllerScript : MonoBehaviour
 
     }
 
+    private GameObject[] SelectWave()
+    {
+        float currentTime = Time.time;
+        
+        if (currentTime <= waveStats.wave1Time)
+        {
+            return waveStats.wave1;
+        }
+        else if (currentTime <= (waveStats.wave1Time + waveStats.wave2Time))
+        {
+            return waveStats.wave2;
+        }
+        else if (currentTime <= (waveStats.wave1Time + waveStats.wave2Time + waveStats.wave3Time))
+        {
+            return waveStats.wave3;
+        }
+        else if (currentTime <= (waveStats.wave1Time + waveStats.wave2Time + waveStats.wave3Time + waveStats.wave4Time))
+        {
+            return waveStats.wave4;
+        }
+        else
+        {
+            return waveStats.wave5;
+        }
+    }
+
     private IEnumerator Spawn()
     {
         if (spawnEnemies)
         {
+            GameObject[] wave = SelectWave();
+
             float randomX = Random.Range(-0.1f, 0.1f);
             float randomY = Random.Range(-0.1f, 0.1f);
             if (randomX >= 0)
@@ -190,9 +225,10 @@ public class GameControllerScript : MonoBehaviour
             Vector3 spawnPosition = camera.ViewportToWorldPoint(new Vector3(randomX, randomY, camera.nearClipPlane));
             NavMeshHit hit;
             NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
-
-            int index = Random.Range(0, waveStats.wave1.Length);
-            GameObject enemy = Instantiate(waveStats.wave1[index], hit.position, Quaternion.identity);
+            // select one enemy and instantiate it from list of wave 1
+            int index = Random.Range(0, wave.Length);
+            GameObject enemy = Instantiate(wave[index], hit.position, Quaternion.identity);
+            // add gameStats to generated enemy
             enemy.GetComponent<EnemyControllerScript>().gameStats = gameStats;
         }
         yield return new WaitForSeconds(timeBetweenSpawns);
