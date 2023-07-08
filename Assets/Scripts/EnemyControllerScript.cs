@@ -119,8 +119,7 @@ public class EnemyControllerScript : MonoBehaviour
             case "Wraith(Clone)":
                 gameStats.enemiesKilled.wraiths++;
                 break;
-            case "Red_Death":
-                break;
+            default: break;
         }
 
         if (Random.value <= healthProbability)

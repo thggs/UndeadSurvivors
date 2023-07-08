@@ -20,8 +20,8 @@ public class GameControllerScript : MonoBehaviour
     public float timeBetweenSpawns;
     private WaitForSeconds timeBetweenSpawnsWFS;
 
-    public HealthBar health;
-    public XpBar xp;
+    //public HealthBar health;
+    //public XpBar xp;
     public Button upgradeButton1;
     public Button upgradeButton2;
     public Button upgradeButton3;
@@ -76,7 +76,7 @@ public class GameControllerScript : MonoBehaviour
     void Start()
     {
         Dictionaries();
-        upgradeButton1.onClick.RemoveAllListeners();
+        //upgradeButton1.onClick.RemoveAllListeners();
 
         StartCoroutine(Spawn());
     }

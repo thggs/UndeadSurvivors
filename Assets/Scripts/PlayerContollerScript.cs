@@ -100,26 +100,6 @@ public class PlayerContollerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Experience")
-        {
-            gameStats.player.PlayerXP++;
-            Destroy(collision.gameObject);
-            audioSource.Play();
-        }
-        if (collision.gameObject.tag == "Health")
-        {
-            // if hp after boost is over limit set hp to limit
-            if (gameStats.player.PlayerHealth + gameStats.healingStones.HealAmount > gameStats.player.PlayerMaxHealth)
-            {
-                gameStats.player.PlayerHealth = gameStats.player.PlayerMaxHealth;
-            }
-            else
-            {
-                gameStats.player.PlayerHealth += gameStats.healingStones.HealAmount;
-            }
-            Destroy(collision.gameObject);
-            audioSource.Play();
-        }
         if (collision.gameObject.tag == "ExitDoor")
         {
             SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);

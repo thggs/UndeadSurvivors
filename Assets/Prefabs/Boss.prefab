@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7849653070635351191}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,12 +191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa41f41ddd1ca214fab6164407f1c38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
   shootingInterval: 2
   invokerPrefab: {fileID: 6304165670221556739, guid: 36be0f9fa425dbc44973110f06520810, type: 3}
   playerTransform: {fileID: 0}
-  minDistanceToPlayer: 5
-  slowMoveSpeed: 1
   portalSpawnInterval: 5
   portalPrefab: {fileID: 3364439275340702866, guid: eaec395d97b759f4fa40e81cd9c0ad09, type: 3}
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
