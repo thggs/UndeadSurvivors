@@ -15,7 +15,6 @@ public class GameControllerScript : MonoBehaviour
     public new Camera camera;
     public bool spawnEnemies;
     public float timeBetweenSpawns;
-    private WaitForSeconds timeBetweenSpawnsWFS;
 
     void Awake()
     {
