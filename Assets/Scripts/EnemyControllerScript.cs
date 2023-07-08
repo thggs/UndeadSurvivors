@@ -15,7 +15,7 @@ public class EnemyControllerScript : MonoBehaviour
     public GameObject experience;
     public GameObject health;
     private float healthProbability = 0.05f;
-    private float xpProbability = 0.80f;
+    private float xpProbability = 0.75f;
 
     private bool isDead = false;
 
