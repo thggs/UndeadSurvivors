@@ -91,8 +91,18 @@ public class PlayerContollerScript : MonoBehaviour
         }
         if(collision.tag == "Projectile")
         {
-            gameStats.player.PlayerHealth -= gameStats.boss.BossProjectileDamage;
+            gameStats.player.PlayerHealth -= collision.GetComponent<ProjectileController>().damage;
             Destroy(collision.gameObject);
+
+            if (gameStats.player.PlayerHealth <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                takingDamage = true;
+                sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 0.5f);
+            }
         }
     }
 

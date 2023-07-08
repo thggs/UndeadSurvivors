@@ -71,6 +71,7 @@ public class GameControllerScript : MonoBehaviour
         gameStats.boss.BossSpeed = 3;
         gameStats.boss.BossSlowSpeed = 0;
         gameStats.boss.BossMinDistance = 5;
+        gameStats.boss.BossProjectileDamage = 50;
 
         // WAVE STATS
         waveStats.wave1Time = 30.0f;

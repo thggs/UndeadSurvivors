@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class BossControllerScript : MonoBehaviour
 {
-    public float shootingInterval = 2f;          // Interval between each projectile shot
+    public float shootingInterval = 10f;          // Interval between each projectile shot
     public GameObject projectile;             // Prefab of the projectile
     public Transform playerTransform;            // Reference to the player's transform
 
@@ -101,11 +101,12 @@ public class BossControllerScript : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        Vector3 offset = new Vector3(1.76f, 0.57f, 0);
         if(isInRange)
         {
-            Debug.Log("Shooting");
-            GameObject projectileInstance = Instantiate(projectile, transform.position + Vector3.forward, Quaternion.identity);
+            GameObject projectileInstance = Instantiate(projectile, transform.position + offset, Quaternion.identity);
             projectile.GetComponent<ProjectileController>().playerTransform = playerTransform;
+            projectile.GetComponent<ProjectileController>().damage = gameStats.boss.BossProjectileDamage;
             anim.SetTrigger("shoot");
         }
 
