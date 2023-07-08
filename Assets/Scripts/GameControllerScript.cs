@@ -12,13 +12,10 @@ public class GameControllerScript : MonoBehaviour
     private Slider healthSlider, xpSlider;
     public GameStats gameStats;
     public WaveStats waveStats;
-    public GameObject[] enemyList;
     public new Camera camera;
     public bool spawnEnemies;
     public float timeBetweenSpawns;
     private WaitForSeconds timeBetweenSpawnsWFS;
-
-    public List<Dictionary<int, string>> dictionariesList = new List<Dictionary<int, string>>();
 
     void Awake()
     {
@@ -96,11 +93,10 @@ public class GameControllerScript : MonoBehaviour
         gameStats.boss.BossMinDistance = 5;
 
         // WAVE STATS
-        waveStats.wave1Time = 30.0f;
-        waveStats.wave2Time = 30.0f;
-        waveStats.wave3Time = 30.0f;
-        waveStats.wave4Time = 120.0f;
-        waveStats.wave5Time = 120.0f;
+        waveStats.wave1Time = 120.0f;
+        waveStats.wave2Time = 240.0f;
+        waveStats.wave3Time = 240.0f;
+        waveStats.wave4Time = 300.0f;
     }
 
     // Start is called before the first frame update
