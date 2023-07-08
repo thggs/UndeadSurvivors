@@ -30,7 +30,7 @@ public class EnemyControllerScript : MonoBehaviour
     {
         sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         enemyMaxDistance = 25;
-        if(gameStats.player.PlayerHealth > 0){playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();}
+        if (gameStats.player.PlayerHealth > 0) { playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); }
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -72,7 +72,8 @@ public class EnemyControllerScript : MonoBehaviour
 
     void Update()
     {
-        if(gameStats.player.PlayerHealth > 0){
+        if (gameStats.player.PlayerHealth > 0)
+        {
             if (!isDead)
             {
                 if (Vector3.Distance(playerTransform.position, transform.position) > enemyMaxDistance)
@@ -84,16 +85,6 @@ public class EnemyControllerScript : MonoBehaviour
                     isDead = true;
                     Die();
                 }
-
-                if (oldHealth > currentHealth)
-                {
-                    sprite.color = new Color(1, 1, 1, 0.5f);
-                }
-                else
-                {
-                    sprite.color = new Color(1, 1, 1, 1);
-                }
-                oldHealth = currentHealth;
             }
         }
 
@@ -136,7 +127,18 @@ public class EnemyControllerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(gameStats.player.PlayerHealth > 0){
+        if (oldHealth > currentHealth)
+        {
+            sprite.color = new Color(1, 1, 1, 0.5f);
+        }
+        else
+        {
+            sprite.color = new Color(1, 1, 1, 1);
+        }
+        oldHealth = currentHealth;
+
+        if (gameStats.player.PlayerHealth > 0)
+        {
             if (!isDead)
             {
                 agent.destination = playerTransform.position;
@@ -152,7 +154,7 @@ public class EnemyControllerScript : MonoBehaviour
                     transform.eulerAngles = new Vector3(0, 180, 0);
             }
         }
-       
+
     }
 
     public void TakeDamage(float damage)

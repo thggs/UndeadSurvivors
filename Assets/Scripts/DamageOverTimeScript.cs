@@ -6,10 +6,14 @@ public class DamageOverTimeScript : MonoBehaviour
 {
     public float damage;
     private void OnTriggerStay2D(Collider2D other) {
-        GameObject enemy = other.gameObject;
+        GameObject otherGameObject = other.gameObject;
         if(other.tag == "Enemy")
         {
-            enemy.GetComponent<EnemyControllerScript>().TakeDamage(damage);
+            otherGameObject.GetComponent<EnemyControllerScript>().TakeDamage(damage);
+        }
+        else if(other.tag == "Boss")
+        {
+            otherGameObject.GetComponent<BossControllerScript>().TakeDamage(damage);
         }
     }
 }

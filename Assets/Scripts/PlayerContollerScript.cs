@@ -37,8 +37,8 @@ public class PlayerContollerScript : MonoBehaviour
     void Update()
     {
         input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0.0f).normalized;
-        
-        if(!takingDamage)
+
+        if (!takingDamage)
         {
             sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
         }
@@ -75,7 +75,7 @@ public class PlayerContollerScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.tag == "Enemy")
         {
             gameStats.player.PlayerHealth -= collision.GetComponent<EnemyControllerScript>().damage;
 
@@ -89,10 +89,16 @@ public class PlayerContollerScript : MonoBehaviour
                 sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 0.5f);
             }
         }
+        if(collision.tag == "Projectile")
+        {
+            gameStats.player.PlayerHealth -= gameStats.boss.BossProjectileDamage;
+            Destroy(collision.gameObject);
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D other) {
-        if(other.gameObject.tag == "Enemy")
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
         {
             takingDamage = false;
         }
@@ -100,11 +106,11 @@ public class PlayerContollerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "ExitDoor")
+        if (collision.tag == "ExitDoor")
         {
             SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
         }
-        if (collision.gameObject.tag == "EnterDoor")
+        if (collision.tag == "EnterDoor")
         {
             SceneManager.LoadScene("HouseScene", LoadSceneMode.Single);
         }
