@@ -15,6 +15,7 @@ public class EnemyControllerScript : MonoBehaviour
     public GameObject experience;
     public GameObject health;
     private float healthProbability = 0.05f;
+    private float xpProbability = 0.80f;
 
     private bool isDead = false;
 
@@ -23,7 +24,7 @@ public class EnemyControllerScript : MonoBehaviour
 
     private Vector3 posLastFrame;
 
-    NavMeshAgent agent;
+    private NavMeshAgent agent;
 
     void Start()
     {
@@ -45,26 +46,32 @@ public class EnemyControllerScript : MonoBehaviour
             case "Zombie2(Clone)":
                 currentHealth = gameStats.zombie.MaxHealth;
                 damage = gameStats.zombie.Damage;
+                agent.speed = gameStats.zombie.Speed;
                 break;
             case "Bat(Clone)":
                 currentHealth = gameStats.bat.MaxHealth;
                 damage = gameStats.bat.Damage;
+                agent.speed = gameStats.bat.Speed;
                 break;
             case "Skeleton(Clone)":
                 currentHealth = gameStats.skeleton.MaxHealth;
                 damage = gameStats.skeleton.Damage;
+                agent.speed = gameStats.skeleton.Speed;
                 break;
             case "Crawler(Clone)":
                 currentHealth = gameStats.crawler.MaxHealth;
                 damage = gameStats.crawler.Damage;
+                agent.speed = gameStats.crawler.Speed;
                 break;
             case "Wraith(Clone)":
                 currentHealth = gameStats.wraith.MaxHealth;
                 damage = gameStats.wraith.Damage;
+                agent.speed = gameStats.wraith.Speed;
                 break;
-            case "Red_Death":
-                currentHealth = gameStats.wraith.MaxHealth;
-                damage = gameStats.wraith.Damage;
+            case "Flying_Eye(Clone)":
+                currentHealth = gameStats.flyingEye.MaxHealth;
+                damage = gameStats.flyingEye.MaxHealth;
+                agent.speed = gameStats.flyingEye.Speed;
                 break;
         }
     }
@@ -109,14 +116,18 @@ public class EnemyControllerScript : MonoBehaviour
             case "Wraith(Clone)":
                 gameStats.enemiesKilled.wraiths++;
                 break;
+            case "Flying_Eye(Clone)":
+                gameStats.enemiesKilled.flyingEyes++;
+                break;
             default: break;
         }
 
-        if (Random.value <= healthProbability)
+        float value = Random.value;
+        if (value <= healthProbability)
         {
             Instantiate(health, transform.position, transform.rotation);
         }
-        else
+        else if(value <= xpProbability)
         {
             Instantiate(experience, transform.position, transform.rotation);
         }
