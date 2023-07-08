@@ -51,11 +51,13 @@ public class SoundtrackControllerScript : MonoBehaviour
             }
         }
         lastPlayerLevel = currentPlayerLevel;
+
+        
     }
 
     IEnumerator Jukebox()
     {
-        yield return new WaitForSeconds(source.clip.length);
+        yield return new WaitForSecondsRealtime(source.clip.length);
         if (trackQueue.Count != 1)
         {
             source.clip = trackQueue[1];
