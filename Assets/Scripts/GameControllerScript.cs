@@ -74,7 +74,7 @@ public class GameControllerScript : MonoBehaviour
 
         gameStats.bat.Damage = 1;
         gameStats.bat.MaxHealth = 5;
-        gameStats.bat.Speed = 2.5f;
+        gameStats.bat.Speed = 2.25f;
 
         gameStats.skeleton.Damage = 2;
         gameStats.skeleton.MaxHealth = 10;
