@@ -10,8 +10,6 @@ public class GameControllerScript : MonoBehaviour
 {
     [SerializeField]
     private Slider healthSlider, xpSlider;
-    [SerializeField]
-    private GameObject upgradePanel;
     public GameStats gameStats;
     public WaveStats waveStats;
     public GameObject[] enemyList;
@@ -20,65 +18,48 @@ public class GameControllerScript : MonoBehaviour
     public float timeBetweenSpawns;
     private WaitForSeconds timeBetweenSpawnsWFS;
 
-    //public HealthBar health;
-    //public XpBar xp;
-    public Button upgradeButton1;
-    public Button upgradeButton2;
-    public Button upgradeButton3;
-
     public List<Dictionary<int, string>> dictionariesList = new List<Dictionary<int, string>>();
 
     void Awake()
     {
-        gameStats.player.PlayerHealth = 1000;
-        gameStats.player.PlayerMaxHealth = 1000;
-        gameStats.player.PlayerXP = 0;
-        gameStats.player.PlayerLevel = 1;
-        gameStats.player.PlayerSpeed = 5;
-        gameStats.player.PlayerSpeedLevel = 1;
-        gameStats.player.PlayerPickupRadius = 0.5f;
-        gameStats.player.PlayerMaxHealthLevel = 1;
-        gameStats.player.PlayerPickupLevel = 1;
-
-        gameStats.healingStones.HealAmount = 50;
-        gameStats.healingStones.HealLevel = 1;
-
         gameStats.whip.WhipLevel = 1;
         gameStats.whip.WhipCooldown = 1;
         gameStats.whip.WhipDamage = 5;
         gameStats.whip.WhipProjectiles = 1;
         gameStats.whip.WhipDelay = 0.1f;
 
-        gameStats.bible.BibleProjectiles = 0;
         gameStats.bible.BibleLevel = 0;
+        gameStats.bible.BibleProjectiles = 0;
         gameStats.bible.BibleDamage = 5;
         gameStats.bible.BibleCooldown = 5;
         gameStats.bible.BibleLifetime = 3;
 
-        gameStats.holyWater.WaterProjectiles = 0;
         gameStats.holyWater.WaterLevel = 0;
+        gameStats.holyWater.WaterProjectiles = 0;
         gameStats.holyWater.WaterDamage = 0.1f;
         gameStats.holyWater.WaterCooldown = 8;
         gameStats.holyWater.WaterLifetime = 4;
 
         gameStats.throwingKnife.KnifeLevel = 0;
-        gameStats.throwingKnife.KnifeCooldown = 6;
         gameStats.throwingKnife.KnifeDamage = 5;
+        gameStats.throwingKnife.KnifeCooldown = 6;
+        gameStats.throwingKnife.KnifeDelay = 0.1f;
+        gameStats.throwingKnife.KnifeLifetime = 2;
+        gameStats.throwingKnife.KnifeDurability = 2;
         gameStats.throwingKnife.KnifeProjectiles = 0;
 
-        gameStats.boss.BossMaxHealth = 500;
-        gameStats.boss.BossDamage = 10;
-        gameStats.boss.BossSpeed = 3;
-        gameStats.boss.BossSlowSpeed = 0;
-        gameStats.boss.BossMinDistance = 5;
-        gameStats.boss.BossProjectileDamage = 50;
+        gameStats.healingStones.HealAmount = 50;
+        gameStats.healingStones.HealLevel = 1;
 
-        // WAVE STATS
-        waveStats.wave1Time = 30.0f;
-        waveStats.wave2Time = 30.0f;
-        waveStats.wave3Time = 30.0f;
-        waveStats.wave4Time = 120.0f;
-        waveStats.wave5Time = 120.0f;
+        gameStats.player.PlayerLevel = 1;
+        gameStats.player.PlayerSpeedLevel = 1;
+        gameStats.player.PlayerMaxHealthLevel = 1;
+        gameStats.player.PlayerPickupLevel = 1;
+        gameStats.player.PlayerHealth = 1000;
+        gameStats.player.PlayerMaxHealth = 1000;
+        gameStats.player.PlayerXP = 0;
+        gameStats.player.PlayerSpeed = 5;
+        gameStats.player.PlayerPickupRadius = 0.5f;
 
         gameStats.enemiesKilled.zombies = 0;
         gameStats.enemiesKilled.bats = 0;
@@ -86,6 +67,40 @@ public class GameControllerScript : MonoBehaviour
         gameStats.enemiesKilled.crawlers = 0;
         gameStats.enemiesKilled.wraiths = 0;
         gameStats.enemiesKilled.flyingEyes = 0;
+
+        gameStats.zombie.Damage = 1;
+        gameStats.zombie.MaxHealth = 5;
+        gameStats.zombie.Speed = 1;
+
+        gameStats.bat.Damage = 1;
+        gameStats.bat.MaxHealth = 5;
+        gameStats.bat.Speed = 2.5f;
+
+        gameStats.skeleton.Damage = 2;
+        gameStats.skeleton.MaxHealth = 10;
+        gameStats.skeleton.Speed = 1.5f;
+
+        gameStats.crawler.Damage = 1;
+        gameStats.crawler.MaxHealth = 5;
+        gameStats.crawler.Speed = 3;
+
+        gameStats.wraith.Damage = 3;
+        gameStats.wraith.MaxHealth = 15;
+        gameStats.wraith.Speed = 2;
+
+        gameStats.boss.BossMaxHealth = 500;
+        gameStats.boss.BossDamage = 10;
+        gameStats.boss.BossProjectileDamage = 50;
+        gameStats.boss.BossSpeed = 3;
+        gameStats.boss.BossSlowSpeed = 0;
+        gameStats.boss.BossMinDistance = 5;
+
+        // WAVE STATS
+        waveStats.wave1Time = 30.0f;
+        waveStats.wave2Time = 30.0f;
+        waveStats.wave3Time = 30.0f;
+        waveStats.wave4Time = 120.0f;
+        waveStats.wave5Time = 120.0f;
     }
 
     // Start is called before the first frame update
