@@ -225,6 +225,8 @@ public class UI_game_manager : MonoBehaviour
             upgrades.Remove(1);
         if(gameStats.player.PlayerSpeedLevel == 7)
             upgrades.Remove(2);
+        if(gameStats.player.PlayerPickupLevel == 7)
+            upgrades.Remove(3);
         if(gameStats.whip.WhipLevel == 9)
             upgrades.Remove(4);
         if(gameStats.bible.BibleLevel == 9)
