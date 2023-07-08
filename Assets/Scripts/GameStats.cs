@@ -101,4 +101,14 @@ public class GameStats : ScriptableObject
     public Enemy crawler = new Enemy();
     public Enemy wraith = new Enemy();
     public Enemy flyingEye = new Enemy();
+
+    [System.Serializable]
+    public class Boss
+    {
+        public float BossDamage;
+        public float BossSpeed;
+        public float BossSlowSpeed;
+        public float BossMinDistance;
+    }
+    public Boss boss = new Boss();
 }

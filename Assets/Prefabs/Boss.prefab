@@ -12,12 +12,11 @@ GameObject:
   - component: {fileID: 3592433116158811351}
   - component: {fileID: 7421282868553461030}
   - component: {fileID: 7203809474188964416}
-  - component: {fileID: 2980601538737773150}
   - component: {fileID: 1600064357384306938}
   - component: {fileID: 8642434115590278339}
   - component: {fileID: 7849653070635351191}
   m_Layer: 0
-  m_Name: Red_Death
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,23 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2980601538737773150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8149854960833936020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762cd9846e79d0c4d97616f27f9264fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyMaxDistance: 0
-  gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
-  damage: 1000
-  experience: {fileID: 5200834147571809480, guid: 6bda73dc8a131574e8b0440bc6e8fff4, type: 3}
-  health: {fileID: 1194675192985132878, guid: f7926a5fb2985e1419f743d2b81340ed, type: 3}
 --- !u!195 &1600064357384306938
 NavMeshAgent:
   m_ObjectHideFlags: 0
