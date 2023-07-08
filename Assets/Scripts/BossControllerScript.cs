@@ -12,8 +12,6 @@ public class BossControllerScript : MonoBehaviour
     [SerializeField]
     private bool isInRange = false;              // Flag to indicate if enemy is within shootissng range
     private NavMeshAgent navMeshAgent;           // Reference to the NavMeshAgent component
-    public float portalSpawnInterval = 5f;
-    public GameObject portalPrefab;
     public GameStats gameStats;
     private Animator anim;
     private float health;
