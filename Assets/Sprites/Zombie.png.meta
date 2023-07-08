@@ -101,105 +101,101 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CorpseWalkerIdleSide_0
+      name: Zombie_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 10
+        width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5, y: -8}
-        - {x: -5, y: 8}
-        - {x: 5, y: 8}
-        - {x: 5, y: -8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd135607ab8dbba4285df32b66342dda
-      internalID: 2080933729
+      spriteID: 17482caee05359e4993076f2d9972a9e
+      internalID: -1342911573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CorpseWalkerIdleSide_1
+      name: Zombie_1
       rect:
         serializedVersion: 2
-        x: 19
+        x: 16
         y: 0
-        width: 10
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5, y: -7.5}
-        - {x: -5, y: 7.5}
-        - {x: 5, y: 7.5}
-        - {x: 5, y: -7.5}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0824141474b72a549902e86b331037f9
-      internalID: 1251957545
+      spriteID: 7f4139c112ec4a64a82309a98d6b4559
+      internalID: 1587939920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CorpseWalkerIdleSide_2
+      name: Zombie_2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 32
         y: 0
-        width: 10
-        height: 14
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5, y: -7}
-        - {x: -5, y: 7}
-        - {x: 5, y: 7}
-        - {x: 5, y: -7}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81803b50d91d97144a3848bbb015abf5
-      internalID: 405086730
+      spriteID: 84436330d7627bc49be64de0cf169742
+      internalID: 1466800436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CorpseWalkerIdleSide_3
+      name: Zombie_3
       rect:
         serializedVersion: 2
-        x: 51
+        x: 48
         y: 0
-        width: 10
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5, y: -7.5}
-        - {x: -5, y: 7.5}
-        - {x: 5, y: 7.5}
-        - {x: 5, y: -7.5}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6485706c5d5a1e242a4147fb958a7f7a
-      internalID: 1694413632
+      spriteID: 198d18b46f7a1e4448b67f3a4337386c
+      internalID: -861635685
       vertices: []
       indices: 
       edges: []
@@ -215,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      CorpseWalkerIdleSide_0: 2080933729
-      CorpseWalkerIdleSide_1: 1251957545
-      CorpseWalkerIdleSide_2: 405086730
-      CorpseWalkerIdleSide_3: 1694413632
+      Zombie_0: -1342911573
+      Zombie_1: 1587939920
+      Zombie_2: 1466800436
+      Zombie_3: -861635685
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
