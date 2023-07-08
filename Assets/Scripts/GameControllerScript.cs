@@ -78,12 +78,19 @@ public class GameControllerScript : MonoBehaviour
         waveStats.wave3Time = 30.0f;
         waveStats.wave4Time = 120.0f;
         waveStats.wave5Time = 120.0f;
+
+        gameStats.enemiesKilled.zombies = 0;
+        gameStats.enemiesKilled.bats = 0;
+        gameStats.enemiesKilled.skeletons = 0;
+        gameStats.enemiesKilled.crawlers = 0;
+        gameStats.enemiesKilled.wraiths = 0;
+        gameStats.enemiesKilled.flyingEyes = 0;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Dictionaries();
+        //Dictionaries();
         //upgradeButton1.onClick.RemoveAllListeners();
 
         StartCoroutine(Spawn());
@@ -120,7 +127,7 @@ public class GameControllerScript : MonoBehaviour
         //int maxValue = gameStats.player.PlayerLevel * 10;
         //xp.SetSize(gameStats.player.PlayerXP/maxValue);
 
-        if (gameStats.player.PlayerXP >= gameStats.player.PlayerLevel * 10)
+        /*if (gameStats.player.PlayerXP >= gameStats.player.PlayerLevel * 10)
         {
             gameStats.player.PlayerLevel++;
             gameStats.player.PlayerXP = 0;
@@ -175,7 +182,7 @@ public class GameControllerScript : MonoBehaviour
             upgradeButton1.onClick.AddListener(() => LevelUp(selectedInts[0]));
             upgradeButton2.onClick.AddListener(() => LevelUp(selectedInts[1]));
             upgradeButton3.onClick.AddListener(() => LevelUp(selectedInts[2]));
-        }
+        }*/
 
     }
 
@@ -235,7 +242,7 @@ public class GameControllerScript : MonoBehaviour
         StartCoroutine(Spawn());
     }
 
-    public int selectLevel(int option)
+    /*public int selectLevel(int option)
     {
         switch (option)
         {
@@ -249,9 +256,9 @@ public class GameControllerScript : MonoBehaviour
             case 7: return (gameStats.throwingKnife.KnifeLevel + 1);
             default: return 0;
         }
-    }
+    }*/
 
-    public void LevelUp(int option)
+    /*public void LevelUp(int option)
     {
         switch (option)
         {
@@ -358,9 +365,9 @@ public class GameControllerScript : MonoBehaviour
         // Remove level up panel and resume game
         upgradePanel.SetActive(false);
         Time.timeScale = 1;
-    }
+    }*/
 
-    public Sprite SelectImage(int option)
+    /*public Sprite SelectImage(int option)
     {
         switch (option)
         {
@@ -374,9 +381,9 @@ public class GameControllerScript : MonoBehaviour
             case 7: Sprite knifeSprite = Resources.Load<Sprite>("Images/knife"); return knifeSprite;
             default: Sprite maxHealthImagea = Resources.Load<Sprite>("Images/maxHealth"); return maxHealthImagea;
         }
-    }
+    }*/
 
-    public void Dictionaries()
+    /*public void Dictionaries()
     {
         // Create dictionaries
         Dictionary<int, string> maxHealthDictionary = new Dictionary<int, string>();
@@ -474,5 +481,5 @@ public class GameControllerScript : MonoBehaviour
         dictionariesList.Add(bibleDictionary);                  //  -> 5
         dictionariesList.Add(holyWaterDictionary);              //  -> 6
         dictionariesList.Add(knifeDictionary);                  //  -> 7
-    }
+    }*/
 }

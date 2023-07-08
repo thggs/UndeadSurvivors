@@ -82,7 +82,7 @@ public class UI_game_manager : MonoBehaviour
         }); 
 
         // initial stats
-        gameStats.player.PlayerHealth = 1000;
+        /*gameStats.player.PlayerHealth = 1000;
         gameStats.player.PlayerMaxHealth = 1000;
         gameStats.player.PlayerXP = 0;
         gameStats.player.PlayerLevel = 1;
@@ -116,7 +116,7 @@ public class UI_game_manager : MonoBehaviour
         gameStats.throwingKnife.KnifeLevel = 0;
         gameStats.throwingKnife.KnifeCooldown = 6;
         gameStats.throwingKnife.KnifeDamage = 5;
-        gameStats.throwingKnife.KnifeProjectiles = 0;
+        gameStats.throwingKnife.KnifeProjectiles = 0;*/
     }
 
     private void Stats_TransitionEnd(TransitionEndEvent evt) 
@@ -163,14 +163,7 @@ public class UI_game_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameStats.enemiesKilled.zombies = 0;
-        gameStats.enemiesKilled.bats = 0;
-        gameStats.enemiesKilled.skeletons = 0;
-        gameStats.enemiesKilled.crawlers = 0;
-        gameStats.enemiesKilled.wraiths = 0;
-        gameStats.enemiesKilled.flyingEyes = 0;
         Dictionaries();
-
     }
 
     // Update is called once per frame
