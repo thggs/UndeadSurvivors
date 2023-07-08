@@ -94,6 +94,7 @@ public class GameStats : ScriptableObject
     {
         public float Damage;
         public float MaxHealth;
+        public float Speed;
     }
     public Enemy zombie = new Enemy();
     public Enemy bat = new Enemy();
