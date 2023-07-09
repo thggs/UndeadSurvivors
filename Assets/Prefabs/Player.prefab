@@ -270,6 +270,7 @@ MonoBehaviour:
   knife: {fileID: 4159506740723400896, guid: 9d6ca8faf6e3c5745966ca06c0d9d415, type: 3}
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
   throwDirection: {x: 0, y: 0, z: 0}
+  throwSound: {fileID: 8300000, guid: 46e0fee07eecf7b4098feba1ead2d89e, type: 3}
 --- !u!1 &6024302167372138852
 GameObject:
   m_ObjectHideFlags: 0
