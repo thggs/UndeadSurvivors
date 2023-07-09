@@ -28,6 +28,9 @@ public class UI_game_manager : MonoBehaviour
     [SerializeField]
     private VisualTreeAsset _highScoreInputTemplate;
     private VisualElement _highScoreInput;
+    [SerializeField]
+    private VisualTreeAsset _rosasTemplate;
+    private VisualElement _rosas;
 
     private const string POPUP_ANIMATION = "pop-animation-hide";
     private int _mainPopupIndex = -1;
@@ -59,6 +62,8 @@ public class UI_game_manager : MonoBehaviour
 
         _stats = _deadStats.CloneTree();
         //var buttonMenu = _stats.Q<Button>("MenuButton");
+
+        _rosas = _rosasTemplate.CloneTree();
 
         /*_statsNames = _stats.Q<VisualElement>("Stats").Children().ToArray();
         _statsValues = _stats.Q<VisualElement>("Values").Children().ToArray();*/
@@ -161,6 +166,16 @@ public class UI_game_manager : MonoBehaviour
         {
             _mainPopupIndex++;
             _statsValues[_mainPopupIndex].ToggleInClassList(POPUP_ANIMATION);
+        }
+    }
+
+    public void ChatBox(bool show){
+        if(show){
+            _gameUIWrapper.Clear();
+            _gameUIWrapper.Add(_rosas);
+        }
+        else{
+            _gameUIWrapper.Clear();
         }
     }
 
