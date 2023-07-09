@@ -585,12 +585,12 @@ public class UI_game_manager : MonoBehaviour
                 {
                     case 1: gameStats.throwingKnife.KnifeProjectiles = 1; break;
                     case 2: gameStats.throwingKnife.KnifeProjectiles = 2; gameStats.throwingKnife.KnifeDamage = 6.25f; break;
-                    case 3: gameStats.throwingKnife.KnifeCooldown = 5; gameStats.throwingKnife.KnifeDurability = 2; break;
+                    case 3: gameStats.throwingKnife.KnifeCooldown = 3.5f; gameStats.throwingKnife.KnifeDurability = 2; break;
                     case 4: gameStats.throwingKnife.KnifeProjectiles = 3; gameStats.throwingKnife.KnifeDamage = 8; break;
-                    case 5: gameStats.throwingKnife.KnifeProjectiles = 4; gameStats.throwingKnife.KnifeCooldown = 4; break;
+                    case 5: gameStats.throwingKnife.KnifeProjectiles = 4; gameStats.throwingKnife.KnifeCooldown = 3; break;
                     case 6: gameStats.throwingKnife.KnifeDamage = 10.0f; break;
                     case 7: gameStats.throwingKnife.KnifeProjectiles = 5; gameStats.throwingKnife.KnifeDamage = 12.5f; break;
-                    case 8: gameStats.throwingKnife.KnifeCooldown = 3; gameStats.throwingKnife.KnifeDurability = 3; break;
+                    case 8: gameStats.throwingKnife.KnifeCooldown = 2.5f; gameStats.throwingKnife.KnifeDurability = 3; break;
                     case 9: gameStats.throwingKnife.KnifeProjectiles = 6; gameStats.throwingKnife.KnifeDamage = 16.0f; break;
                 }
                 Debug.Log("Level Up Knife");

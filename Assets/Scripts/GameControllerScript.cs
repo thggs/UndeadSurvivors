@@ -47,7 +47,7 @@ public class GameControllerScript : MonoBehaviour
 
         gameStats.throwingKnife.KnifeLevel = 0;
         gameStats.throwingKnife.KnifeDamage = 5;
-        gameStats.throwingKnife.KnifeCooldown = 6;
+        gameStats.throwingKnife.KnifeCooldown = 4;
         gameStats.throwingKnife.KnifeDelay = 0.1f;
         gameStats.throwingKnife.KnifeLifetime = 2;
         gameStats.throwingKnife.KnifeDurability = 2;
