@@ -22,6 +22,7 @@ public class BossControllerScript : MonoBehaviour
     [SerializeField]
     private AudioClip winFanfare, evilLaugh;
     private AudioSource audioSource;
+    private SpriteRenderer sprite;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class BossControllerScript : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ui = GameObject.FindGameObjectWithTag("UIToolkit").GetComponent<UI_game_manager>();
         audioSource = GetComponent<AudioSource>();
+        sprite = GetComponent<SpriteRenderer>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
@@ -101,6 +103,14 @@ public class BossControllerScript : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        StartCoroutine(DamageFrames());
+    }
+
+    IEnumerator DamageFrames()
+    {
+        sprite.color = new Vector4(1, 0.5f, 0.5f, 1);
+        yield return new WaitForSeconds(5);
+        sprite.color = new Vector4(1, 1, 1, 1);
     }
 
     IEnumerator Die()

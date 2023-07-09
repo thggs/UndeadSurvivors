@@ -9,6 +9,7 @@ public class EnemyControllerScript : MonoBehaviour
     private int enemyMaxDistance;
     public GameStats gameStats;
     public float damage;
+    [SerializeField]
     private float currentHealth;
     private float oldHealth;
     private Transform playerTransform;
@@ -137,16 +138,6 @@ public class EnemyControllerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (oldHealth > currentHealth)
-        {
-            sprite.color = new Color(1, 1, 1, 0.5f);
-        }
-        else
-        {
-            sprite.color = new Color(1, 1, 1, 1);
-        }
-        oldHealth = currentHealth;
-
         if (gameStats.player.PlayerHealth > 0)
         {
             if (!isDead)
@@ -165,5 +156,14 @@ public class EnemyControllerScript : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        StartCoroutine(DamageFrames());
+    }
+
+    
+    IEnumerator DamageFrames()
+    {
+        sprite.color = new Vector4(1, 0.5f, 0.5f, 1);
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = new Vector4(1, 1, 1, 1);
     }
 }
