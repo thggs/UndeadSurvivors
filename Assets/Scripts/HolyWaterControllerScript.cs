@@ -43,6 +43,7 @@ public class HolyWaterControllerScript : MonoBehaviour
             
             GameObject instance = Instantiate(holyWater, spawnPosition, rotation);
             instance.GetComponentInChildren<DamageOverTimeScript>(true).damage = waterDamage;
+            instance.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("EffectsVolume");
             Destroy(instance, waterLifetime);
         }
         yield return new WaitForSeconds(WaterCooldown);
