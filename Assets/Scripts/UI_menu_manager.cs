@@ -133,6 +133,44 @@ public class UI_menu_manager : MonoBehaviour
         _buttonsWrapper.Clear();
         _buttonsWrapper.Add(_highScores);
 
+        if(!PlayerPrefs.HasKey("FirstName"))
+        {
+            PlayerPrefs.SetString("FirstName","--------");
+            PlayerPrefs.SetInt("FirstScore",0);
+        }
+        if(!PlayerPrefs.HasKey("SecondName"))
+        {
+            PlayerPrefs.SetString("SecondName","--------");
+            PlayerPrefs.SetInt("SecondScore",0);
+        }
+        if(!PlayerPrefs.HasKey("ThirdName"))
+        {
+            PlayerPrefs.SetString("ThirdName","--------");
+            PlayerPrefs.SetInt("ThirdScore",0);
+        }
+        if(!PlayerPrefs.HasKey("FourthName"))
+        {
+            PlayerPrefs.SetString("FourthName","--------");
+            PlayerPrefs.SetInt("FourthScore",0);
+        }
+        if(!PlayerPrefs.HasKey("FifthName"))
+        {
+            PlayerPrefs.SetString("FifthName","--------");
+            PlayerPrefs.SetInt("FifthScore",0);
+        }
+
+        _highScores.Q<Label>("First").text = PlayerPrefs.GetString("FirstName");
+        _highScores.Q<Label>("Second").text = PlayerPrefs.GetString("SecondName");
+        _highScores.Q<Label>("Third").text = PlayerPrefs.GetString("ThirdName");
+        _highScores.Q<Label>("Fourth").text = PlayerPrefs.GetString("FourthName");
+        _highScores.Q<Label>("Fifth").text = PlayerPrefs.GetString("FifthName");
+
+        _highScores.Q<Label>("FirstVal").text = PlayerPrefs.GetInt("FirstScore").ToString("0");
+        _highScores.Q<Label>("SecondVal").text = PlayerPrefs.GetInt("SecondScore").ToString("0");
+        _highScores.Q<Label>("ThirdVal").text = PlayerPrefs.GetInt("ThirdScore").ToString("0");
+        _highScores.Q<Label>("FourthVal").text = PlayerPrefs.GetInt("FourthScore").ToString("0");
+        _highScores.Q<Label>("FifthVal").text = PlayerPrefs.GetInt("FifthScore").ToString("0");
+
     }
 
     private void ButtonExit_clicked()
