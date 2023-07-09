@@ -12,6 +12,7 @@ TagManager:
   - EnterDoor
   - Boss
   - Projectile
+  - UIToolkit
   layers:
   - Default
   - TransparentFX

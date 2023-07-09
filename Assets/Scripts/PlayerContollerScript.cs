@@ -8,6 +8,7 @@ public class PlayerContollerScript : MonoBehaviour
     [SerializeField]
     private GameStats gameStats;
     private bool takingDamage = false;
+    private bool isDead = false;
 
     private AudioSource audioSource;
     [SerializeField]
@@ -15,8 +16,8 @@ public class PlayerContollerScript : MonoBehaviour
     private Animator animator;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
-
     private Vector3 input;
+    private UI_game_manager ui;
 
     public bool hasWhip = false;
     public bool hasBible = false;
@@ -32,6 +33,7 @@ public class PlayerContollerScript : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         gameStats.player.PlayerHealth = gameStats.player.PlayerMaxHealth;
         animator = GetComponent<Animator>();
+        ui = GameObject.FindGameObjectWithTag("UIToolkit").GetComponent<UI_game_manager>();
     }
 
     void Update()
@@ -56,32 +58,38 @@ public class PlayerContollerScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rb.MovePosition(transform.position + input * Time.deltaTime * gameStats.player.PlayerSpeed);
+        if (!isDead)
+        {
+            rb.MovePosition(transform.position + input * Time.deltaTime * gameStats.player.PlayerSpeed);
 
-        // Character animations and sprite flipping
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-        {
-            animator.SetTrigger("player_walk");
-            if (Input.GetAxisRaw("Horizontal") > 0)
-                transform.eulerAngles = new Vector3(0, 0, 0);
-            else if (Input.GetAxisRaw("Horizontal") < 0)
-                transform.eulerAngles = new Vector3(0, 180, 0);
+            // Character animations and sprite flipping
+            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                animator.SetTrigger("player_walk");
+                if (Input.GetAxisRaw("Horizontal") > 0)
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                else if (Input.GetAxisRaw("Horizontal") < 0)
+                    transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+            else
+            {
+                animator.SetTrigger("player_idle");
+            }
         }
-        else
-        {
-            animator.SetTrigger("player_idle");
-        }
+
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" && !isDead)
         {
             gameStats.player.PlayerHealth -= collision.GetComponent<EnemyControllerScript>().damage;
 
             if (gameStats.player.PlayerHealth <= 0)
             {
-                Die();
+                StartCoroutine(Die());
+                isDead = true;
             }
             else
             {
@@ -89,14 +97,15 @@ public class PlayerContollerScript : MonoBehaviour
                 sprite.color = new Vector4(1.0f, 1.0f, 1.0f, 0.5f);
             }
         }
-        if(collision.tag == "Projectile")
+        if (collision.tag == "Projectile" && !isDead)
         {
             gameStats.player.PlayerHealth -= collision.GetComponent<ProjectileController>().damage;
             Destroy(collision.gameObject);
 
             if (gameStats.player.PlayerHealth <= 0)
             {
-                Die();
+                StartCoroutine(Die());
+                isDead = true;
             }
             else
             {
@@ -126,8 +135,10 @@ public class PlayerContollerScript : MonoBehaviour
         }
     }
 
-    private void Die()
+    IEnumerator Die()
     {
-        gameObject.SetActive(false);
+        animator.SetTrigger("player_die");
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 2);
+        ui.EndGame(false);
     }
 }

@@ -4,17 +4,24 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-using TMPro;
+using UnityEngine.Events;
 
 public class GameControllerScript : MonoBehaviour
 {
     [SerializeField]
     private Slider healthSlider, xpSlider;
-    public GameStats gameStats;
-    public WaveStats waveStats;
-    public new Camera camera;
-    public bool spawnEnemies;
-    public float timeBetweenSpawns;
+    [SerializeField]
+    private GameStats gameStats;
+    [SerializeField]
+    private WaveStats waveStats;
+    [SerializeField]
+    private Camera mainCamera;
+    [SerializeField]
+    private bool spawnEnemies;
+    [SerializeField]
+    private float timeBetweenSpawns;
+    [SerializeField]
+    private GameObject boss;
 
     void Awake()
     {
@@ -112,7 +119,7 @@ public class GameControllerScript : MonoBehaviour
         ManageHealth();
         ManageXP();
     }
-    
+
     void ManageHealth()
     {
         if (gameStats.player.PlayerHealth != gameStats.player.PlayerMaxHealth)
@@ -200,7 +207,7 @@ public class GameControllerScript : MonoBehaviour
     private GameObject[] SelectWave()
     {
         float currentTime = Time.time;
-        
+
         if (currentTime <= waveStats.wave1Time)
         {
             return waveStats.wave1;
@@ -219,6 +226,7 @@ public class GameControllerScript : MonoBehaviour
         }
         else
         {
+            SpawnBoss();
             return waveStats.wave5;
         }
     }
@@ -240,7 +248,7 @@ public class GameControllerScript : MonoBehaviour
                 randomY += 1;
             }
 
-            Vector3 spawnPosition = camera.ViewportToWorldPoint(new Vector3(randomX, randomY, camera.nearClipPlane));
+            Vector3 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(randomX, randomY, mainCamera.nearClipPlane));
             NavMeshHit hit;
             NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
             // select one enemy and instantiate it from list of wave 1
@@ -251,6 +259,24 @@ public class GameControllerScript : MonoBehaviour
         }
         yield return new WaitForSeconds(timeBetweenSpawns);
         StartCoroutine(Spawn());
+    }
+
+    void SpawnBoss()
+    {
+        float randomX = Random.Range(-0.1f, 0.1f);
+        float randomY = Random.Range(-0.1f, 0.1f);
+        if (randomX >= 0)
+        {
+            randomX += 1;
+        }
+        if (randomY >= 0)
+        {
+            randomY += 1;
+        }
+        Vector3 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(randomX, randomY, mainCamera.nearClipPlane));
+        NavMeshHit hit;
+        NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
+        GameObject bossInstance = Instantiate(boss, hit.position, Quaternion.identity);
     }
 
     /*public int selectLevel(int option)

@@ -18,11 +18,14 @@ public class BossControllerScript : MonoBehaviour
     private bool isDead;
     public bool isWarping;
     private Vector3 posLastFrame;
+    private UI_game_manager ui;
 
     void Start()
     {
         StartCoroutine(Shoot());
-        //StartCoroutine(SpawnPortals());
+
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        ui = GameObject.FindGameObjectWithTag("UIToolkit").GetComponent<UI_game_manager>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
@@ -39,7 +42,7 @@ public class BossControllerScript : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
-            Die();
+            StartCoroutine(Die());
         }
 
         if (gameStats.player.PlayerHealth > 0 && !isDead)
@@ -92,9 +95,11 @@ public class BossControllerScript : MonoBehaviour
         health -= damage;
     }
 
-    void Die()
+    IEnumerator Die()
     {
-
+        anim.SetTrigger("die");
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length + 2);
+        ui.EndGame(true);
     }
 
     IEnumerator Shoot()
