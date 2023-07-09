@@ -222,6 +222,7 @@ public class UI_game_manager : MonoBehaviour
 
     public void EndGame(bool youWin)
     {
+        timer.stopTimer(true);
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_stats);
         _stats.Q<Label>("ZombiesVal").text = gameStats.enemiesKilled.zombies.ToString("0");
@@ -233,8 +234,20 @@ public class UI_game_manager : MonoBehaviour
         //_stats.RegisterCallback<TransitionEndEvent>(Stats_TransitionEnd);
         //Stats_TransitionEnd(new TransitionEndEvent());
         //_stats.ToggleInClassList(POPUP_ANIMATION);
-
-        timer.stopTimer(true);
+        float highscore = gameStats.enemiesKilled.zombies + gameStats.enemiesKilled.bats * 2 + gameStats.enemiesKilled.skeletons * 3 + gameStats.enemiesKilled.crawlers * 4 + gameStats.enemiesKilled.flyingEyes * 4 + gameStats.enemiesKilled.wraiths * 5 + gameStats.player.PlayerLevel * 10;
+        if(timer.GetTimeInSeconds() > 900)
+        {
+            highscore += Mathf.Max(900 - timer.GetTimeInSeconds(), 0);
+        }  
+        if(youWin)
+        {
+            highscore += 1000;
+        }      
+        if(PlayerPrefs.GetFloat("Highscore") < highscore)
+        {
+            PlayerPrefs.SetFloat("Highscore", highscore);
+            PlayerPrefs.Save();
+        }
     }
 
     void Upgrade()

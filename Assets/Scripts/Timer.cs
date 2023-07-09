@@ -46,4 +46,11 @@ public class Timer : MonoBehaviour
         string gameTime = minutes.ToString("00") + ":" + seconds.ToString("00");
         return gameTime;
     }
+
+    public int GetTimeInSeconds()
+    {
+        int minutes = Mathf.FloorToInt(currentTime / 60);
+        int seconds = Mathf.FloorToInt(currentTime % 60);
+        return minutes * 60 + seconds;
+    }
 }
