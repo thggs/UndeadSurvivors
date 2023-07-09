@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerPrefsController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(!PlayerPrefs.HasKey("FoundEasterEgg"))
+        {
+            PlayerPrefs.SetString("FoundEasterEgg", "NotFound");
+        }
+
+        if(PlayerPrefs.GetString("FoundEasterEgg") == "NotFound")
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

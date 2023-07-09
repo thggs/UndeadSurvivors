@@ -2847,6 +2847,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6024302167372138855, guid: fed82f99f86fed948a18f38d63b6b349, type: 3}
+      propertyPath: hasWhip
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024302167372138855, guid: fed82f99f86fed948a18f38d63b6b349, type: 3}
+      propertyPath: hasBible
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024302167372138855, guid: fed82f99f86fed948a18f38d63b6b349, type: 3}
+      propertyPath: hasHolyWater
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024302167372138855, guid: fed82f99f86fed948a18f38d63b6b349, type: 3}
+      propertyPath: hasThrowingKnife
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fed82f99f86fed948a18f38d63b6b349, type: 3}
 --- !u!1 &1241013236 stripped

@@ -132,6 +132,8 @@ public class PlayerContollerScript : MonoBehaviour
         }
         if (collision.tag == "EnterDoor")
         {
+            PlayerPrefs.SetString("FoundEasterEgg","Found");
+            PlayerPrefs.Save();
             SceneManager.LoadScene("HouseScene", LoadSceneMode.Single);
         }
     }
