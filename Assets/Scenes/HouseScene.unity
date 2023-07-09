@@ -1689,6 +1689,14 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4860048479165724444, guid: 0cbc542de946989479342a71b7476fdf, type: 3}
+      propertyPath: _rosasTemplate
+      value: 
+      objectReference: {fileID: 9197481963319205126, guid: b5b3ec45f3ae8364a8cf24787a317474, type: 3}
+    - target: {fileID: 4860048479165724444, guid: 0cbc542de946989479342a71b7476fdf, type: 3}
+      propertyPath: _highScoreInputTemplate
+      value: 
+      objectReference: {fileID: 9197481963319205126, guid: 27fd621f172f2ca499fc7113a2ca4f6f, type: 3}
     - target: {fileID: 4860048479165724446, guid: 0cbc542de946989479342a71b7476fdf, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3304,6 +3312,7 @@ GameObject:
   - component: {fileID: 1166094360}
   - component: {fileID: 1166094359}
   - component: {fileID: 1166094362}
+  - component: {fileID: 1166094363}
   m_Layer: 0
   m_Name: Rosas
   m_TagString: Untagged
@@ -3435,6 +3444,18 @@ PolygonCollider2D:
       - {x: -0.099999994, y: -0.31}
       - {x: -0.089999996, y: -0.32}
       - {x: 0.12, y: -0.32}
+--- !u!114 &1166094363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166094358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8329c088d52669f459b2a9fcbcc0ebe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1241013236 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 758922305150401631, guid: a69adb126ec120d4688f82d52facb36a, type: 3}
