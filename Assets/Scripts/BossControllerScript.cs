@@ -14,6 +14,7 @@ public class BossControllerScript : MonoBehaviour
     private NavMeshAgent navMeshAgent;           // Reference to the NavMeshAgent component
     public GameStats gameStats;
     private Animator anim;
+    [SerializeField]
     private float health;
     private bool isDead;
     public bool isWarping;
@@ -44,6 +45,7 @@ public class BossControllerScript : MonoBehaviour
 
         audioSource.clip = evilLaugh;
         audioSource.Play();
+        StartCoroutine(DamageFrames());
     }
 
     void Update()
@@ -108,9 +110,9 @@ public class BossControllerScript : MonoBehaviour
 
     IEnumerator DamageFrames()
     {
-        sprite.color = new Vector4(1, 0.5f, 0.5f, 1);
+        sprite.color = new Color(1, 0.5f, 0.5f, 1);
         yield return new WaitForSeconds(5);
-        sprite.color = new Vector4(1, 1, 1, 1);
+        sprite.color = new Color(1, 1, 1, 1);
     }
 
     IEnumerator Die()
