@@ -45,7 +45,6 @@ public class BossControllerScript : MonoBehaviour
 
         audioSource.clip = evilLaugh;
         audioSource.Play();
-        StartCoroutine(DamageFrames());
     }
 
     void Update()
@@ -97,6 +96,7 @@ public class BossControllerScript : MonoBehaviour
                     teleportPosition = playerTransform.position + Vector3.left * gameStats.boss.BossMinDistance;
                 }
                 navMeshAgent.Warp(teleportPosition);
+                StartCoroutine(WarpChangeColor());
                 anim.SetTrigger("warp");
             }
         }
@@ -111,7 +111,14 @@ public class BossControllerScript : MonoBehaviour
     IEnumerator DamageFrames()
     {
         sprite.color = new Color(1, 0.5f, 0.5f, 1);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = new Color(1, 1, 1, 1);
+    }
+
+    IEnumerator WarpChangeColor()
+    {
+        sprite.color = new Color(0.69492f, 0.33491f, 1, 1);
+        yield return new WaitForSeconds(0.46f);
         sprite.color = new Color(1, 1, 1, 1);
     }
 
