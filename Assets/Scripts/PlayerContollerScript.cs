@@ -140,6 +140,11 @@ public class PlayerContollerScript : MonoBehaviour
 
     IEnumerator Die()
     {
+        // remove weapons
+        gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        gameObject.transform.GetChild(2).gameObject.SetActive(false);
+        gameObject.transform.GetChild(3).gameObject.SetActive(false);
         animator.SetTrigger("player_die");
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 2);
         ui.EndGame(false);
