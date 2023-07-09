@@ -38,6 +38,7 @@ public class PlayerContollerScript : MonoBehaviour
 
     void Update()
     {
+        audioSource.volume = PlayerPrefs.GetFloat("EffectsVolume");
         input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0.0f).normalized;
 
         if (!takingDamage)

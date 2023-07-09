@@ -32,6 +32,7 @@ public class WhipControllerScript : MonoBehaviour
             // Instantiate WhipSlash as child object of WhipSpawn
             GameObject whip = Instantiate(whipSlash, Vector3.zero, rotation, whipSpawn.transform);
             whip.GetComponent<SingleDamageScript>().damage = gameStats.whip.WhipDamage;
+            whip.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("EffectsVolume");
 
             // Rotate WhipSpawn around
             rotation.eulerAngles += new Vector3(0, 180, 0);

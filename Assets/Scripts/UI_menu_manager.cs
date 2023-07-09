@@ -43,31 +43,58 @@ public class UI_menu_manager : MonoBehaviour
         _menu.RegisterCallback<TransitionEndEvent>(Menu_TransitionEnd);
 
         _buttonPlay = _doc.rootVisualElement.Q<Button>("ButtonPlay");
-        _buttonSettings = _doc.rootVisualElement.Q<Button>("ButtonSettings");    
+        _buttonSettings = _doc.rootVisualElement.Q<Button>("ButtonSettings");
         _buttonExit = _doc.rootVisualElement.Q<Button>("ButtonExit");
 
         _buttonsSettings = _settingsTemplate.CloneTree();
         var buttonBack = _buttonsSettings.Q<Button>("ButtonBack");
-        var volumeSlider = _buttonsSettings.Q<Slider>("AmbientSoundSlider");
+        var musicVolumeSlider = _buttonsSettings.Q<Slider>("AmbientSoundSlider");
+        var effectsVolumeSlider = _buttonsSettings.Q<Slider>("SoundEffectsSlider");
 
-        _buttonPlay.clicked +=  ButtonPlay_clicked;
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("MusicVolume", 1.0f);
+        }
+
+        if (PlayerPrefs.HasKey("EffectsVolume"))
+        {
+            effectsVolumeSlider.value = PlayerPrefs.GetFloat("EffectsVolume");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("EffectsVolume", 1.0f);
+        }
+
+        _buttonPlay.clicked += ButtonPlay_clicked;
         _buttonSettings.clicked += ButtonSettings_clicked;
         _buttonExit.clicked += ButtonExit_clicked;
         buttonBack.clicked += ButtonBack_clicked;
 
-        volumeSlider.RegisterValueChangedCallback(v=>{
+        musicVolumeSlider.RegisterValueChangedCallback(v =>
+        {
             var newValue = v.newValue;
-            AudioListener.volume = newValue;
+            PlayerPrefs.SetFloat("MusicVolume", newValue);
+        });
+
+        effectsVolumeSlider.RegisterValueChangedCallback(v =>
+        {
+            var newValue = v.newValue;
+            PlayerPrefs.SetFloat("EffectsVolume", newValue);
         });
     }
 
-    private IEnumerator Start() {
+    private IEnumerator Start()
+    {
         yield return new WaitForSeconds(0.5f);
 
         _menu.ToggleInClassList(POPUP_ANIMATION);
     }
 
-    private void Menu_TransitionEnd(TransitionEndEvent evt) 
+    private void Menu_TransitionEnd(TransitionEndEvent evt)
     {
         if (!evt.stylePropertyNames.Contains("opacity")) { return; }
         if (_mainPopupIndex < _mainMenuOptions.Length - 1)
@@ -76,8 +103,9 @@ public class UI_menu_manager : MonoBehaviour
             _mainMenuOptions[_mainPopupIndex].ToggleInClassList(POPUP_ANIMATION);
         }
     }
-    private void ButtonPlay_clicked(){
-        SceneManager.LoadScene("TileScene",LoadSceneMode.Single);
+    private void ButtonPlay_clicked()
+    {
+        SceneManager.LoadScene("TileScene", LoadSceneMode.Single);
     }
 
     private void ButtonSettings_clicked()
@@ -98,6 +126,6 @@ public class UI_menu_manager : MonoBehaviour
         _buttonsWrapper.Clear();
         _buttonsWrapper.Add(_buttonPlay);
         _buttonsWrapper.Add(_buttonSettings);
-        _buttonsWrapper.Add(_buttonExit);   
-    } 
+        _buttonsWrapper.Add(_buttonExit);
+    }
 }

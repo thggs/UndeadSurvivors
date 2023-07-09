@@ -26,6 +26,8 @@ public class SoundtrackControllerScript : MonoBehaviour
 
     void Update()
     {
+        source.volume = PlayerPrefs.GetFloat("MusicVolume");
+
         int currentPlayerLevel = gameStats.player.PlayerLevel;
         if (lastPlayerLevel != currentPlayerLevel)
         {

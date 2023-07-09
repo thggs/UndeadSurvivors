@@ -41,45 +41,72 @@ public class UI_game_manager : MonoBehaviour
 
     public List<Dictionary<int, string>> dictionariesList = new List<Dictionary<int, string>>();
 
-    private void Awake() {
+    private void Awake()
+    {
         _doc = GetComponent<UIDocument>();
 
         _gameUIWrapper = _doc.rootVisualElement.Q<VisualElement>("GameUI");
-        
+
         _buttonsSettings = _settingsTemplate.CloneTree();
 
         _pauseMenu = _pauseTemplate.CloneTree();
         var buttonResume = _pauseMenu.Q<Button>("ButtonResume");
-        var buttonSettings = _pauseMenu.Q<Button>("ButtonSettings");    
+        var buttonSettings = _pauseMenu.Q<Button>("ButtonSettings");
         var buttonBackMenu = _pauseMenu.Q<Button>("ButtonBack");
 
         _stats = _deadStats.CloneTree();
         var buttonMenu = _stats.Q<Button>("MenuButton");
-        
+
         /*_statsNames = _stats.Q<VisualElement>("Stats").Children().ToArray();
         _statsValues = _stats.Q<VisualElement>("Values").Children().ToArray();*/
-        
+
 
         //_stats.RegisterCallback<TransitionEndEvent>(Stats_TransitionEnd);
-        
+
 
         buttonResume.clicked += ButtonResume_clicked;
         buttonSettings.clicked += ButtonSettings_clicked;
         buttonBackMenu.clicked += ButtonBackMenu_clicked;
-        
 
-        
+
+
         var buttonBack = _buttonsSettings.Q<Button>("ButtonBack");
-        var volumeSlider = _buttonsSettings.Q<Slider>("AmbientSoundSlider");
+        var musicVolumeSlider = _buttonsSettings.Q<Slider>("AmbientSoundSlider");
+        var effectsVolumeSlider = _buttonsSettings.Q<Slider>("SoundEffectsSlider");
+
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("MusicVolume", 1.0f);
+        }
+
+        if (PlayerPrefs.HasKey("EffectsVolume"))
+        {
+            effectsVolumeSlider.value = PlayerPrefs.GetFloat("EffectsVolume");
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("EffectsVolume", 1.0f);
+        }
 
         buttonBack.clicked += ButtonBack_clicked;
 
         buttonMenu.clicked += ButtonBackMenu_clicked;
 
-        volumeSlider.RegisterValueChangedCallback(v=>{
+        musicVolumeSlider.RegisterValueChangedCallback(v =>
+        {
             var newValue = v.newValue;
-            AudioListener.volume = newValue;
-        }); 
+            PlayerPrefs.SetFloat("MusicVolume", newValue);
+        });
+
+        effectsVolumeSlider.RegisterValueChangedCallback(v =>
+        {
+            var newValue = v.newValue;
+            PlayerPrefs.SetFloat("EffectsVolume", newValue);
+        });
 
         // initial stats
         /*gameStats.player.PlayerHealth = 1000;
@@ -119,7 +146,7 @@ public class UI_game_manager : MonoBehaviour
         gameStats.throwingKnife.KnifeProjectiles = 0;*/
     }
 
-    private void Stats_TransitionEnd(TransitionEndEvent evt) 
+    private void Stats_TransitionEnd(TransitionEndEvent evt)
     {
         if (!evt.stylePropertyNames.Contains("opacity")) { return; }
         if (_mainPopupIndex < _statsNames.Length - 1)
@@ -134,28 +161,33 @@ public class UI_game_manager : MonoBehaviour
         }
     }
 
-    private void ButtonPause_clicked(){
+    private void ButtonPause_clicked()
+    {
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_pauseMenu);
         timer.stopTimer(false);
     }
 
-    private void ButtonResume_clicked(){
+    private void ButtonResume_clicked()
+    {
         _gameUIWrapper.Clear();
         timer.stopTimer(false);
         Time.timeScale = 1;
     }
 
-    private void ButtonSettings_clicked(){
+    private void ButtonSettings_clicked()
+    {
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_buttonsSettings);
     }
 
-    private void ButtonBackMenu_clicked(){
-        SceneManager.LoadScene("MenuScene",LoadSceneMode.Single);
+    private void ButtonBackMenu_clicked()
+    {
+        SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
     }
 
-    private void ButtonBack_clicked(){
+    private void ButtonBack_clicked()
+    {
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_pauseMenu);
     }
@@ -169,8 +201,9 @@ public class UI_game_manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameStats.player.PlayerHealth> 0){
-            if(Input.GetKeyDown(KeyCode.Escape))
+        if (gameStats.player.PlayerHealth > 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 //this.ButtonPause_clicked();
                 Time.timeScale = 0;
@@ -179,32 +212,36 @@ public class UI_game_manager : MonoBehaviour
                 timer.stopTimer(true);
                 //_gameUIWrapper.Add(_pauseMenu);
             }
-        }else{
-            _gameUIWrapper.Clear();
-            _gameUIWrapper.Add(_stats);
-            _stats.Q<Label>("ZombiesVal").text = gameStats.enemiesKilled.zombies.ToString("0");
-            _stats.Q<Label>("BatsVal").text = gameStats.enemiesKilled.bats.ToString("0");
-            _stats.Q<Label>("SkeletonsVal").text = gameStats.enemiesKilled.skeletons.ToString("0");
-            _stats.Q<Label>("CrawlersVal").text = gameStats.enemiesKilled.crawlers.ToString("0");
-            _stats.Q<Label>("TimeVal").text = timer.GetTime();
-            _stats.Q<Label>("PlayerLevelVal").text = gameStats.player.PlayerLevel.ToString("0");
-            //_stats.RegisterCallback<TransitionEndEvent>(Stats_TransitionEnd);
-            //Stats_TransitionEnd(new TransitionEndEvent());
-            //_stats.ToggleInClassList(POPUP_ANIMATION);
-            
-            timer.stopTimer(true);
-
         }
 
-        if(gameStats.player.PlayerXP >= gameStats.player.PlayerLevel * 10 ){
+        if (gameStats.player.PlayerXP >= gameStats.player.PlayerLevel * 10)
+        {
             Upgrade();
         }
     }
 
-    void Upgrade(){
+    public void EndGame(bool youWin)
+    {
+        _gameUIWrapper.Clear();
+        _gameUIWrapper.Add(_stats);
+        _stats.Q<Label>("ZombiesVal").text = gameStats.enemiesKilled.zombies.ToString("0");
+        _stats.Q<Label>("BatsVal").text = gameStats.enemiesKilled.bats.ToString("0");
+        _stats.Q<Label>("SkeletonsVal").text = gameStats.enemiesKilled.skeletons.ToString("0");
+        _stats.Q<Label>("CrawlersVal").text = gameStats.enemiesKilled.crawlers.ToString("0");
+        _stats.Q<Label>("TimeVal").text = timer.GetTime();
+        _stats.Q<Label>("PlayerLevelVal").text = gameStats.player.PlayerLevel.ToString("0");
+        //_stats.RegisterCallback<TransitionEndEvent>(Stats_TransitionEnd);
+        //Stats_TransitionEnd(new TransitionEndEvent());
+        //_stats.ToggleInClassList(POPUP_ANIMATION);
+
+        timer.stopTimer(true);
+    }
+
+    void Upgrade()
+    {
         // List of posible upgrades
 
-        
+
         gameStats.player.PlayerLevel++;
         gameStats.player.PlayerXP = 0;
         Time.timeScale = 0;
@@ -212,27 +249,27 @@ public class UI_game_manager : MonoBehaviour
         List<int> upgrades = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7 };
 
         // Remove from list if max level
-        if(gameStats.player.PlayerMaxHealthLevel == 7)
+        if (gameStats.player.PlayerMaxHealthLevel == 7)
             upgrades.Remove(0);
-        if(gameStats.healingStones.HealLevel == 7)
+        if (gameStats.healingStones.HealLevel == 7)
             upgrades.Remove(1);
-        if(gameStats.player.PlayerSpeedLevel == 7)
+        if (gameStats.player.PlayerSpeedLevel == 7)
             upgrades.Remove(2);
-        if(gameStats.player.PlayerPickupLevel == 7)
+        if (gameStats.player.PlayerPickupLevel == 7)
             upgrades.Remove(3);
-        if(gameStats.whip.WhipLevel == 9)
+        if (gameStats.whip.WhipLevel == 9)
             upgrades.Remove(4);
-        if(gameStats.bible.BibleLevel == 9)
+        if (gameStats.bible.BibleLevel == 9)
             upgrades.Remove(5);
-        if(gameStats.holyWater.WaterLevel == 9)
+        if (gameStats.holyWater.WaterLevel == 9)
             upgrades.Remove(6);
-        if(gameStats.throwingKnife.KnifeLevel == 9)
+        if (gameStats.throwingKnife.KnifeLevel == 9)
             upgrades.Remove(7);
 
         // Choose three different upgrades
         selectedInts = upgrades.OrderBy(x => Random.value).Take(3).ToArray();
 
-        
+
         // need to add option to only put 2 or 1 buttons when upgrades.size() < 3 !!!
 
         // Add corresponding text to buttons
@@ -240,7 +277,7 @@ public class UI_game_manager : MonoBehaviour
         string option2 = dictionariesList[selectedInts[1]][selectLevel(selectedInts[1])];
         string option3 = dictionariesList[selectedInts[2]][selectLevel(selectedInts[2])];
 
-        _upgradeButtons=_upgradeButtonsTemplate.CloneTree();
+        _upgradeButtons = _upgradeButtonsTemplate.CloneTree();
         var upgradeButton1 = _upgradeButtons.Q<Button>("upgradeButton1");
         var upgradeButton2 = _upgradeButtons.Q<Button>("upgradeButton2");
         var upgradeButton3 = _upgradeButtons.Q<Button>("upgradeButton3");
@@ -267,7 +304,7 @@ public class UI_game_manager : MonoBehaviour
         upgradeButton1.clicked += upgradeButton1_clicked;
         upgradeButton2.clicked += upgradeButton2_clicked;
         upgradeButton3.clicked += upgradeButton3_clicked;
-        
+
     }
 
     public int selectLevel(int option)
@@ -277,7 +314,7 @@ public class UI_game_manager : MonoBehaviour
             case 0: return (gameStats.player.PlayerMaxHealthLevel + 1);
             case 1: return (gameStats.healingStones.HealLevel + 1);
             case 2: return (gameStats.player.PlayerSpeedLevel + 1);
-            case 3: return (gameStats.player.PlayerPickupLevel + 1); 
+            case 3: return (gameStats.player.PlayerPickupLevel + 1);
             case 4: return (gameStats.whip.WhipLevel + 1);
             case 5: return (gameStats.bible.BibleLevel + 1);
             case 6: return (gameStats.holyWater.WaterLevel + 1);
@@ -286,25 +323,28 @@ public class UI_game_manager : MonoBehaviour
         }
     }
 
-    private void upgradeButton1_clicked(){
+    private void upgradeButton1_clicked()
+    {
 
         LevelUp(selectedInts[0]);
 
     }
 
-    private void upgradeButton2_clicked(){
+    private void upgradeButton2_clicked()
+    {
 
         LevelUp(selectedInts[1]);
 
     }
 
-    private void upgradeButton3_clicked(){
+    private void upgradeButton3_clicked()
+    {
 
         LevelUp(selectedInts[2]);
 
     }
 
-     public void LevelUp(int option)
+    public void LevelUp(int option)
     {
         switch (option)
         {
@@ -322,7 +362,7 @@ public class UI_game_manager : MonoBehaviour
                 gameStats.healingStones.HealAmount += 25;
                 Debug.Log("Level Up Healing Stones");
                 break;
-                
+
             // Player Speed
             case 2:
                 gameStats.player.PlayerSpeedLevel += 1;
@@ -411,7 +451,7 @@ public class UI_game_manager : MonoBehaviour
         Time.timeScale = 1;
         _gameUIWrapper.Clear();
     }
-    
+
     public Sprite SelectImage(int option)
     {
         switch (option)
