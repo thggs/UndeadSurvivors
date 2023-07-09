@@ -32,7 +32,7 @@ public class BossControllerScript : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ui = GameObject.FindGameObjectWithTag("UIToolkit").GetComponent<UI_game_manager>();
         audioSource = GetComponent<AudioSource>();
-        sprite = GetComponent<SpriteRenderer>();
+        sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
