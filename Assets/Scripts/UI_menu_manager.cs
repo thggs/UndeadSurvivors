@@ -28,7 +28,10 @@ public class UI_menu_manager : MonoBehaviour
 
     private Slider _volumeSlider;
 
-    private void Awake() {
+    private void Awake()
+    {
+        Time.timeScale = 1;
+
 
         _doc = GetComponent<UIDocument>();
 
