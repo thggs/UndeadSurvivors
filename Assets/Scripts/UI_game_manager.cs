@@ -33,7 +33,7 @@ public class UI_game_manager : MonoBehaviour
     private VisualElement[] _statsNames;
     private VisualElement[] _statsValues;
 
-    private bool stop;
+    private bool upgrade = true;
     public Timer timer;
     public GameStats gameStats;
 
@@ -170,9 +170,13 @@ public class UI_game_manager : MonoBehaviour
 
     private void ButtonResume_clicked()
     {
+        if(!upgrade){
+            ShowUpgrades();
+        }
+        else{
         _gameUIWrapper.Clear();
         timer.stopTimer(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1;}
     }
 
     private void ButtonSettings_clicked()
@@ -269,6 +273,7 @@ public class UI_game_manager : MonoBehaviour
         gameStats.player.PlayerLevel++;
         gameStats.player.PlayerXP = 0;
         Time.timeScale = 0;
+        upgrade = false;
 
         List<int> upgrades = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7 };
 
@@ -292,6 +297,9 @@ public class UI_game_manager : MonoBehaviour
 
         // Choose three different upgrades
         selectedInts = upgrades.OrderBy(x => Random.value).Take(3).ToArray();
+        ShowUpgrades();
+    }
+    void ShowUpgrades(){
 
 
         // need to add option to only put 2 or 1 buttons when upgrades.size() < 3 !!!
@@ -302,6 +310,7 @@ public class UI_game_manager : MonoBehaviour
         string option3 = dictionariesList[selectedInts[2]][selectLevel(selectedInts[2])];
 
         _upgradeButtons = _upgradeButtonsTemplate.CloneTree();
+        var level = _upgradeButtons.Q<Label>("Level");
         var upgradeButton1 = _upgradeButtons.Q<Button>("upgradeButton1");
         var upgradeButton2 = _upgradeButtons.Q<Button>("upgradeButton2");
         var upgradeButton3 = _upgradeButtons.Q<Button>("upgradeButton3");
@@ -311,6 +320,8 @@ public class UI_game_manager : MonoBehaviour
 
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_upgradeButtons);
+
+        level.text = "Level " + gameStats.player.PlayerLevel.ToString("0");
 
         upgradeButton1.text = option1;
         upgradeButton2.text = option2;
@@ -351,6 +362,7 @@ public class UI_game_manager : MonoBehaviour
     {
 
         LevelUp(selectedInts[0]);
+        upgrade = true;
 
     }
 
@@ -358,6 +370,7 @@ public class UI_game_manager : MonoBehaviour
     {
 
         LevelUp(selectedInts[1]);
+        upgrade = true;
 
     }
 
@@ -365,6 +378,7 @@ public class UI_game_manager : MonoBehaviour
     {
 
         LevelUp(selectedInts[2]);
+        upgrade = true;
 
     }
 
