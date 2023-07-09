@@ -20,7 +20,8 @@ public class BossControllerScript : MonoBehaviour
     private Vector3 posLastFrame;
     private UI_game_manager ui;
     [SerializeField]
-    private AudioClip winFanfare;
+    private AudioClip winFanfare, evilLaugh;
+    private AudioSource audioSource;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class BossControllerScript : MonoBehaviour
 
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         ui = GameObject.FindGameObjectWithTag("UIToolkit").GetComponent<UI_game_manager>();
+        audioSource = GetComponent<AudioSource>();
 
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
@@ -37,11 +39,15 @@ public class BossControllerScript : MonoBehaviour
         health = gameStats.boss.BossMaxHealth;
 
         anim = GetComponent<Animator>();
+
+        audioSource.clip = evilLaugh;
+        audioSource.Play();
     }
 
     void Update()
     {
-        if (health <= 0)
+        audioSource.volume = PlayerPrefs.GetFloat("EffectsVolume");
+        if (health <= 0 && !isDead)
         {
             isDead = true;
             StartCoroutine(Die());
@@ -99,8 +105,8 @@ public class BossControllerScript : MonoBehaviour
 
     IEnumerator Die()
     {
+        
         anim.SetTrigger("die");
-        AudioSource audioSource = playerTransform.gameObject.GetComponent<AudioSource>();
         audioSource.clip = winFanfare;
         audioSource.Play();
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length + 2);
@@ -110,7 +116,7 @@ public class BossControllerScript : MonoBehaviour
     IEnumerator Shoot()
     {
         Vector3 offset = new Vector3(1.76f, 0.57f, 0);
-        if(isInRange)
+        if(isInRange && !isDead)
         {
             GameObject projectileInstance = Instantiate(projectile, transform.position + offset, Quaternion.identity);
             projectile.GetComponent<ProjectileController>().playerTransform = playerTransform;

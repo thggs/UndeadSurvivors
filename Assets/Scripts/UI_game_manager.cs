@@ -298,6 +298,7 @@ public class UI_game_manager : MonoBehaviour
 
     public void EndGame(bool youWin)
     {
+        Time.timeScale = 0;
         timer.stopTimer(true);
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_stats);
