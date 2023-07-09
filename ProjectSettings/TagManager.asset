@@ -13,6 +13,7 @@ TagManager:
   - Boss
   - Projectile
   - UIToolkit
+  - XPpickup
   layers:
   - Default
   - TransparentFX

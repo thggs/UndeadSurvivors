@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 756929763}
   m_Layer: 0
   m_Name: XPPickup
-  m_TagString: Untagged
+  m_TagString: XPpickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.5
+  m_Radius: 0.5
 --- !u!114 &756929762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +354,7 @@ SpriteRenderer:
   m_SortingLayerID: 1352173557
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1012142730, guid: f89aa612a1b13174b9e9e7b0fdc3ded2, type: 3}
+  m_Sprite: {fileID: 138978296, guid: 6d8ac9b9dbf15844d917145dc7702e9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -379,6 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
   pickupSound: {fileID: 8300000, guid: 5b1279449ac63bd4ebb686eaa8c4ac95, type: 3}
+  loseFanfare: {fileID: 8300000, guid: b0bcfa270ec77a4418842bf5eeac9071, type: 3}
   hasWhip: 1
   hasBible: 1
   hasHolyWater: 1
@@ -400,7 +401,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.453125, y: 1.59375}
+    oldSize: {x: 0.84, y: 1.52}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -426,7 +427,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.453125, y: 1.59375}
+    oldSize: {x: 0.84, y: 1.52}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -449,12 +450,12 @@ Rigidbody2D:
   m_UseAutoMass: 1
   m_Mass: 0.09375
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &2030192148
 Animator:

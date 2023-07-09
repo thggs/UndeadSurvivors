@@ -33,7 +33,7 @@ MonoBehaviour:
   throwingKnife:
     KnifeLevel: 0
     KnifeDamage: 5
-    KnifeCooldown: 6
+    KnifeCooldown: 4
     KnifeDelay: 0.1
     KnifeLifetime: 2
     KnifeSpeed: 2
@@ -47,17 +47,17 @@ MonoBehaviour:
     PlayerSpeedLevel: 1
     PlayerMaxHealthLevel: 1
     PlayerPickupLevel: 1
-    PlayerHealth: 0
+    PlayerHealth: 1000
     PlayerMaxHealth: 1000
-    PlayerXP: 1
+    PlayerXP: 0
     PlayerSpeed: 5
     PlayerPickupRadius: 0.5
   enemiesKilled:
-    zombies: 22
+    zombies: 0
     bats: 0
     skeletons: 0
     crawlers: 0
-    wraiths: 500
+    wraiths: 0
     flyingEyes: 0
   zombie:
     Damage: 1
