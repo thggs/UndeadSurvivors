@@ -5,6 +5,7 @@
         <ui:VisualElement name="Buttons" style="flex-grow: 1; justify-content: center; width: 430px; margin-bottom: 0; align-items: center;">
             <ui:Button text="Play" display-tooltip-when-elided="true" name="ButtonPlay" class="menu-button pop-animation-hide" style="flex-grow: 0; flex-shrink: 0; justify-content: flex-start; transition-property: all, opacity; transition-duration: 0.3s, 0.5s; transition-timing-function: ease, ease; transition-delay: 0s, 0s; width: 400px; font-size: 35px; height: 80px;" />
             <ui:Button text="Settings" display-tooltip-when-elided="true" name="ButtonSettings" class="menu-button pop-animation-hide" style="transition-property: all, opacity; transition-duration: 0.3s, 0.5s; transition-timing-function: ease, ease; transition-delay: 0s, 0s; width: 400px; font-size: 35px; height: 80px;" />
+            <ui:Button text="High Scores" display-tooltip-when-elided="true" name="ButtonScores" class="menu-button pop-animation-hide" style="transition-property: all, opacity; transition-duration: 0.3s, 0.5s; transition-timing-function: ease, ease; transition-delay: 0s, 0s; width: 400px; font-size: 35px; height: 80px;" />
             <ui:Button text="Exit" display-tooltip-when-elided="true" name="ButtonExit" class="menu-button pop-animation-hide" style="transition-property: all, opacity; transition-duration: 0.3s, 1s; transition-timing-function: ease, ease-out-back; transition-delay: 0s, 0s; width: 400px; font-size: 35px; height: 80px;" />
         </ui:VisualElement>
     </ui:VisualElement>

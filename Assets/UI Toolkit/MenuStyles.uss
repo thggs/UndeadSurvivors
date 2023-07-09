@@ -37,7 +37,7 @@
 }
 
 #unity-dragger {
-    background-image: url('project://database/Assets/Sprites/XP_Border_purple.png');
+    background-image: url('project://database/Assets/Sprites/XP_Border_purple.png?fileID=1967707542&guid=71cb9618be7a7ca4f884fd990bca7b81&type=3#XP_Border_purple_0');
     -unity-background-image-tint-color: rgb(166, 71, 144);
     background-color: rgba(0, 0, 0, 0);
     height: 35px;
@@ -83,7 +83,7 @@
     color: rgb(166, 71, 144);
     -unity-text-outline-width: 0.5px;
     -unity-font-definition: url('project://database/Assets/Fonts/PixeloidSans-mLxMm%20SDF%201.asset?fileID=11400000&guid=910d95d008997c74b965f673d1dadaec&type=2#PixeloidSans-mLxMm SDF 1');
-    -unity-text-outline-color: rgba(0, 0, 0, 255);
+    -unity-text-outline-color: rgb(0, 0, 0);
 }
 
 .menu-button:hover {
@@ -108,4 +108,10 @@
     transition-duration: 0s;
     transition-property: all;
     transition-timing-function: ease;
+}
+
+#unity-text-input {
+    width: 300px;
+    -unity-text-align: upper-center;
+    font-size: 25px;
 }

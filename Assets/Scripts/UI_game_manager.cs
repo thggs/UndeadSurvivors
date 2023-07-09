@@ -25,6 +25,9 @@ public class UI_game_manager : MonoBehaviour
     [SerializeField]
     private VisualTreeAsset _upgradeButtonsTemplate;
     private VisualElement _upgradeButtons;
+    [SerializeField]
+    private VisualTreeAsset _highScoreInputTemplate;
+    private VisualElement _highScoreInput;
 
     private const string POPUP_ANIMATION = "pop-animation-hide";
     private int _mainPopupIndex = -1;
@@ -55,7 +58,7 @@ public class UI_game_manager : MonoBehaviour
         var buttonBackMenu = _pauseMenu.Q<Button>("ButtonBack");
 
         _stats = _deadStats.CloneTree();
-        var buttonMenu = _stats.Q<Button>("MenuButton");
+        //var buttonMenu = _stats.Q<Button>("MenuButton");
 
         /*_statsNames = _stats.Q<VisualElement>("Stats").Children().ToArray();
         _statsValues = _stats.Q<VisualElement>("Values").Children().ToArray();*/
@@ -94,7 +97,7 @@ public class UI_game_manager : MonoBehaviour
 
         buttonBack.clicked += ButtonBack_clicked;
 
-        buttonMenu.clicked += ButtonBackMenu_clicked;
+        //buttonMenu.clicked += ButtonBackMenu_clicked;
 
         musicVolumeSlider.RegisterValueChangedCallback(v =>
         {
@@ -196,6 +199,16 @@ public class UI_game_manager : MonoBehaviour
         _gameUIWrapper.Add(_pauseMenu);
     }
 
+    private void ButtonHighScoreInput_clicked()
+    {
+        _highScoreInput = _highScoreInputTemplate.CloneTree();
+        var highScoreName = _highScoreInput.Q<TextField>("HighScoreInput");
+        var menubuttonScore = _highScoreInput.Q<Button>("MenuButton");
+        menubuttonScore.clicked += ButtonBackMenu_clicked;
+        _gameUIWrapper.Clear();
+        _gameUIWrapper.Add(_highScoreInput); 
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -257,12 +270,20 @@ public class UI_game_manager : MonoBehaviour
         {
             highscore += 1000;
         } 
-        _stats.Q<Label>("ScoreVal").text = highscore.ToString("0");     
+        _stats.Q<Label>("ScoreVal").text = highscore.ToString("0");
+
+        var buttonMenu = _stats.Q<Button>("MenuButton");
+
         if(PlayerPrefs.GetFloat("Highscore") < highscore)
         {
             PlayerPrefs.SetFloat("Highscore", highscore);
             PlayerPrefs.Save();
+            buttonMenu.clicked += ButtonHighScoreInput_clicked;           
         }
+        else{
+            buttonMenu.clicked += ButtonBackMenu_clicked;
+        }
+
     }
 
     void Upgrade()

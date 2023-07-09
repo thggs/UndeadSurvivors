@@ -14,11 +14,16 @@ public class UI_menu_manager : MonoBehaviour
 
     private Button _buttonPlay;
     private Button _buttonSettings;
+    private Button _buttonHighScores;
     private Button _buttonExit;
 
     [SerializeField]
     private VisualTreeAsset _settingsTemplate;
     private VisualElement _buttonsSettings;
+
+    [SerializeField]
+    private VisualTreeAsset _highScoresTemplate;
+    private VisualElement _highScores;
 
     private VisualElement _menu;
     private VisualElement[] _mainMenuOptions;
@@ -44,12 +49,16 @@ public class UI_menu_manager : MonoBehaviour
 
         _buttonPlay = _doc.rootVisualElement.Q<Button>("ButtonPlay");
         _buttonSettings = _doc.rootVisualElement.Q<Button>("ButtonSettings");
+        _buttonHighScores = _doc.rootVisualElement.Q<Button>("ButtonScores");
         _buttonExit = _doc.rootVisualElement.Q<Button>("ButtonExit");
 
         _buttonsSettings = _settingsTemplate.CloneTree();
         var buttonBack = _buttonsSettings.Q<Button>("ButtonBack");
         var musicVolumeSlider = _buttonsSettings.Q<Slider>("AmbientSoundSlider");
         var effectsVolumeSlider = _buttonsSettings.Q<Slider>("SoundEffectsSlider");
+
+        _highScores = _highScoresTemplate.CloneTree();
+        var buttonBack2 = _highScores.Q<Button>("ButtonBack");
 
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
@@ -72,7 +81,11 @@ public class UI_menu_manager : MonoBehaviour
         _buttonPlay.clicked += ButtonPlay_clicked;
         _buttonSettings.clicked += ButtonSettings_clicked;
         _buttonExit.clicked += ButtonExit_clicked;
+        _buttonHighScores.clicked += ButtonHighScores_clicked;
+
         buttonBack.clicked += ButtonBack_clicked;
+
+        buttonBack2.clicked += ButtonBack_clicked;
 
         musicVolumeSlider.RegisterValueChangedCallback(v =>
         {
@@ -116,6 +129,12 @@ public class UI_menu_manager : MonoBehaviour
         //SceneManager.LoadScene("SettingsScene",LoadSceneMode.Single);
     }
 
+    private void ButtonHighScores_clicked(){
+        _buttonsWrapper.Clear();
+        _buttonsWrapper.Add(_highScores);
+
+    }
+
     private void ButtonExit_clicked()
     {
         Application.Quit();
@@ -126,6 +145,7 @@ public class UI_menu_manager : MonoBehaviour
         _buttonsWrapper.Clear();
         _buttonsWrapper.Add(_buttonPlay);
         _buttonsWrapper.Add(_buttonSettings);
+        _buttonsWrapper.Add(_buttonHighScores);
         _buttonsWrapper.Add(_buttonExit);
     }
 }

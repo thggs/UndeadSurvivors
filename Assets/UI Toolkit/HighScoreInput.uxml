@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenuStyles.uss?fileID=7433441132597879392&amp;guid=2397f0dc08a866543af4dbe1b1328b4e&amp;type=3#MenuStyles" />
+    <ui:VisualElement name="HighScore" style="height: 381px; width: 339.2px; background-color: rgba(0, 0, 0, 0.77); align-items: center; color: rgb(166, 71, 144); font-size: 35px; -unity-text-outline-width: 0.5px; -unity-text-outline-color: rgb(0, 0, 0); justify-content: center; position: relative;">
+        <ui:TextField picking-mode="Ignore" label="New High Score" value="filler text" text="Name" multiline="false" is-delayed="false" name="HighScoreInput" style="flex-direction: column; align-items: center; -unity-text-align: upper-center; -unity-font-definition: url(&apos;project://database/Assets/Fonts/PixeloidSans-mLxMm%20SDF%201.asset?fileID=11400000&amp;guid=910d95d008997c74b965f673d1dadaec&amp;type=2#PixeloidSans-mLxMm SDF 1&apos;); width: 300px; font-size: 35px; position: relative; top: auto; left: auto;" />
+        <ui:Button text="Menu" display-tooltip-when-elided="true" name="MenuButton" class="menu-button" style="margin-top: 20px;" />
+    </ui:VisualElement>
+</ui:UXML>
