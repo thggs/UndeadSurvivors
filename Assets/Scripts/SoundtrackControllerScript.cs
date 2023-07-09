@@ -31,22 +31,22 @@ public class SoundtrackControllerScript : MonoBehaviour
         int currentPlayerLevel = gameStats.player.PlayerLevel;
         if (lastPlayerLevel != currentPlayerLevel)
         {
-            if (gameStats.player.PlayerLevel == 2)
+            if (gameStats.player.PlayerLevel == 3)
             {
                 trackQueue.Add(trackList[2]);
                 trackQueue.Add(trackList[3]);
             }
-            if (gameStats.player.PlayerLevel == 3)
+            if (gameStats.player.PlayerLevel == 5)
             {
                 trackQueue.Add(trackList[4]);
                 trackQueue.Add(trackList[5]);
             }
-            if (gameStats.player.PlayerLevel == 4)
+            if (gameStats.player.PlayerLevel == 10)
             {
                 trackQueue.Add(trackList[6]);
                 trackQueue.Add(trackList[7]);
             }
-            if (gameStats.player.PlayerLevel == 5)
+            if (gameStats.player.PlayerLevel == 15)
             {
                 trackQueue.Add(trackList[8]);
                 trackQueue.Add(trackList[9]);
