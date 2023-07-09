@@ -27,6 +27,4 @@ public class WaveStats : ScriptableObject
 
     [SerializeField]
     public GameObject[] wave5;
-    [SerializeField]
-    public float wave5Time;
 }

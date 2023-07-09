@@ -22,6 +22,7 @@ public class GameControllerScript : MonoBehaviour
     private float timeBetweenSpawns;
     [SerializeField]
     private GameObject boss;
+    private bool bossSpawned;
 
     void Awake()
     {
@@ -107,6 +108,8 @@ public class GameControllerScript : MonoBehaviour
         waveStats.wave2Time = 240.0f;
         waveStats.wave3Time = 240.0f;
         waveStats.wave4Time = 300.0f;
+
+        bossSpawned = false;
     }
 
     // Start is called before the first frame update
@@ -228,7 +231,7 @@ public class GameControllerScript : MonoBehaviour
         {
             return waveStats.wave4;
         }
-        else
+        else 
         {
             SpawnBoss();
             return waveStats.wave5;
@@ -265,20 +268,23 @@ public class GameControllerScript : MonoBehaviour
 
     void SpawnBoss()
     {
-        float randomX = Random.Range(-0.1f, 0.1f);
-        float randomY = Random.Range(-0.1f, 0.1f);
-        if (randomX >= 0)
-        {
-            randomX += 1;
-        }
-        if (randomY >= 0)
-        {
-            randomY += 1;
-        }
-        Vector3 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(randomX, randomY, mainCamera.nearClipPlane));
-        NavMeshHit hit;
-        NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
-        GameObject bossInstance = Instantiate(boss, hit.position, Quaternion.identity);
+        if(!bossSpawned){
+            float randomX = Random.Range(-0.1f, 0.1f);
+            float randomY = Random.Range(-0.1f, 0.1f);
+            if (randomX >= 0)
+            {
+                randomX += 1;
+            }
+            if (randomY >= 0)
+            {
+                randomY += 1;
+            }
+            Vector3 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(randomX, randomY, mainCamera.nearClipPlane));
+            NavMeshHit hit;
+            NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
+            GameObject bossInstance = Instantiate(boss, hit.position, Quaternion.identity);
+            bossSpawned = true;
+        }  
     }
 
     /*public int selectLevel(int option)
