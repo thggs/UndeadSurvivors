@@ -16,6 +16,7 @@ public class UI_menu_manager : MonoBehaviour
     private Button _buttonSettings;
     private Button _buttonHighScores;
     private Button _buttonExit;
+    private Button _buttonCredits;
 
     [SerializeField]
     private VisualTreeAsset _settingsTemplate;
@@ -24,6 +25,11 @@ public class UI_menu_manager : MonoBehaviour
     [SerializeField]
     private VisualTreeAsset _highScoresTemplate;
     private VisualElement _highScores;
+
+    [SerializeField]
+    private VisualTreeAsset _creditsTemplate;
+    private VisualElement _credits;
+
 
     private VisualElement _menu;
     private VisualElement[] _mainMenuOptions;
@@ -51,14 +57,19 @@ public class UI_menu_manager : MonoBehaviour
         _buttonSettings = _doc.rootVisualElement.Q<Button>("ButtonSettings");
         _buttonHighScores = _doc.rootVisualElement.Q<Button>("ButtonScores");
         _buttonExit = _doc.rootVisualElement.Q<Button>("ButtonExit");
+        _buttonCredits = _doc.rootVisualElement.Q<Button>("infoButton");
 
         _buttonsSettings = _settingsTemplate.CloneTree();
         var buttonBack = _buttonsSettings.Q<Button>("ButtonBack");
         var musicVolumeSlider = _buttonsSettings.Q<Slider>("AmbientSoundSlider");
         var effectsVolumeSlider = _buttonsSettings.Q<Slider>("SoundEffectsSlider");
 
+
         _highScores = _highScoresTemplate.CloneTree();
         var buttonBack2 = _highScores.Q<Button>("ButtonBack");
+
+        _credits = _creditsTemplate.CloneTree();
+        var buttonBack3 = _credits.Q<Button>("ButtonBack");
 
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
@@ -82,10 +93,13 @@ public class UI_menu_manager : MonoBehaviour
         _buttonSettings.clicked += ButtonSettings_clicked;
         _buttonExit.clicked += ButtonExit_clicked;
         _buttonHighScores.clicked += ButtonHighScores_clicked;
+        _buttonCredits.clicked += ButtonCredits_clicked;
 
         buttonBack.clicked += ButtonBack_clicked;
 
         buttonBack2.clicked += ButtonBack_clicked;
+
+        buttonBack3.clicked += ButtonBack_clicked;
 
         musicVolumeSlider.RegisterValueChangedCallback(v =>
         {
@@ -125,8 +139,12 @@ public class UI_menu_manager : MonoBehaviour
     {
         _buttonsWrapper.Clear();
         _buttonsWrapper.Add(_buttonsSettings);
+    }
 
-        //SceneManager.LoadScene("SettingsScene",LoadSceneMode.Single);
+    private void ButtonCredits_clicked()
+    {
+        _buttonsWrapper.Clear();
+        _buttonsWrapper.Add(_credits);
     }
 
     private void ButtonHighScores_clicked(){
@@ -185,5 +203,6 @@ public class UI_menu_manager : MonoBehaviour
         _buttonsWrapper.Add(_buttonSettings);
         _buttonsWrapper.Add(_buttonHighScores);
         _buttonsWrapper.Add(_buttonExit);
+        _buttonsWrapper.Add(_buttonCredits);
     }
 }
