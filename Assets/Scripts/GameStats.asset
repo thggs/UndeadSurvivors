@@ -47,17 +47,17 @@ MonoBehaviour:
     PlayerSpeedLevel: 1
     PlayerMaxHealthLevel: 1
     PlayerPickupLevel: 1
-    PlayerHealth: 1000
+    PlayerHealth: 727
     PlayerMaxHealth: 1000
-    PlayerXP: 0
+    PlayerXP: 1
     PlayerSpeed: 5
     PlayerPickupRadius: 0.5
   enemiesKilled:
-    zombies: 0
+    zombies: 1
     bats: 0
     skeletons: 0
     crawlers: 0
-    wraiths: 0
+    wraiths: 2
     flyingEyes: 0
   zombie:
     Damage: 1
@@ -66,7 +66,7 @@ MonoBehaviour:
   bat:
     Damage: 1
     MaxHealth: 5
-    Speed: 2.5
+    Speed: 2.25
   skeleton:
     Damage: 2
     MaxHealth: 10
@@ -74,11 +74,11 @@ MonoBehaviour:
   crawler:
     Damage: 1
     MaxHealth: 5
-    Speed: 0
+    Speed: 3
   wraith:
     Damage: 3
-    MaxHealth: 15
-    Speed: 0
+    MaxHealth: 10
+    Speed: 2
   flyingEye:
     Damage: 2
     MaxHealth: 15

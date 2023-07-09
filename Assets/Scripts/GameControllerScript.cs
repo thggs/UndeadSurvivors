@@ -88,7 +88,7 @@ public class GameControllerScript : MonoBehaviour
         gameStats.crawler.Speed = 3;
 
         gameStats.wraith.Damage = 3;
-        gameStats.wraith.MaxHealth = 15;
+        gameStats.wraith.MaxHealth = 10;
         gameStats.wraith.Speed = 2;
 
         gameStats.boss.BossMaxHealth = 500;
@@ -251,7 +251,7 @@ public class GameControllerScript : MonoBehaviour
             Vector3 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(randomX, randomY, mainCamera.nearClipPlane));
             NavMeshHit hit;
             NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
-            // select one enemy and instantiate it from list of wave 1
+            // select one enemy and instantiate it from list of wave
             int index = Random.Range(0, wave.Length);
             GameObject enemy = Instantiate(wave[index], hit.position, Quaternion.identity);
             // add gameStats to generated enemy
