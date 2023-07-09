@@ -91,6 +91,10 @@ public class GameControllerScript : MonoBehaviour
         gameStats.wraith.MaxHealth = 10;
         gameStats.wraith.Speed = 2;
 
+        gameStats.flyingEye.Damage = 2;
+        gameStats.flyingEye.MaxHealth = 15;
+        gameStats.flyingEye.Speed = 2;
+
         gameStats.boss.BossMaxHealth = 500;
         gameStats.boss.BossDamage = 10;
         gameStats.boss.BossProjectileDamage = 50;
