@@ -253,9 +253,7 @@ public class GameControllerScript : MonoBehaviour
             NavMesh.SamplePosition(spawnPosition, out hit, Mathf.Infinity, NavMesh.AllAreas);
             // select one enemy and instantiate it from list of wave
             int index = Random.Range(0, wave.Length);
-            GameObject enemy = Instantiate(wave[index], hit.position, Quaternion.identity);
-            // add gameStats to generated enemy
-            enemy.GetComponent<EnemyControllerScript>().gameStats = gameStats;
+            Instantiate(wave[index], hit.position, Quaternion.identity);
         }
         yield return new WaitForSeconds(timeBetweenSpawns);
         StartCoroutine(Spawn());
