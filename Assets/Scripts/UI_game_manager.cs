@@ -225,16 +225,26 @@ public class UI_game_manager : MonoBehaviour
         timer.stopTimer(true);
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_stats);
+        if(youWin)
+        {
+            _stats.Q<Label>("Statistics").text = "You Won!";
+        }
+        else
+        {
+            _stats.Q<Label>("Statistics").text = "Try again...";
+        }
         _stats.Q<Label>("ZombiesVal").text = gameStats.enemiesKilled.zombies.ToString("0");
         _stats.Q<Label>("BatsVal").text = gameStats.enemiesKilled.bats.ToString("0");
         _stats.Q<Label>("SkeletonsVal").text = gameStats.enemiesKilled.skeletons.ToString("0");
         _stats.Q<Label>("CrawlersVal").text = gameStats.enemiesKilled.crawlers.ToString("0");
+        _stats.Q<Label>("FlyingEyesVal").text = gameStats.enemiesKilled.flyingEyes.ToString("0");
+        _stats.Q<Label>("WraithsVal").text = gameStats.enemiesKilled.wraiths.ToString("0");
         _stats.Q<Label>("TimeVal").text = timer.GetTime();
         _stats.Q<Label>("PlayerLevelVal").text = gameStats.player.PlayerLevel.ToString("0");
         //_stats.RegisterCallback<TransitionEndEvent>(Stats_TransitionEnd);
         //Stats_TransitionEnd(new TransitionEndEvent());
         //_stats.ToggleInClassList(POPUP_ANIMATION);
-        float highscore = gameStats.enemiesKilled.zombies + gameStats.enemiesKilled.bats * 2 + gameStats.enemiesKilled.skeletons * 3 + gameStats.enemiesKilled.crawlers * 4 + gameStats.enemiesKilled.flyingEyes * 4 + gameStats.enemiesKilled.wraiths * 5 + gameStats.player.PlayerLevel * 10;
+        int highscore = gameStats.enemiesKilled.zombies + gameStats.enemiesKilled.bats * 2 + gameStats.enemiesKilled.skeletons * 3 + gameStats.enemiesKilled.crawlers * 4 + gameStats.enemiesKilled.flyingEyes * 4 + gameStats.enemiesKilled.wraiths * 5 + gameStats.player.PlayerLevel * 10;
         if(timer.GetTimeInSeconds() > 900)
         {
             highscore += Mathf.Max(900 - timer.GetTimeInSeconds(), 0);
@@ -242,7 +252,8 @@ public class UI_game_manager : MonoBehaviour
         if(youWin)
         {
             highscore += 1000;
-        }      
+        } 
+        _stats.Q<Label>("ScoreVal").text = highscore.ToString("0");     
         if(PlayerPrefs.GetFloat("Highscore") < highscore)
         {
             PlayerPrefs.SetFloat("Highscore", highscore);
