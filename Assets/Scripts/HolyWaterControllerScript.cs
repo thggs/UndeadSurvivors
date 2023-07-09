@@ -23,7 +23,11 @@ public class HolyWaterControllerScript : MonoBehaviour
 
     IEnumerator HolyWater()
     {
-        for(int i = 1; i <= gameStats.holyWater.WaterProjectiles; i++)
+        int waterProjectiles = gameStats.holyWater.WaterProjectiles;
+        float waterDamage = gameStats.holyWater.WaterDamage;
+        float WaterCooldown = gameStats.holyWater.WaterCooldown;
+        float waterLifetime = gameStats.holyWater.WaterLifetime;
+        for(int i = 1; i <= waterProjectiles; i++)
         {
             Quaternion rotation = Quaternion.identity;
 
@@ -38,10 +42,10 @@ public class HolyWaterControllerScript : MonoBehaviour
             Vector3 spawnPosition = mainCamera.ViewportToWorldPoint(new Vector3(RandomX, RandomY, mainCamera.nearClipPlane));
             
             GameObject instance = Instantiate(holyWater, spawnPosition, rotation);
-            instance.GetComponentInChildren<DamageOverTimeScript>(true).damage = gameStats.holyWater.WaterDamage;
-            Destroy(instance, gameStats.holyWater.WaterLifetime);
+            instance.GetComponentInChildren<DamageOverTimeScript>(true).damage = waterDamage;
+            Destroy(instance, waterLifetime);
         }
-        yield return new WaitForSeconds(gameStats.holyWater.WaterCooldown);
+        yield return new WaitForSeconds(WaterCooldown);
         StartCoroutine(HolyWater());
     }
 }

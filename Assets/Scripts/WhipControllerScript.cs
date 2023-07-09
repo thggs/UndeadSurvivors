@@ -16,11 +16,15 @@ public class WhipControllerScript : MonoBehaviour
 
     IEnumerator Whip()
     {
+        int whipProjectiles = gameStats.whip.WhipProjectiles;
+        float whipDamage = gameStats.whip.WhipDamage;
+        float whipDelay = gameStats.whip.WhipDelay;
+        float whipCooldown = gameStats.whip.WhipCooldown;
 
         Vector3 offset = new Vector3(transform.parent.right.x * 2f, 0, 0);
         Quaternion rotation = transform.rotation;
 
-        for (int i = 1; i <= gameStats.whip.WhipProjectiles; i++)
+        for (int i = 1; i <= whipProjectiles; i++)
         {
 
             // Spawn WhipSpawn object to allow WhipSlash to do its animation whithout problems
@@ -31,7 +35,7 @@ public class WhipControllerScript : MonoBehaviour
 
             // Instantiate WhipSlash as child object of WhipSpawn
             GameObject whip = Instantiate(whipSlash, Vector3.zero, rotation, whipSpawn.transform);
-            whip.GetComponent<SingleDamageScript>().damage = gameStats.whip.WhipDamage;
+            whip.GetComponent<SingleDamageScript>().damage = whipDamage;
             whip.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("EffectsVolume");
 
             // Rotate WhipSpawn around
@@ -49,9 +53,9 @@ public class WhipControllerScript : MonoBehaviour
             }
 
             Destroy(whipSpawn, whip.GetComponent<AudioSource>().clip.length);
-            yield return new WaitForSeconds(gameStats.whip.WhipDelay);
+            yield return new WaitForSeconds(whipDelay);
         }
-        yield return new WaitForSeconds(gameStats.whip.WhipCooldown);
+        yield return new WaitForSeconds(whipCooldown);
         StartCoroutine(Whip());
     }
 }

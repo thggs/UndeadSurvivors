@@ -28,24 +28,31 @@ public class KnifeControllerScript : MonoBehaviour
 
     IEnumerator Knife() {
 
-        for(int i = 1; i <= gameStats.throwingKnife.KnifeProjectiles; i++){
+        int knifeProjectiles = gameStats.throwingKnife.KnifeProjectiles;
+        int knifeDurability = gameStats.throwingKnife.KnifeDurability;
+        float knifeDamage = gameStats.throwingKnife.KnifeDamage;
+        float knifeLifetime = gameStats.throwingKnife.KnifeLifetime;
+        float knifeDelay = gameStats.throwingKnife.KnifeDelay;
+        float knifeCooldown = gameStats.throwingKnife.KnifeCooldown;
+
+        for(int i = 1; i <= knifeProjectiles; i++){
 
             // Instantiate WhipSlash as child object of WhipSpawn
             GameObject knifeObject = Instantiate(knife, throwDirection + transform.position, Quaternion.FromToRotation(new Vector3(1,0,0), throwDirection));
             
             SingleDamageScript knifeObjectScript = knifeObject.GetComponent<SingleDamageScript>();
             knifeObjectScript.hasDurability = true;
-            knifeObjectScript.durability = gameStats.throwingKnife.KnifeDurability;
-            knifeObjectScript.damage = gameStats.throwingKnife.KnifeDamage;
+            knifeObjectScript.durability = knifeDurability;
+            knifeObjectScript.damage = knifeDamage;
 
             Rigidbody2D rb = knifeObject.GetComponent<Rigidbody2D>();
             rb.AddForce(rb.transform.right * 20, ForceMode2D.Impulse);
 
-            Destroy(knifeObject, gameStats.throwingKnife.KnifeLifetime);
+            Destroy(knifeObject, knifeLifetime);
             
-            yield return new WaitForSeconds(gameStats.throwingKnife.KnifeDelay);
+            yield return new WaitForSeconds(knifeDelay);
         }
-        yield return new WaitForSeconds(gameStats.throwingKnife.KnifeCooldown);
+        yield return new WaitForSeconds(knifeCooldown);
         StartCoroutine(Knife());
     }
 }
