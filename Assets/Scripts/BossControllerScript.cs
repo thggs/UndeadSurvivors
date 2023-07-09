@@ -19,6 +19,8 @@ public class BossControllerScript : MonoBehaviour
     public bool isWarping;
     private Vector3 posLastFrame;
     private UI_game_manager ui;
+    [SerializeField]
+    private AudioClip winFanfare;
 
     void Start()
     {
@@ -98,6 +100,9 @@ public class BossControllerScript : MonoBehaviour
     IEnumerator Die()
     {
         anim.SetTrigger("die");
+        AudioSource audioSource = playerTransform.gameObject.GetComponent<AudioSource>();
+        audioSource.clip = winFanfare;
+        audioSource.Play();
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length + 2);
         ui.EndGame(true);
     }

@@ -13,6 +13,8 @@ public class PlayerContollerScript : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip pickupSound;
+    [SerializeField]
+    private AudioClip loseFanfare;
     private Animator animator;
     private SpriteRenderer sprite;
     private Rigidbody2D rb;
@@ -145,6 +147,8 @@ public class PlayerContollerScript : MonoBehaviour
         gameObject.transform.GetChild(1).gameObject.SetActive(false);
         gameObject.transform.GetChild(2).gameObject.SetActive(false);
         gameObject.transform.GetChild(3).gameObject.SetActive(false);
+        audioSource.clip = loseFanfare;
+        audioSource.Play();
         animator.SetTrigger("player_die");
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + 2);
         ui.EndGame(false);

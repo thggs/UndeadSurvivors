@@ -106,7 +106,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.33333334, y: 0.30526316}
-    oldSize: {x: 1.9, y: 3.1666667}
+    oldSize: {x: 1.6285714, y: 2.7142856}
     newSize: {x: 1.92, y: 1.92}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -195,7 +195,6 @@ MonoBehaviour:
   projectile: {fileID: 6304165670221556739, guid: 36be0f9fa425dbc44973110f06520810, type: 3}
   playerTransform: {fileID: 0}
   isInRange: 0
-  portalSpawnInterval: 5
-  portalPrefab: {fileID: 3364439275340702866, guid: eaec395d97b759f4fa40e81cd9c0ad09, type: 3}
   gameStats: {fileID: 11400000, guid: e57d7906fb8a28c4db6ceef7fafb3f2b, type: 2}
   isWarping: 0
+  winFanfare: {fileID: 8300000, guid: cdc65372b040d54419bf89b9306133e9, type: 3}
