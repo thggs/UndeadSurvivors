@@ -35,6 +35,7 @@ public class UI_game_manager : MonoBehaviour
     private const string POPUP_ANIMATION = "pop-animation-hide";
     private int _mainPopupIndex = -1;
 
+    private int highscore;
 
     private VisualElement[] _statsNames;
     private VisualElement[] _statsValues;
@@ -74,7 +75,7 @@ public class UI_game_manager : MonoBehaviour
 
         buttonResume.clicked += ButtonResume_clicked;
         buttonSettings.clicked += ButtonSettings_clicked;
-        buttonBackMenu.clicked += ButtonBackMenu_clicked;
+        buttonBackMenu.clicked += ButtonLoadMenu_clicked;
 
 
 
@@ -169,12 +170,15 @@ public class UI_game_manager : MonoBehaviour
         }
     }
 
-    public void ChatBox(bool show){
-        if(show){
+    public void ChatBox(bool show)
+    {
+        if (show)
+        {
             _gameUIWrapper.Clear();
             _gameUIWrapper.Add(_rosas);
         }
-        else{
+        else
+        {
             _gameUIWrapper.Clear();
         }
     }
@@ -188,13 +192,16 @@ public class UI_game_manager : MonoBehaviour
 
     private void ButtonResume_clicked()
     {
-        if(!upgrade){
+        if (!upgrade)
+        {
             ShowUpgrades();
         }
-        else{
-        _gameUIWrapper.Clear();
-        timer.stopTimer(false);
-        Time.timeScale = 1;}
+        else
+        {
+            _gameUIWrapper.Clear();
+            timer.stopTimer(false);
+            Time.timeScale = 1;
+        }
     }
 
     private void ButtonSettings_clicked()
@@ -204,6 +211,42 @@ public class UI_game_manager : MonoBehaviour
     }
 
     private void ButtonBackMenu_clicked()
+    {
+        if (PlayerPrefs.GetInt("FourthScore") > highscore)
+        {
+            PlayerPrefs.SetString("FifthName", _highScoreInput.Q<TextField>("HighScoreInput").text);
+        }
+        else if (PlayerPrefs.GetInt("ThirdScore") > highscore)
+        {
+            PlayerPrefs.SetString("FifthName", PlayerPrefs.GetString("FourthName"));
+            PlayerPrefs.SetString("FourthName", _highScoreInput.Q<TextField>("HighScoreInput").text);
+        }
+        else if (PlayerPrefs.GetInt("SecondScore") > highscore)
+        {
+            PlayerPrefs.SetString("FifthName", PlayerPrefs.GetString("FourthName"));
+            PlayerPrefs.SetString("FourthName", PlayerPrefs.GetString("ThirdName"));
+            PlayerPrefs.SetString("ThirdName", _highScoreInput.Q<TextField>("HighScoreInput").text);
+        }
+        else if (PlayerPrefs.GetInt("FirstScore") > highscore)
+        {
+            PlayerPrefs.SetString("FifthName", PlayerPrefs.GetString("FourthName"));
+            PlayerPrefs.SetString("FourthName", PlayerPrefs.GetString("ThirdName"));
+            PlayerPrefs.SetString("ThirdName", PlayerPrefs.GetString("SecondName"));
+            PlayerPrefs.SetString("SecondName", _highScoreInput.Q<TextField>("HighScoreInput").text);
+        }
+        else
+        {
+            PlayerPrefs.SetString("FifthName", PlayerPrefs.GetString("FourthName"));
+            PlayerPrefs.SetString("FourthName", PlayerPrefs.GetString("ThirdName"));
+            PlayerPrefs.SetString("ThirdName", PlayerPrefs.GetString("SecondName"));
+            PlayerPrefs.SetString("SecondName", PlayerPrefs.GetString("FirstName"));
+            PlayerPrefs.SetString("FirstName", _highScoreInput.Q<TextField>("HighScoreInput").text);
+        }
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
+    }
+
+    private void ButtonLoadMenu_clicked()
     {
         SceneManager.LoadScene("MenuScene", LoadSceneMode.Single);
     }
@@ -219,9 +262,10 @@ public class UI_game_manager : MonoBehaviour
         _highScoreInput = _highScoreInputTemplate.CloneTree();
         var highScoreName = _highScoreInput.Q<TextField>("HighScoreInput");
         var menubuttonScore = _highScoreInput.Q<Button>("MenuButton");
+
         menubuttonScore.clicked += ButtonBackMenu_clicked;
         _gameUIWrapper.Clear();
-        _gameUIWrapper.Add(_highScoreInput); 
+        _gameUIWrapper.Add(_highScoreInput);
     }
 
     // Start is called before the first frame update
@@ -257,7 +301,7 @@ public class UI_game_manager : MonoBehaviour
         timer.stopTimer(true);
         _gameUIWrapper.Clear();
         _gameUIWrapper.Add(_stats);
-        if(youWin)
+        if (youWin)
         {
             _stats.Q<Label>("Statistics").text = "You Won!";
         }
@@ -276,27 +320,56 @@ public class UI_game_manager : MonoBehaviour
         //_stats.RegisterCallback<TransitionEndEvent>(Stats_TransitionEnd);
         //Stats_TransitionEnd(new TransitionEndEvent());
         //_stats.ToggleInClassList(POPUP_ANIMATION);
-        int highscore = gameStats.enemiesKilled.zombies + gameStats.enemiesKilled.bats * 2 + gameStats.enemiesKilled.skeletons * 3 + gameStats.enemiesKilled.crawlers * 4 + gameStats.enemiesKilled.flyingEyes * 4 + gameStats.enemiesKilled.wraiths * 5 + gameStats.player.PlayerLevel * 10;
-        if(timer.GetTimeInSeconds() > 900)
+        highscore = gameStats.enemiesKilled.zombies + gameStats.enemiesKilled.bats * 2 + gameStats.enemiesKilled.skeletons * 3 + gameStats.enemiesKilled.crawlers * 4 + gameStats.enemiesKilled.flyingEyes * 4 + gameStats.enemiesKilled.wraiths * 5 + gameStats.player.PlayerLevel * 10;
+        if (timer.GetTimeInSeconds() > 900)
         {
             highscore += Mathf.Max(900 - timer.GetTimeInSeconds(), 0);
-        }  
-        if(youWin)
+        }
+        if (youWin)
         {
             highscore += 1000;
-        } 
+        }
         _stats.Q<Label>("ScoreVal").text = highscore.ToString("0");
 
         var buttonMenu = _stats.Q<Button>("MenuButton");
 
-        if(PlayerPrefs.GetFloat("Highscore") < highscore)
+        if (PlayerPrefs.GetInt("FifthScore") < highscore)
         {
-            PlayerPrefs.SetFloat("Highscore", highscore);
-            PlayerPrefs.Save();
-            buttonMenu.clicked += ButtonHighScoreInput_clicked;           
+            if (PlayerPrefs.GetInt("FourthScore") > highscore)
+            {
+                PlayerPrefs.SetInt("FifthScore", highscore);
+            }
+            else if (PlayerPrefs.GetInt("ThirdScore") > highscore)
+            {
+                PlayerPrefs.SetInt("FifthScore", PlayerPrefs.GetInt("FourthScore"));
+                PlayerPrefs.SetInt("FourthScore", highscore);
+            }
+            else if (PlayerPrefs.GetInt("SecondScore") > highscore)
+            {
+                PlayerPrefs.SetInt("FifthScore", PlayerPrefs.GetInt("FourthScore"));
+                PlayerPrefs.SetInt("FourthScore", PlayerPrefs.GetInt("ThirdScore"));
+                PlayerPrefs.SetInt("ThirdScore", highscore);
+            }
+            else if (PlayerPrefs.GetInt("FirstScore") > highscore)
+            {
+                PlayerPrefs.SetInt("FifthScore", PlayerPrefs.GetInt("FourthScore"));
+                PlayerPrefs.SetInt("FourthScore", PlayerPrefs.GetInt("ThirdScore"));
+                PlayerPrefs.SetInt("ThirdScore", PlayerPrefs.GetInt("SecondScore"));
+                PlayerPrefs.SetInt("SecondScore", highscore);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("FifthScore", PlayerPrefs.GetInt("FourthScore"));
+                PlayerPrefs.SetInt("FourthScore", PlayerPrefs.GetInt("ThirdScore"));
+                PlayerPrefs.SetInt("ThirdScore", PlayerPrefs.GetInt("SecondScore"));
+                PlayerPrefs.SetInt("SecondScore", PlayerPrefs.GetInt("FirstScore"));
+                PlayerPrefs.SetInt("FirstScore", highscore);
+            }
+            buttonMenu.clicked += ButtonHighScoreInput_clicked;
         }
-        else{
-            buttonMenu.clicked += ButtonBackMenu_clicked;
+        else
+        {
+            buttonMenu.clicked += ButtonLoadMenu_clicked;
         }
 
     }
@@ -335,7 +408,8 @@ public class UI_game_manager : MonoBehaviour
         selectedInts = upgrades.OrderBy(x => Random.value).Take(3).ToArray();
         ShowUpgrades();
     }
-    void ShowUpgrades(){
+    void ShowUpgrades()
+    {
 
 
         // need to add option to only put 2 or 1 buttons when upgrades.size() < 3 !!!
