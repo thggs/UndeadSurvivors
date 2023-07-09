@@ -37,7 +37,7 @@
 }
 
 #unity-dragger {
-    background-image: url('project://database/Assets/StoneUI/OrherUI_4-2K/slider.png?fileID=21300002&guid=fd0b7189c26761e4c833b6c9734d6cd4&type=3#slider_1');
+    background-image: url('project://database/Assets/Sprites/XP_Border_purple.png');
     -unity-background-image-tint-color: rgb(166, 71, 144);
     background-color: rgba(0, 0, 0, 0);
     height: 35px;
