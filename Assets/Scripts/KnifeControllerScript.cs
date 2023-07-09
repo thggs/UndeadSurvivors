@@ -10,6 +10,8 @@ public class KnifeControllerScript : MonoBehaviour
     private GameStats gameStats;
     [SerializeField]
     private Vector3 throwDirection;
+    [SerializeField]
+    private AudioClip throwSound;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,6 @@ public class KnifeControllerScript : MonoBehaviour
         if(Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0){
             throwDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
         }
-            
     }
 
     IEnumerator Knife() {
@@ -39,7 +40,7 @@ public class KnifeControllerScript : MonoBehaviour
 
             // Instantiate WhipSlash as child object of WhipSpawn
             GameObject knifeObject = Instantiate(knife, throwDirection + transform.position, Quaternion.FromToRotation(new Vector3(1,0,0), throwDirection));
-            
+
             SingleDamageScript knifeObjectScript = knifeObject.GetComponent<SingleDamageScript>();
             knifeObjectScript.hasDurability = true;
             knifeObjectScript.durability = knifeDurability;
@@ -47,6 +48,8 @@ public class KnifeControllerScript : MonoBehaviour
 
             Rigidbody2D rb = knifeObject.GetComponent<Rigidbody2D>();
             rb.AddForce(rb.transform.right * 20, ForceMode2D.Impulse);
+
+            AudioSource.PlayClipAtPoint(throwSound, throwDirection + transform.position, PlayerPrefs.GetFloat("EffectsVolume"));
 
             Destroy(knifeObject, knifeLifetime);
             
